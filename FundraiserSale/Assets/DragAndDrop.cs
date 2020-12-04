@@ -9,9 +9,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IB
     private CanvasGroup canvasGroup;
     private Vector2 position;
     public GameObject imageToBeDragged;
+    public Transform initialTransform;
     public void Awake()
     {
+
+        
+
         rectTransform = GetComponent<RectTransform>();
+        initialTransform = rectTransform;
         canvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -24,12 +29,12 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IB
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
-        Vector2 startingValue = rectTransform.anchoredPosition;
+        //Debug.Log("OnDrag");
+        //startingValue = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition += eventData.delta;
         position = rectTransform.position;
-        imageToBeDragged.SetActive(true);
-        rectTransform.anchoredPosition = startingValue;
+        
+        //rectTransform.anchoredPosition = startingValue;
 
         /*if (position.x > 890 && position.x < 1735 )
         {
@@ -45,6 +50,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IB
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log("Final Transform" + initialTransform.localPosition);
+        rectTransform.anchoredPosition = initialTransform.localPosition;
+        //If Conditions meet
+        imageToBeDragged.SetActive(true);
         Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 1f;
