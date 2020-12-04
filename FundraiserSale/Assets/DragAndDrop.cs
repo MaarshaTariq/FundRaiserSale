@@ -1,98 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour
+public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-
-    public GameObject ObjectToDrag;
-    public GameObject nextObjectTransformation;
-    private Vector3 mousePosition;
-
-    public GameObject[] defaultPosition;
-
-    Vector3 OldPosition;
-    public float moveSpeed = 1f;
-    bool flag = false;
-
-    public static DragAndDrop ins;
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
-    void Start()
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    private Vector2 position;
+    public GameObject imageToBeDragged;
+    public void Awake()
     {
-        ins = this;
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
-    /// <summary>
-    /// OnMouseDown is called when the user has pressed the mouse button while
-    /// over the GUIElement or Collider.
-    /// </summary>
-    void OnEnable()
+    public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log("OnBeginDrag");
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = .6f;
 
-        flag = true;
     }
 
-
-
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
+    public void OnDrag(PointerEventData eventData)
     {
-        if (flag)
+        Debug.Log("OnDrag");
+        Vector2 startingValue = rectTransform.anchoredPosition;
+        rectTransform.anchoredPosition += eventData.delta;
+        position = rectTransform.position;
+        imageToBeDragged.SetActive(true);
+        rectTransform.anchoredPosition = startingValue;
+
+        /*if (position.x > 890 && position.x < 1735 )
         {
-
-            if (Input.GetMouseButton(0) && PlayerPrefs.GetInt("Click") == 0)
-            {
-
-                mousePosition = Input.mousePosition;
-                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                ObjectToDrag.transform.position = Vector2.Lerp(ObjectToDrag.transform.position, mousePosition, moveSpeed);
-            }
-            else
-            {
-                //if (PopUpSaleTrayTrigger.instanc.flag)
-                //{
-
-                //}
-                //else
-                //{
-                    print("we pata ni");
-                    defaultPosition[int.Parse(nextObjectTransformation.name)].SetActive(true);
-                    gameObject.SetActive(false);
-                    ObjectToDrag.transform.position = defaultPosition[int.Parse(nextObjectTransformation.name)].transform.position;
-
-                //}
-
-
-            }
-
+            imageToBeDragged.SetActive(true);
+            rectTransform.anchoredPosition = startingValue;
         }
-    }
-    public void resetPopcorn()
-    {
-        print("Yeah baby");
-        int index = int.Parse(nextObjectTransformation.name) + 1;
-        defaultPosition[index].GetComponent<CanvasGroup>().blocksRaycasts = true;
-        ObjectToDrag.transform.position = defaultPosition[index].transform.position;
-        gameObject.SetActive(false);
-        //PopUpSaleTrayTrigger.instanc.flag = false;
-    }
-    public void resetBlockRaycast()
-    {
-        for (int i = 1; i < defaultPosition.Length; i++)
+        else
         {
-            defaultPosition[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+            rectTransform.anchoredPosition = startingValue;
         }
-        defaultPosition[5].GetComponent<CanvasGroup>().blocksRaycasts = true;
-        defaultPosition[0].GetComponent<CanvasGroup>().blocksRaycasts = true;
+       */
     }
-    public void GetNExtTransformation(GameObject obj)
+
+    public void OnEndDrag(PointerEventData eventData)
     {
-        nextObjectTransformation = obj;
-        print("coming object is " + obj.name);
+        Debug.Log("OnEndDrag");
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 1f;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerDown");
     }
 }
+
+/*StartCoroutine(waitingTime());
+imageToBeDragged.SetActive(true);
+        StartCoroutine(waitingTime());
+rectTransform.anchoredPosition = startingValue;
+        StartCoroutine(waitingTime());*/
+
+  //  && position.y > 540 && position.y< 7
