@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IBeginDragHandler, IEndDragHandler
+public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    public bool flagHit;
+    public static DragAndDrop instance;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 position;
+    public GameObject ObjectTogetHit;
     public GameObject imageToBeDragged;
-    public Transform initialTransform;
+    public Vector3 initialTransform;
+    public void Start()
+    {
+        instance = this;
+        rectTransform = GetComponent<RectTransform>();
+        initialTransform = transform.position;
+    }
     public void Awake()
     {
 
-        
-
-        rectTransform = GetComponent<RectTransform>();
-        initialTransform = rectTransform;
         canvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -27,13 +32,15 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IB
 
     }
 
+
+
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
         //startingValue = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition += eventData.delta;
         position = rectTransform.position;
-        
+
         //rectTransform.anchoredPosition = startingValue;
 
         /*if (position.x > 890 && position.x < 1735 )
@@ -50,19 +57,28 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler , IDragHandler, IB
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Final Transform" + initialTransform.localPosition);
-        rectTransform.anchoredPosition = initialTransform.localPosition;
+        canvasGroup.blocksRaycasts = true;
+        Debug.Log("Final Transform" + initialTransform);
+        Debug.Log("flagHit " + flagHit);
+        if (flagHit)
+        {
+            imageToBeDragged.SetActive(true);
+            Debug.Log("OnEndDrag");
+
+            canvasGroup.alpha = 1f;
+        }
+        transform.position = initialTransform;
+
+
         //If Conditions meet
-        imageToBeDragged.SetActive(true);
-        Debug.Log("OnEndDrag");
-        canvasGroup.blocksRaycasts = false;
-        canvasGroup.alpha = 1f;
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
     }
+
 }
 
 /*StartCoroutine(waitingTime());
@@ -71,4 +87,4 @@ imageToBeDragged.SetActive(true);
 rectTransform.anchoredPosition = startingValue;
         StartCoroutine(waitingTime());*/
 
-  //  && position.y > 540 && position.y< 7
+//  && position.y > 540 && position.y< 7

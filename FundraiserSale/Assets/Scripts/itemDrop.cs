@@ -9,7 +9,7 @@ public class itemDrop : MonoBehaviour, IDropHandler
     {
        if(eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<Transform>().position;
         }  
             
                 }
