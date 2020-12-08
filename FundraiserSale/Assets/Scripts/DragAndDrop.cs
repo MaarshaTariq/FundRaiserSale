@@ -28,6 +28,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     {
         Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
+        Debug.Log("OnBeginDrag" + canvasGroup.blocksRaycasts);
         canvasGroup.alpha = .6f;
 
     }
@@ -63,6 +64,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         if (flagHit)
         {
             imageToBeDragged.SetActive(true);
+            imageToBeDragged.layer = 3;
             Debug.Log("OnEndDrag");
 
             canvasGroup.alpha = 1f;

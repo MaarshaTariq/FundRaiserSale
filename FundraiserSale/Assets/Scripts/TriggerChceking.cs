@@ -10,9 +10,12 @@ public void OnTriggerEnter2D(Collider2D other)
 	if(other.gameObject.tag==tagName){
 		Debug.Log("other.gameObject.tag" +other.gameObject.tag);
 		Debug.Log("tagName" +tagName);
+            Debug.Log("DragAndDrop.instance.flagHit" + DragAndDrop.instance.flagHit);
 
-		DragAndDrop.instance.flagHit = true;
-	}
+            DragAndDrop.instance.flagHit = true;
+        Debug.Log("DragAndDrop.instance.flagHit" + DragAndDrop.instance.flagHit);
 
-}
+        }
+
+    }
 	}
