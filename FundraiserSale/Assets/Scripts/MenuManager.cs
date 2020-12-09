@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
 
 public class MenuManager : MonoBehaviour {
-	
+	/*
 	[DllImport("__Internal")]
 	private static extern void _OnGameStopped();
 	[DllImport("__Internal")]
@@ -123,6 +123,6 @@ public class MenuManager : MonoBehaviour {
 	{
 		yield return new WaitUntil(() => RestAPIHandler.Instance.UploadedSuccessfully==true);
 		_OnGameStopped();
-	}
+	}*/
 
 }

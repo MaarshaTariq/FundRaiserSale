@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GamePlayController : MonoBehaviour {
 
-    public GameObject[] answers;
+  /* public GameObject[] answers;
     public Transform[] answerTransforms;
 
     public AudioClip correctAudio;
@@ -191,5 +191,5 @@ public class GamePlayController : MonoBehaviour {
     public void OnDisable()
     {
         //this.GetComponent<Fade>().Fadeout = true;
-    }
+    } */
 }

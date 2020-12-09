@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HighlightText : MonoBehaviour {
  public Image highlight_Image;
- public float maxFillAmount =350f;
+ public float maxFillAmount =400f;
  public static float fillAmountForImage;
 
  public void Start()

@@ -9,7 +9,39 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public int levelCounter;
+    public static GameManager instance;
+    public GameObject[] gamePanels;
+   
+
+    public void Awake()
+    {
+        instance = this;
+    }
+    public IEnumerator switchPanels(int indexForLevel, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        for(int i=0; i<gamePanels.Length; i++)
+        {
+            if (i == indexForLevel)
+            {
+                gamePanels[i].SetActive(true);
+
+            }
+            else
+            {
+                gamePanels[i].SetActive(false);
+            }
+            levelCounter++;
+        }
+    }
+    public void LevelFinish(int ind)
+    {
+        
+        StartCoroutine(switchPanels(ind, 1.1f));
+    }
+}
+ /*   
 
     [DllImport("__Internal")]
     private static extern void _OnGameStarted();
@@ -186,5 +218,4 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
     }
-	
-}
+	*/

@@ -11,7 +11,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     private CanvasGroup canvasGroup;
     private Vector2 position;
     public GameObject ObjectTogetHit;
-    public GameObject imageToBeDragged;
+    //public GameObject imageToBeDragged;
     public Vector3 initialTransform;
     public void Start()
     {
@@ -63,8 +63,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         Debug.Log("flagHit " + flagHit);
         if (flagHit)
         {
-            imageToBeDragged.SetActive(true);
-            imageToBeDragged.layer = 3;
+           // imageToBeDragged.SetActive(true);
+           // imageToBeDragged.layer = 3;
             Debug.Log("OnEndDrag");
 
             canvasGroup.alpha = 1f;

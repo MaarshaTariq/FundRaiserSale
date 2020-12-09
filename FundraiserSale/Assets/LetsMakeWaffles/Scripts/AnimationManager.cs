@@ -18,7 +18,7 @@ public class AnimationManager : MonoBehaviour {
 
 	public void DisableScreen()
 	{
-        StartCoroutine(Toolbox.GameManager.LoadNextLevel());
+       // StartCoroutine(Toolbox.GameManager.LoadNextLevel());
 
         //this.gameObject.SetActive (false);
 	}
