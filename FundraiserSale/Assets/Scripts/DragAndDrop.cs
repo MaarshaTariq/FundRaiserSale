@@ -67,8 +67,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
            // imageToBeDragged.layer = 3;
             Debug.Log("OnEndDrag");
 
-            canvasGroup.alpha = 1f;
+            
         }
+        canvasGroup.alpha = 1f;
         transform.position = initialTransform;
 
 
