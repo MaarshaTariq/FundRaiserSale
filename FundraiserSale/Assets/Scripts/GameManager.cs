@@ -9,7 +9,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Image flaskFiller;
+    public GameObject transitionPanel;
     public int levelCounter;
+    public int startingIndex=0;
+    public int endingIndex;
+    private List<int> VisitedlevelHistory;
+
+     TriggerChceking tg;
     public static GameManager instance;
     public GameObject[] gamePanels;
    
@@ -18,14 +25,53 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-    public IEnumerator switchPanels(int indexForLevel, float seconds)
+    private void Start()
     {
+        tg = new TriggerChceking();
+        VisitedlevelHistory = new List<int>();
+        endingIndex = gamePanels.Length - 1;
+        ActivatingPanels();
+    }
+    public IEnumerator randomizePanels(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        int index = Random.Range(startingIndex, endingIndex + 1);
+        if (VisitedlevelHistory.Contains(index) == false)
+        {
+            levelCounter++;
+
+
+           // Debug.LogError("index ix " + index + " " + levelCounter);
+
+            gamePanels[index].SetActive(true);
+            // tg.allCheckmarksActivation();
+            //if (tg.checkMarks[1].activeInHierarchy)
+            //{
+              //  transitionPanel.SetActive(true);
+            //}
+            flaskFiller.fillAmount += 0.125f;
+
+
+            LevelFinish(index);
+            VisitedlevelHistory.Add(index);
+           // manager.levelCounter = index;
+            //checker = true;
+        }
+    }
+    public void ActivatingPanels()
+    {
+        StartCoroutine(randomizePanels(2f));
+    }
+    public IEnumerator switchPanels(int indexForLevel, float seconds) {
         yield return new WaitForSeconds(seconds);
-        for(int i=0; i<gamePanels.Length; i++)
+
+        for (int i=0; i<gamePanels.Length; i++)
         {
             if (i == indexForLevel)
             {
                 gamePanels[i].SetActive(true);
+              
+                
 
             }
             else
@@ -35,6 +81,8 @@ public class GameManager : MonoBehaviour
             levelCounter++;
         }
     }
+    
+
     public void LevelFinish(int ind)
     {
         

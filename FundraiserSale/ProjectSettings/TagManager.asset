@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FR
   - cupcakes
+  - GamePlay
+  - brownies
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - foodTray
   - foodItems
-  - 
+  - sprite
   - 
   - 
   - 
@@ -48,4 +50,13 @@ TagManager:
     locked: 0
   - name: 0
     uniqueID: 3511565731
+    locked: 0
+  - name: 10
+    uniqueID: 2971651543
+    locked: 0
+  - name: 5
+    uniqueID: 1292193349
+    locked: 0
+  - name: 2
+    uniqueID: 2672183459
     locked: 0

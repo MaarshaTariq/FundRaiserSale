@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public bool flagHit;
+    HighlightText highlightText;
     public static DragAndDrop instance;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -16,9 +18,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     public void Start()
     {
         instance = this;
+        highlightText = new HighlightText();
         rectTransform = GetComponent<RectTransform>();
         initialTransform = transform.position;
     }
+
     public void Awake()
     {
 
@@ -63,8 +67,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         Debug.Log("flagHit " + flagHit);
         if (flagHit)
         {
-           // imageToBeDragged.SetActive(true);
-           // imageToBeDragged.layer = 3;
+            highlightText.fillAmountForImage -= 400;
+            highlightText.increaseFillAmount(eventData.pointerDrag.GetComponent<Image>());
+            // imageToBeDragged.SetActive(true);
+            // imageToBeDragged.layer = 3;
             Debug.Log("OnEndDrag");
 
             
