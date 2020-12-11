@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
 
-
-
 public class GameManager : MonoBehaviour
 {
+<<<<<<< HEAD
     public Image flaskFiller;
     public GameObject transitionPanel;
     public int levelCounter;
@@ -133,6 +132,10 @@ public class GameManager : MonoBehaviour
 }
  /*   
 
+=======
+
+
+>>>>>>> d0c85a0664eeb8e82beef658dcff4f54fc578e0e
     [DllImport("__Internal")]
     private static extern void _OnGameStarted();
     [DllImport("__Internal")]
@@ -148,7 +151,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] gamePanelsList;
     public GamePanels[] gamePlayLevelsList;
-	public GameObject progressBars;
+    public GameObject progressBars;
 
 
     public string SceneName;
@@ -162,10 +165,22 @@ public class GameManager : MonoBehaviour
     public bool changeGameSpeed;
     public float levelDelay;
 
+    public GameObject AccessibiltyObject;
+    public bool isExternalDone = false;
+    private bool accessibilty = false;
+    public bool Accessibilty
+    {
+        set
+        {
+            accessibilty = value;
+        }
+        get
+        {
+            return accessibilty;
+        }
+    }
 
 
-
-    
     void OnEnable()
     {
         PlayerPrefs.SetInt("Click", 0);
@@ -181,51 +196,52 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(changeGameSpeed)
+        if (changeGameSpeed)
         {
             changeGameSpeed = false;
-            #if UNITY_EDITOR //for testing purposes in editor
+#if UNITY_EDITOR //for testing purposes in editor
             Time.timeScale = gameSpeed;
-            #endif
+#endif
         }
     }
 
-	void SetProgress(int count)
-	{
-		//Debug.Log ("count " + count * 2);
-		for (int i = 0; i < count * 2; i++) {
-			progressBars.transform.GetChild (i).gameObject.GetComponent<CanvasGroup> ().alpha = 1;
-		}
-	}
+    void SetProgress(int count)
+    {
+        //Debug.Log ("count " + count * 2);
+        for (int i = 0; i < count * 2; i++)
+        {
+            progressBars.transform.GetChild(i).gameObject.GetComponent<CanvasGroup>().alpha = 1;
+        }
+    }
 
-	public void ClickOn(float delay=0)
-	{
-		StartCoroutine (ClickHandle(delay,1));
-	}
+    public void ClickOn(float delay = 0)
+    {
+        StartCoroutine(ClickHandle(delay, 1));
+    }
 
-	public void ClickOff(float delay=0)
-	{
-		StartCoroutine (ClickHandle(delay,0));
-	}
+    public void ClickOff(float delay = 0)
+    {
+        StartCoroutine(ClickHandle(delay, 0));
+    }
 
-	public bool CanClick()
-	{
-		bool check = false;
-		if (PlayerPrefs.GetInt ("Click") == 0)
-			check = false;
-		else if (PlayerPrefs.GetInt ("Click") == 1)
-			check = true;
-		return check;
-			
-	}
+    public bool CanClick()
+    {
+        bool check = false;
+        if (PlayerPrefs.GetInt("Click") == 0)
+            check = false;
+        else if (PlayerPrefs.GetInt("Click") == 1)
+            check = true;
+        return check;
 
-	IEnumerator ClickHandle(float delay, int state)
-	{
-		yield return new WaitForSeconds (delay);
-		PlayerPrefs.SetInt ("Click", state);
-	}
+    }
 
-    public void OnButtonClicked(string BtnName) 
+    IEnumerator ClickHandle(float delay, int state)
+    {
+        yield return new WaitForSeconds(delay);
+        PlayerPrefs.SetInt("Click", state);
+    }
+
+    public void OnButtonClicked(string BtnName)
     {
         if (BtnName == "FullScrren")
         {
@@ -242,19 +258,19 @@ public class GameManager : MonoBehaviour
                 Screen.fullScreen = true;
             }
         }
-       
+
     }
 
-	public IEnumerator LoadNextLevel( float sec =0)
-	{
+    public IEnumerator LoadNextLevel(float sec = 0)
+    {
         //Toolbox.GamePlayController.gameObject.SetActive(true);
-        
+
         if (sec != 0)
         {
-		    levelDelay = sec;
+            levelDelay = sec;
         }
-		yield return new WaitForSeconds (levelDelay);
-        
+        yield return new WaitForSeconds(levelDelay);
+
         //Only Activating the current required panels
         for (int i = 0; i < gamePanelsList.Length; i++)
         {
@@ -272,13 +288,13 @@ public class GameManager : MonoBehaviour
         {
             case 0:     //For Gameplay Panels
 
-                if (gamePlayLevelCounter <gamePlayLevelsList.Length)
+                if (gamePlayLevelCounter < gamePlayLevelsList.Length)
                 {
                     Toolbox.GamePlayController.LoadPanel(gamePlayLevelsList[gamePlayLevelCounter]);
                 }
                 if (gamePlayLevelCounter == gamePlayLevelsList.Length - 1)
                 {
-                        //Final Gameplay level
+                    //Final Gameplay level
                     gamePanelsCounter++;
                 }
 
@@ -296,7 +312,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("In Final Panel");
                 break;
         }
-	}
+    }
 
     public IEnumerator LoadScene()
     {
@@ -308,4 +324,5 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
     }
-	*/
+
+}
