@@ -13,10 +13,11 @@ public class GameManager : MonoBehaviour
     public GameObject transitionPanel;
     public int levelCounter;
     public int startingIndex=0;
+    int index;
     public int endingIndex;
     private List<int> VisitedlevelHistory;
 
-     TriggerChceking tg;
+    // TriggerChceking tg;
     public static GameManager instance;
     public GameObject[] gamePanels;
    
@@ -27,15 +28,26 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        tg = new TriggerChceking();
+        instance = this;
+       // tg = new TriggerChceking();
         VisitedlevelHistory = new List<int>();
         endingIndex = gamePanels.Length - 1;
-        ActivatingPanels();
+     //   ActivatingPanels();
+    }
+    public void Update()
+    {
+       // if (TriggerChceking.tg.lastScoreImageActive)
+       // {
+        //    repeat(gamePanels[index], index);
+         //   ActivatingPanels();
+        //}
+        //checkvartrue();
+      // repeat (gamePanels[index], index);
     }
     public IEnumerator randomizePanels(float sec)
     {
         yield return new WaitForSeconds(sec);
-        int index = Random.Range(startingIndex, endingIndex + 1);
+         index = Random.Range(startingIndex, endingIndex + 1);
         if (VisitedlevelHistory.Contains(index) == false)
         {
             levelCounter++;
@@ -44,6 +56,7 @@ public class GameManager : MonoBehaviour
            // Debug.LogError("index ix " + index + " " + levelCounter);
 
             gamePanels[index].SetActive(true);
+            transitionPanel.SetActive(false);
             // tg.allCheckmarksActivation();
             //if (tg.checkMarks[1].activeInHierarchy)
             //{
@@ -53,6 +66,7 @@ public class GameManager : MonoBehaviour
 
 
             LevelFinish(index);
+          
             VisitedlevelHistory.Add(index);
            // manager.levelCounter = index;
             //checker = true;
@@ -70,9 +84,6 @@ public class GameManager : MonoBehaviour
             if (i == indexForLevel)
             {
                 gamePanels[i].SetActive(true);
-              
-                
-
             }
             else
             {
@@ -87,6 +98,37 @@ public class GameManager : MonoBehaviour
     {
         
         StartCoroutine(switchPanels(ind, 1.1f));
+       
+    }
+    
+     IEnumerator checkvartrue(GameObject currentPanel, int index)
+    {
+        Debug.Log("last image active  "+TriggerChceking.tg.lastScoreImageActive);
+       // if (TriggerChceking.tg.lastScoreImageActive)
+        //{
+            yield return new WaitForSeconds(2f);
+
+            currentPanel.SetActive(false);
+            transitionPanel.SetActive(true);
+          //  yield return new WaitForSeconds(2f);
+
+
+        //}
+    }
+    public IEnumerator checkvartruecoroutine(GameObject currentPanel, int index)
+    {
+        StartCoroutine(checkvartrue(currentPanel, index));
+        yield return new WaitForSeconds(1f);
+       
+       // ActivatingPanels();
+    }
+    public void repeat(GameObject currentPanel, int index)
+    {
+        StartCoroutine(checkvartruecoroutine(currentPanel, index));
+    }
+    public void deactiveCurrentPanel()
+    {
+        gamePanels[index].SetActive (false); 
     }
 }
  /*   

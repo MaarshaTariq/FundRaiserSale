@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelSwitcher : MonoBehaviour {
-
-    public int nextLevelIndex;
-    public GameManager manager;
-    public void nextLevel()
+    //TriggerChceking tg;
+    public void Start()
     {
-        manager.LevelFinish(nextLevelIndex);
+      //  tg = new TriggerChceking();
+       
+    }
+
+    public void Update()
+    {
+      //  StartCoroutine(TriggerChceking.tg .allCheckmarksActivation());
+        //StartCoroutine(TriggerChceking.tg.deActivateTransitionPanels());
     }
 }

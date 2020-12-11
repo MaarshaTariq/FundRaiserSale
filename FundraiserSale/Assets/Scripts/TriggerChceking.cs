@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TriggerChceking : MonoBehaviour {
     public GameObject transitionPanel;
     public string[] tagName ;
+    public bool lastScoreImageActive = false;
     public bool highlighttext = false;
     public static TriggerChceking tg;
 
@@ -24,7 +25,7 @@ public class TriggerChceking : MonoBehaviour {
     public int draggedObjectsCounter;
     public void Start()
     {
-        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+     //   manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         tg = this;
         highlightText = new HighlightText();
     }
@@ -98,19 +99,31 @@ public class TriggerChceking : MonoBehaviour {
     }
     public void Update()
     {
-        highlightText.fillAmountForImage += 1 *0.2f;
+        //highlightText.fillAmountForImage += 1 *0.2f;
        StartCoroutine( allCheckmarksActivation());
     }
-    IEnumerator allCheckmarksActivation()
+   public  IEnumerator allCheckmarksActivation()
     {
       
-        if (checkMarks[1].activeInHierarchy)
+        if (scoreBoardImages[scoreBoardImages.Length-1].activeInHierarchy)
         {
-            Debug.Log(checkMarks[1].name);
+          //  Debug.Log(checkMarks[1].name);
             yield return new WaitForSeconds(3f);
-           // manager.gamePanels[].SetActive(false);
+            lastScoreImageActive = true;
+            // manager.gamePanels[].SetActive(false);
+            //currentPanel.SetActive(false);
+            GameManager.instance.deactiveCurrentPanel();
             transitionPanel.SetActive(true);
+           // StartCoroutine(deActivateTransitionPanels());
         }
+    }
+    
+    public IEnumerator deActivateTransitionPanels()
+    {
+        yield return new WaitForSeconds(2f);
+        transitionPanel.SetActive(false);
+        GameManager.instance.ActivatingPanels();
+    
     }
 }
     
