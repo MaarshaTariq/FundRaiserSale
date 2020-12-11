@@ -6,15 +6,21 @@ using UnityEngine.Networking;
 
 public class TextToSpeech : MonoBehaviour
 {
+    public bool LocalTTS;//false for main n2y build , true for local build 	
+
     public string apiLink;
     public string apiKey;
     public List<string>textsToConvert;
     public List<AudioClip> downloadedClips;
 
+    [HideInInspector]
+    public int AudioDownloaded;
+    [HideInInspector]
+    public int TotalAudioToDownload;
+
     // Start is called before the first frame update
     void Start()
     {
-        //GetDownlaodedAudioFiles();
         StartCoroutine(GetLocalDownlaodedAudioFiles());
     }
 
@@ -35,7 +41,7 @@ public class TextToSpeech : MonoBehaviour
                 {
                     Debug.Log(www.error);
                 }
-                else if (www.isHttpError)
+                else if (www.isHttpError)//Didnt find it in Local Storage on the given path.
                 {
                     Debug.Log("Didnt Find :" + textsToConvert[i]);
                     StartCoroutine(TextToSpeechFunc(textsToConvert[i]));
@@ -54,33 +60,6 @@ public class TextToSpeech : MonoBehaviour
 
     IEnumerator TextToSpeechFunc(string tempTextToConvert)
     {
-        #region previousLogic
-        //WWWForm form = new WWWForm();
-        //form.AddField("key", "8e06f32cb078436c9c0c881bf507f647");
-        //form.AddField("src", "Helloooooooo is it me you are looking forrrrrr!");
-        //form.AddField("hl", "en-au");
-        //form.AddField("v", "Evie");
-        //form.AddField("c", "MP3");
-
-        //UnityWebRequest www = UnityWebRequest.Get(apiLink);
-        //yield return www.SendWebRequest();
-
-        //if (www.isNetworkError || www.isHttpError)
-        //{
-        //    Debug.Log(www.error);
-        //}
-        //else
-        //{
-        //    Debug.Log("Form upload complete!");
-        //    Debug.Log(www.responseCode);
-        //    Debug.Log(www.);
-
-        //    AudioClip weather_1 = DownloadHandlerAudioClip.GetContent(www);
-        //    clipPlayer.clip = weather_1;
-        //    clipPlayer.Play();
-        //}
-        #endregion
-
         //http://www.voicerss.org/api/// For further understanding of parametres.
         //---------------BaseLink--  ApiKey  ---------TextToConvert--------------Language=Eng-Aust,Voicer=Evie,Codec=OGG,Rate=//
         string finalLink = apiLink + "key=" + apiKey + "&" + "src=" + tempTextToConvert + "&hl=en-us&v=Amy&c=WAV&r=0";
