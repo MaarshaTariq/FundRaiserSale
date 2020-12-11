@@ -2119,6 +2119,69 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383451033}
+--- !u!1 &401942889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 401942890}
+  - component: {fileID: 401942891}
+  m_Layer: 0
+  m_Name: AccessibilityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401942890
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401942889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5270638, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &401942891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401942889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f6b8e964700974b8a187c78da97240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCounter: 0
+  destinationCounter: 0
+  selectedTargetObject: {fileID: 0}
+  backOfficeInitDone: 0
+  gameNumber: 0
+  LevelCounter: 0
+  completedLevels: 0
+  totalLevels: 
+  gameWasPaused: 0
+  LastCheck: 0
+  switchWait: 10
+  isSpaceEnabled: 0
+  enablepause: 1
+  isSingleDestination: 0
+  DragnDrop: 0
+  ShowPausePanel: 1
+  autoExitGameplay: 0
+  GreenBox: {fileID: 0}
+  block: {fileID: 0}
+  LoadingScreen: {fileID: 0}
+  pausePanel: {fileID: 0}
+  timeOut: 30
+  timeOutTimer: 0
 --- !u!1 &431532460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2677,7 @@ GameObject:
   - component: {fileID: 460560925}
   - component: {fileID: 460560924}
   - component: {fileID: 460560928}
+  - component: {fileID: 460560927}
   m_Layer: 5
   m_Name: FinalScreen
   m_TagString: Untagged
@@ -2675,6 +2739,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 460560922}
+--- !u!114 &460560927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460560922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08db277fd228726428308224c2ea6538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &460560928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5693,6 +5768,7 @@ GameObject:
   - component: {fileID: 1075773379}
   - component: {fileID: 1075773378}
   - component: {fileID: 1075773377}
+  - component: {fileID: 1075773381}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5783,6 +5859,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1075773381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075773376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc45ef5503e6d14cb5cbca4afe5baeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetDownloader: {fileID: 0}
+  Preview: 0
+  KeyNew: 
+  Model:
+    GameId: 0
+    StudentId: 0
+    IsPreview: 0
+  AccessibilityLocalTest: 0
+  isAccessibilityLocalTest: 0
 --- !u!1 &1163450155
 GameObject:
   m_ObjectHideFlags: 0
@@ -8548,6 +8644,68 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1729833842}
+--- !u!1 &1733348876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1733348877}
+  - component: {fileID: 1733348878}
+  - component: {fileID: 1733348879}
+  m_Layer: 0
+  m_Name: ExternalHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1733348877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733348876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1733348878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733348876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc45ef5503e6d14cb5cbca4afe5baeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetDownloader: {fileID: 0}
+  Preview: 0
+  KeyNew: 
+  Model:
+    GameId: 0
+    StudentId: 0
+    IsPreview: 0
+  AccessibilityLocalTest: 0
+  isAccessibilityLocalTest: 0
+--- !u!114 &1733348879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733348876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db9b675264e07b4a97b371584688a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UploadedSuccessfully: 0
 --- !u!1 &1765172799
 GameObject:
   m_ObjectHideFlags: 0
@@ -10459,6 +10617,8 @@ MonoBehaviour:
   gameSpeed: 1
   changeGameSpeed: 0
   levelDelay: 0
+  AccessibiltyObject: {fileID: 0}
+  isExternalDone: 0
 --- !u!82 &2009871689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10594,6 +10754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c4850c4c3c98743a96345c7b2b269e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LocalTTS: 0
   apiLink: http://api.voicerss.org/?
   apiKey: 8e06f32cb078436c9c0c881bf507f647
   textsToConvert:
@@ -10602,6 +10763,8 @@ MonoBehaviour:
   - We need One Fourth teaspoon of salt, choose the correct ingredient
   - Choose the correct measurement for salt
   downloadedClips: []
+  AudioDownloaded: 0
+  TotalAudioToDownload: 0
 --- !u!224 &2015669575 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224888137969236882, guid: 9ca460a51e9e28e4aa9dd94d1c79e137,
