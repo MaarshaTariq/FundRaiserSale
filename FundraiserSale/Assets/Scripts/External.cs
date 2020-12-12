@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System;
 public class External : MonoBehaviour
 {
-    [HideInInspector]
+   /* [HideInInspector]
     public GameObject assetDownloader;//Not Being used in Fundraiser.
     public static string urlFromServer;
     public bool Preview = false;
@@ -188,6 +188,7 @@ public class GameStudentModel
     {
         this.StudentId = StID;
     }
+	*/
 
 }
 

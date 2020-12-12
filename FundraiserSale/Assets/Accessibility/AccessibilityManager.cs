@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class AccessibilityManager : MonoBehaviour
 {
+    /*
     #region Variables
 
     #region private
@@ -256,5 +257,6 @@ public class AccessibilityManager : MonoBehaviour
     }
     
     #endregion
+    */
 
 }

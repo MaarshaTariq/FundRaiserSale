@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-<<<<<<< HEAD
+//<<<<<<< HEAD
     public Image flaskFiller;
     public GameObject transitionPanel;
     public int levelCounter;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
        // tg = new TriggerChceking();
         VisitedlevelHistory = new List<int>();
         endingIndex = gamePanels.Length - 1;
-     //   ActivatingPanels();
+        ActivatingPanels();
     }
     public void Update()
     {
@@ -130,9 +130,10 @@ public class GameManager : MonoBehaviour
         gamePanels[index].SetActive (false); 
     }
 }
- /*   
+ 
+    
 
-=======
+/*=======
 
 
 >>>>>>> d0c85a0664eeb8e82beef658dcff4f54fc578e0e
@@ -325,4 +326,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
     }
 
-}
+} */

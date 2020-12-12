@@ -12,7 +12,7 @@ using Newtonsoft;
 
 public class EventController : MonoBehaviour
 {
-	#region  variables
+/*	#region  variables
 	public string gameTitle;
 	public string gameSubTitle;
 	// public GameManager Manager;
@@ -304,4 +304,5 @@ public class PlayerGameScore
 	public int? Responsiveness { get; set; }
 	public int StudentId { get; set; }
 	public DateTime Timestamp { get; set; }
+	*/
 }
