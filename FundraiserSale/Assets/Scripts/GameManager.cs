@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float waitTime = 10f;
     public Image flaskFiller;
     public GameObject menuManager;
+    public GameObject introPanel;
     public GameObject endingPanel;
     public GameObject transitionPanel;
     public int levelCounter;
@@ -103,8 +104,16 @@ public class GameManager : MonoBehaviour
     }
     public void ActivatingPanels()
     {
+        
         menuManager.SetActive(false);
+        
         StartCoroutine(randomizePanels(0f));
+    }
+    public IEnumerator introActive()
+    {
+        introPanel.SetActive(true);
+        yield return new WaitForSeconds(8f);
+
     }
     public IEnumerator switchPanels(int indexForLevel, float seconds) {
         yield return new WaitForSeconds(seconds);

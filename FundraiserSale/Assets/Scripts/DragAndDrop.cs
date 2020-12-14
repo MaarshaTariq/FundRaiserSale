@@ -33,7 +33,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
         Debug.Log("OnBeginDrag" + canvasGroup.blocksRaycasts);
-        canvasGroup.alpha = .6f;
+        canvasGroup.alpha = 1f;
 
     }
 
