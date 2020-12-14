@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,8 +7,8 @@ public class TextToSpeech : MonoBehaviour
 {
     public bool LocalTTS;//false for main n2y build , true for local build 	
 
-    public string apiLink;
-    public string apiKey;
+    public string localTestApiLink;
+    public string localTestApiKey;
     public List<string>textsToConvert;
     public List<AudioClip> downloadedClips;
 
@@ -18,12 +17,21 @@ public class TextToSpeech : MonoBehaviour
     [HideInInspector]
     public int TotalAudioToDownload;
 
+    
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(GetLocalDownlaodedAudioFiles());
-    }
+        StartCoroutine(tempPlaySound());
 
+       
+    }
+    IEnumerator  tempPlaySound()
+    {
+        
+
+        yield return new WaitForEndOfFrame();
+    }
     IEnumerator GetLocalDownlaodedAudioFiles()
     {
         //Working for now
@@ -54,15 +62,16 @@ public class TextToSpeech : MonoBehaviour
                 }
             }
         }
+      
 
-        
+
     }
 
     IEnumerator TextToSpeechFunc(string tempTextToConvert)
     {
         //http://www.voicerss.org/api/// For further understanding of parametres.
         //---------------BaseLink--  ApiKey  ---------TextToConvert--------------Language=Eng-Aust,Voicer=Evie,Codec=OGG,Rate=//
-        string finalLink = apiLink + "key=" + apiKey + "&" + "src=" + tempTextToConvert + "&hl=en-us&v=Amy&c=WAV&r=0";
+        string finalLink = localTestApiLink + "key=" + localTestApiKey + "&" + "src=" + tempTextToConvert + "&hl=en-us&v=Amy&c=WAV&r=0";
         //Debug.Log("Sending Link : "+finalLink);
         using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(finalLink, AudioType.WAV))
         {
