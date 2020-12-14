@@ -1646,26 +1646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60915f91e40b4e4b9984c68d107576a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 1817174772}
-  - {fileID: 567925730}
-  - {fileID: 312607905}
-  answerTransforms:
-  - {fileID: 1437901667}
-  - {fileID: 1253655500}
-  - {fileID: 588425907}
-  correctAudio: {fileID: 8300000, guid: e339af95a016e674a861f4ad65d19dd1, type: 3}
-  tryAgainAudio: {fileID: 8300000, guid: bc382863329953946b59da9d9a6d2093, type: 3}
-  background: {fileID: 2079185243}
-  option1: {fileID: 1585955384}
-  option2: {fileID: 268126095}
-  option3Correct: {fileID: 1163450157}
-  RecipeCard: {fileID: 486778700}
-  IngredientToMeasure: {fileID: 1273523037}
-  infoText: {fileID: 1478077231}
-  levelEndDelay: 0
-  soundIndex: 1
-  infoMngr: {fileID: 578596947}
 --- !u!114 &288698736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,29 +2139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f6b8e964700974b8a187c78da97240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCounter: 0
-  destinationCounter: 0
-  selectedTargetObject: {fileID: 0}
-  backOfficeInitDone: 0
-  gameNumber: 0
-  LevelCounter: 0
-  completedLevels: 0
-  totalLevels: 
-  gameWasPaused: 0
-  LastCheck: 0
-  switchWait: 10
-  isSpaceEnabled: 0
-  enablepause: 1
-  isSingleDestination: 0
-  DragnDrop: 0
-  ShowPausePanel: 1
-  autoExitGameplay: 0
-  GreenBox: {fileID: 0}
-  block: {fileID: 0}
-  LoadingScreen: {fileID: 0}
-  pausePanel: {fileID: 0}
-  timeOut: 30
-  timeOutTimer: 0
 --- !u!1 &431532460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,11 +2374,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 438170750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 390.5, y: 225, z: 0}
+  m_LocalPosition: {x: -390, y: -277, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 851396983}
-  m_RootOrder: 6
+  m_Father: {fileID: 884686874}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &438170752
 MonoBehaviour:
@@ -2434,7 +2391,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: FR
+  transitionPanel: {fileID: 0}
+  fl: {fileID: 0}
+  flaskfill: 0
+  tagName: []
+  lastScoreImageActive: 0
+  highlighttext: 0
+  ImagesToBeHighlighted: []
+  maxFillAmount: 400
+  imageToBeDragged: []
+  scoreBoardImages: []
+  checkMarks: []
+  checkMarksTags: 0
+  draggedObjectsCounter: 0
 --- !u!61 &438170753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2447,7 +2416,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.2037659, y: -15.112305}
+  m_Offset: {x: 0, y: 100}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2458,7 +2427,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 738.6723, y: 479.77637}
+  m_Size: {x: 737.85205, y: 245.76599}
   m_EdgeRadius: 0
 --- !u!50 &438170754
 Rigidbody2D:
@@ -2515,7 +2484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flagHit: 0
   ObjectTogetHit: {fileID: 2067746631}
-  imageToBeDragged: {fileID: 1522259165}
   initialTransform: {x: 0, y: 0, z: 0}
 --- !u!225 &442741901
 CanvasGroup:
@@ -3404,16 +3372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ee861a442434e8b917c901800f3291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoBox: {fileID: 2036658575}
-  closeBlock: {fileID: 758100187}
-  infoSoundIndex: 0
-  txt: {fileID: 1478077231}
-  infoTexts:
-  - 'Which one is one quarter? '
-  - 'Which one is one half? '
-  - Which one is three quarters?
-  - Which one is whole?
-  infoSounds: 0c0000000b0000000d0000000e000000
 --- !u!114 &578596948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4889,7 +4847,6 @@ Transform:
   - {fileID: 1827868233}
   - {fileID: 1475795299}
   - {fileID: 2112086237}
-  - {fileID: 438170751}
   m_Father: {fileID: 263570519}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5248,6 +5205,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 863726866}
+  - {fileID: 438170751}
   m_Father: {fileID: 2067746634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5870,15 +5828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc45ef5503e6d14cb5cbca4afe5baeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetDownloader: {fileID: 0}
-  Preview: 0
-  KeyNew: 
-  Model:
-    GameId: 0
-    StudentId: 0
-    IsPreview: 0
-  AccessibilityLocalTest: 0
-  isAccessibilityLocalTest: 0
 --- !u!1 &1163450155
 GameObject:
   m_ObjectHideFlags: 0
@@ -8685,15 +8634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc45ef5503e6d14cb5cbca4afe5baeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetDownloader: {fileID: 0}
-  Preview: 0
-  KeyNew: 
-  Model:
-    GameId: 0
-    StudentId: 0
-    IsPreview: 0
-  AccessibilityLocalTest: 0
-  isAccessibilityLocalTest: 0
 --- !u!114 &1733348879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8753,8 +8693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb0f35e213b78840aadf4b3d6fbc612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight_Image: {fileID: 1765172802}
+  highlightImage: {fileID: 0}
   maxFillAmount: 350
+  fillAmountForImage: 0
+  waitTime: 30
 --- !u!114 &1765172802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10550,12 +10492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11096b0e146644c74aedad45e8ec60bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainScreen: {fileID: 750359867}
-  finalScreen: {fileID: 460560922}
-  pauseScreen: {fileID: 2134577655}
-  playBtn: {fileID: 490389121}
-  isMenu: 1
-  SceneName: 113 Game
 --- !u!4 &2009871687
 Transform:
   m_ObjectHideFlags: 0
@@ -10580,45 +10516,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39ee615f179a424daf5821695f772af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameNumber: 113
-  versionNumber: 0.1
-  unityLogger: 1
-  gamePanelsList:
-  - {fileID: 263570518}
-  - {fileID: 1915983457}
-  - {fileID: 460560922}
-  gamePlayLevelsList:
-  - background: {fileID: 21300000, guid: 6968702f62ce0cf49a4769aea3930ffc, type: 3}
-    option1: {fileID: 21300000, guid: 126bdc7f3f64289468d874cf1a7b47c6, type: 3}
-    option1Audio: {fileID: 8300000, guid: ebccd59819a425b4ea106f1758b3ff8f, type: 3}
-    option2: {fileID: 21300000, guid: dac3516847d2093429b4e3e8e7fe8840, type: 3}
-    option2Audio: {fileID: 8300000, guid: ccd7aa7467032e049802a4ebb5698e68, type: 3}
-    option3Correct: {fileID: 21300000, guid: 9b260b38f90b9e74cae00fa0dacb0414, type: 3}
-    option3Audio: {fileID: 8300000, guid: fc6aa0c54da2b9e42a4bfe02376e61f4, type: 3}
-    RecipeOrIngredient: {fileID: 21300000, guid: 5184e63f73daa124f9b80270c7636bfd,
-      type: 3}
-    infoText: We need 2 cups of flour, choose the correct ingredient
-    instructionAudio: {fileID: 8300000, guid: 31cbbd2db2f291a4a93c21e71ca9ced0, type: 3}
-  - background: {fileID: 21300000, guid: 30008ae5435a34847a5b0c6b4d6df0f3, type: 3}
-    option1: {fileID: 21300000, guid: 8d957971b088bbb4e8127e8cc773e1b5, type: 3}
-    option1Audio: {fileID: 8300000, guid: 627b88c421c14b34695a146c57226b2b, type: 3}
-    option2: {fileID: 21300000, guid: 2fdc002bfccd0c24ca1a28f3f65390c5, type: 3}
-    option2Audio: {fileID: 8300000, guid: 9e684b3559b9eba4fb3cf0385c8dbc46, type: 3}
-    option3Correct: {fileID: 21300000, guid: 194dce3e0c554934fa21fb3cfac257a0, type: 3}
-    option3Audio: {fileID: 8300000, guid: a78782f643ea9344ab7c2dfb4b12bd34, type: 3}
-    RecipeOrIngredient: {fileID: 21300000, guid: a63d44f42240009419296d56d983e22b,
-      type: 3}
-    infoText: Choose the correct measurement for flour
-    instructionAudio: {fileID: 8300000, guid: 32b4f3af9a6df9f4db6078698a857e80, type: 3}
-  progressBars: {fileID: 812357702}
-  SceneName: 113 Game
-  gamePlayLevelCounter: 0
-  gamePanelsCounter: 0
-  gameSpeed: 1
-  changeGameSpeed: 0
-  levelDelay: 0
-  AccessibiltyObject: {fileID: 0}
-  isExternalDone: 0
+  fillAmountNumber: 0
+  temp: 0
+  waitTime: 10
+  flaskFiller: {fileID: 0}
+  menuManager: {fileID: 0}
+  endingPanel: {fileID: 0}
+  transitionPanel: {fileID: 0}
+  levelCounter: 0
+  startingIndex: 0
+  endingIndex: 0
+  gamePanels: []
 --- !u!82 &2009871689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10731,6 +10639,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 98833b03b84c2499d90fa975e240f33a, type: 3}
   - {fileID: 8300000, guid: e6eb1e2fbf51748e88c34d444fd5eb7e, type: 3}
   - {fileID: 8300000, guid: e04cdf132341245ecb649d95adfa7acf, type: 3}
+  correctAudio: {fileID: 0}
+  incorrectAudio: {fileID: 0}
   inputBlocker: {fileID: 1331977342}
 --- !u!114 &2009871691
 MonoBehaviour:
@@ -10755,8 +10665,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LocalTTS: 0
-  apiLink: http://api.voicerss.org/?
-  apiKey: 8e06f32cb078436c9c0c881bf507f647
+  localTestApiLink: 
+  localTestApiKey: 
   textsToConvert:
   - We need 2 cups of flour, choose the correct ingredient
   - Choose the correct measurement for flour
@@ -11005,6 +10915,94 @@ MonoBehaviour:
   FadeRate: 2
   FadeAtStart: 1
   cam: {fileID: 0}
+--- !u!1 &2041269038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2041269041}
+  - component: {fileID: 2041269040}
+  - component: {fileID: 2041269039}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2041269039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041269038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f883ca26b78140cabc83ddec4ba129d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+  correctAudio: {fileID: 8300000, guid: 33ee6d094409f8d4aab5c841a6197a32, type: 3}
+  incorrectAudio: {fileID: 8300000, guid: f239986e3c5f4624f9d328d3f5d07d1b, type: 3}
+  inputBlocker: {fileID: 0}
+--- !u!114 &2041269040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041269038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c4850c4c3c98743a96345c7b2b269e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalTTS: 1
+  localTestApiLink: http://api.voicerss.org/?
+  localTestApiKey: 8e06f32cb078436c9c0c881bf507f647
+  textsToConvert:
+  - Complete the order by choosing the correct number of baked goods
+  - 1 set of cookies, a total of 10 cookies
+  - 2 sets of brownies, a total of 10 brownies
+  - 2 sets of cookies, a total of 20 cookies
+  - 2 sets of brownies, a total of 10 brownies
+  - 1 set of brownies, a total of 5 brownies
+  - 2 sets of cupcakes, a total of 10 cupcakes
+  - 3 sets of brownies, a total of 15 brownies
+  - 3 sets of cupcakes, a total of 15 cupcakes
+  - 1 set of cupcakes, a total of 5 cupcakes
+  - 3 sets of cookies, a total of 30 cookies
+  - 4 sets of cupcakes, a total of 20 cupcakes
+  - 5 brownies
+  - 10 brownies
+  - 15 brownies
+  - 5 cupcakes
+  - 10 cupcakes
+  - 15 cupcakes
+  - 20 cupcakes
+  - 10 cookies
+  - 20 cookies
+  - 30 cookies
+  - Try again
+  - Correct
+  - Fundraiser sale
+  downloadedClips: []
+  AudioDownloaded: 0
+  TotalAudioToDownload: 0
+--- !u!4 &2041269041
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041269038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055096329
 GameObject:
   m_ObjectHideFlags: 0
