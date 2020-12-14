@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TriggerChceking : MonoBehaviour {
     public GameObject transitionPanel;
     public FlaskFilling fl;
+    public bool flaskfill = false;
     public string[] tagName ;
     public bool lastScoreImageActive = false;
     public bool highlighttext = false;
@@ -74,7 +75,7 @@ public class TriggerChceking : MonoBehaviour {
                         if (index < imageToBeDragged.Length && imageToBeDragged[index].tag != imageToBeDragged[index - 1].tag)
                         {
                             checkMarks[j].SetActive(true);
-                            highlightText.increaseFillAmount(ImagesToBeHighlighted[j+1]);
+                           StartCoroutine( highlightText.highlightText(ImagesToBeHighlighted[j+1]));
                            // GameManager.instance.transitionActive();
                            
 
@@ -106,6 +107,7 @@ public class TriggerChceking : MonoBehaviour {
     {
         //highlightText.fillAmountForImage += 1 *0.2f;
        StartCoroutine( allCheckmarksActivation());
+
     }
    public  IEnumerator allCheckmarksActivation()
     {
@@ -120,8 +122,11 @@ public class TriggerChceking : MonoBehaviour {
             //currentPanel.SetActive(false);
             // if(GameManager.instance.levelCounter<73){
             GameManager.instance.deactiveCurrentPanel();
+            flaskfill = true;
             transitionPanel.SetActive(true);
-            GameManager.instance.FillTheFlask();
+           
+           
+        
             yield return new WaitForSeconds(1f);
             transitionPanel.SetActive(false);
           
@@ -130,7 +135,7 @@ public class TriggerChceking : MonoBehaviour {
            
            // transitionPanel.SetActive(true);
            
-     //  StartCoroutine (GameManager.instance.transitionActive());
+       //StartCoroutine (GameManager.instance.transitionActive());
        //Debug.Log("abc");
             // GameManager.instance.ActivatingPanels();
            // StartCoroutine(deActivateTransitionPanels());

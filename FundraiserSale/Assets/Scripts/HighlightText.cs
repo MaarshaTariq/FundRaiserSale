@@ -7,52 +7,32 @@ public class HighlightText : MonoBehaviour {
  public Image highlightImage;
  public float maxFillAmount =400f;
  public  float fillAmountForImage;
-    public float waitTime = 30.0f;
+    public float waitTime = 1f;
     int j = 0;
     bool ht;
     TriggerChceking tc;
 
- public void Start()
- {
-     
-     fillAmountForImage= 1;
-        
-
-
  
- }
     public void Update()
     {
-        increaseFillAmount(highlightImage);
+       StartCoroutine( highlightText(highlightImage));
+        //increaseFillAmount(highlightImage);
         //increaseFillAmount();
     }
-    IEnumerator waitAfterLoad()
-    {
-        yield return new WaitForSeconds(2f);
-    }
-    public void Highlight(Image highlight_Image) 
-     {
-
-        
-            if (highlight_Image.fillAmount < maxFillAmount)
-            {
-                highlight_Image.fillAmount += fillAmountForImage  ;
-
-            }
-            
-       
-        
-    }
+   
     
-    public void increaseFillAmount(Image highlight_Image)
+    public IEnumerator highlightText(Image highlightImage)
     {
-        fillAmountForImage += 1f;
-        Highlight(highlight_Image);
+       
+        yield return new WaitForSeconds(0.5f);
+       
+        while (highlightImage.fillAmount <= 1)
+        {
+            highlightImage.fillAmount += 1f / waitTime * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
 
-  //public void IncreaseFillAmount()
-    //{
-	 //fillAmountForImage +=1f  ;
-     //}
+        
 
-}
+    }

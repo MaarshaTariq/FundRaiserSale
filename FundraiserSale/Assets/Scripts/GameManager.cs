@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
 {
 //<<<<<<< HEAD
  public static FlaskFilling flaskFilling;
-    public float fillAmountNumber;
-    
+    public float fillAmountNumber=0;
+    public float temp;
+    public float waitTime = 10f;
     public Image flaskFiller;
+    public GameObject menuManager;
     public GameObject endingPanel;
     public GameObject transitionPanel;
     public int levelCounter;
@@ -31,11 +33,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        fillAmountNumber = 0.125f;
+        temp = fillAmountNumber;
         instance = this;
        // tg = new TriggerChceking();
         VisitedlevelHistory = new List<int>();
         endingIndex = gamePanels.Length-1 ;
-        ActivatingPanels();
+        //ActivatingPanels();
     }
     public void Update()
     {
@@ -99,7 +103,8 @@ public class GameManager : MonoBehaviour
     }
     public void ActivatingPanels()
     {
-        StartCoroutine(randomizePanels(2f));
+        menuManager.SetActive(false);
+        StartCoroutine(randomizePanels(0f));
     }
     public IEnumerator switchPanels(int indexForLevel, float seconds) {
         yield return new WaitForSeconds(seconds);
@@ -122,7 +127,7 @@ public class GameManager : MonoBehaviour
     public void LevelFinish(int ind)
     {
         
-        StartCoroutine(switchPanels(ind, 1.1f));
+        StartCoroutine(switchPanels(ind, 0f));
        
     }
     
@@ -156,20 +161,25 @@ public class GameManager : MonoBehaviour
         gamePanels[index].SetActive (false); 
        // ActivatingPanels();
     }
-    public void FillTheFlask()
+    public IEnumerator FillTheFlask()
     {
-        if (PlayerPrefs.GetFloat("fillAmount") < 1)
-        {
-            fillAmountNumber += 0.125f;
-            PlayerPrefs.SetFloat("fillAmount", fillAmountNumber);
-            flaskFiller.fillAmount = PlayerPrefs.GetFloat("fillAmount");
-        }
-        else
+        temp = levelCounter * fillAmountNumber;
+       
+        
+
+            while (flaskFiller.fillAmount <= temp)
+            {
+                flaskFiller.fillAmount +=fillAmountNumber / waitTime * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+        
+    
+       /* else
         {
             fillAmountNumber = 0;
             PlayerPrefs.SetFloat("fillAmount", fillAmountNumber);
             flaskFiller.fillAmount = PlayerPrefs.GetFloat("fillAmount");
-        }
+        }*/
     }
 }
  

@@ -67,8 +67,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         Debug.Log("flagHit " + flagHit);
         if (flagHit)
         {
-            highlightText.fillAmountForImage -= 400;
-            highlightText.increaseFillAmount(eventData.pointerDrag.GetComponent<Image>());
+           // highlightText.fillAmountForImage -= 400;
+            //highlightText.increaseFillAmount(eventData.pointerDrag.GetComponent<Image>());
             // imageToBeDragged.SetActive(true);
             // imageToBeDragged.layer = 3;
             Debug.Log("OnEndDrag");

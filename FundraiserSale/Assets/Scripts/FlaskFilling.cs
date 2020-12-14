@@ -36,8 +36,10 @@ public class FlaskFilling : MonoBehaviour {
     }
     public IEnumerator transitionPanelDeactivate()
     {
-        yield return new WaitForSeconds(2f);
-        TriggerChceking.tg.transitionPanel.SetActive(false);
+        yield return new WaitForSeconds(5f);
         GameManager.instance.ActivatingPanels();
+        TriggerChceking.tg.transitionPanel.SetActive(false);
+        GameManager.instance.flaskFiller.fillAmount = 0;
+        
     }
 }
