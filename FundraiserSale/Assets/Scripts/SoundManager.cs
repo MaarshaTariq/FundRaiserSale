@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-    [HideInInspector]
 	public AudioClip[] sounds;
-	public AudioClip correctAudio ;
-	public AudioClip incorrectAudio ;
     public GameObject inputBlocker;
 	private AudioSource audioPlayer;
   
@@ -31,7 +28,7 @@ public class SoundManager : MonoBehaviour {
     public IEnumerator _playSound(int index)
     {
         inputBlocker.SetActive(true);
-        audioPlayer.clip = Toolbox.TextToSpeech.downloadedClips[index];
+        audioPlayer.clip = sounds[index];
         audioPlayer.Play();
         yield return new WaitForSeconds(audioPlayer.clip.length);
         inputBlocker.SetActive(false);
@@ -44,6 +41,6 @@ public class SoundManager : MonoBehaviour {
         yield return new WaitForSeconds(audioPlayer.clip.length);
         inputBlocker.SetActive(false);
     }
-    
+
 
 }
