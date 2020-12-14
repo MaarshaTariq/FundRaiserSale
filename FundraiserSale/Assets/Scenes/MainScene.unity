@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - cupcakes
   - FR
@@ -1827,6 +1828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - FR
   - brownies
@@ -3015,6 +3017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39ee615f179a424daf5821695f772af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fillAmountNumber: 0
   flaskFiller: {fileID: 1781280078}
   endingPanel: {fileID: 151368112}
   transitionPanel: {fileID: 2023936998}
@@ -10770,6 +10773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - cupcakes
   - FR
@@ -11068,6 +11072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - FR
   - brownies
@@ -13479,6 +13484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - brownies
   - cupcakes
@@ -18404,6 +18410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - brownies
   - FR
@@ -22133,7 +22140,6 @@ GameObject:
   - component: {fileID: 1781280076}
   - component: {fileID: 1781280079}
   - component: {fileID: 1781280078}
-  - component: {fileID: 1781280077}
   m_Layer: 0
   m_Name: flaskFiller
   m_TagString: Untagged
@@ -22159,17 +22165,6 @@ RectTransform:
   m_AnchoredPosition: {x: 167, y: -63.22174}
   m_SizeDelta: {x: 313, y: 852}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1781280077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1781280075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 994f0072e0b2d494b89130fac1a33d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1781280078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22194,7 +22189,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &1781280079
@@ -22351,6 +22346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - cupcakes
   - FR
@@ -24103,13 +24099,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2023936999}
   - component: {fileID: 2023937001}
+  - component: {fileID: 2023937000}
   m_Layer: 5
   m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2023936999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24134,6 +24131,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2023937000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023936998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994f0072e0b2d494b89130fac1a33d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &2023937001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25192,6 +25200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionPanel: {fileID: 2023936998}
+  fl: {fileID: 0}
   tagName:
   - FR
   - brownies

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TriggerChceking : MonoBehaviour {
     public GameObject transitionPanel;
+    public FlaskFilling fl;
     public string[] tagName ;
     public bool lastScoreImageActive = false;
     public bool highlighttext = false;
@@ -25,6 +26,7 @@ public class TriggerChceking : MonoBehaviour {
     public int draggedObjectsCounter;
     public void Start()
     {
+        fl = new FlaskFilling();
      //   manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         tg = this;
         highlightText = new HighlightText();
@@ -116,9 +118,14 @@ public class TriggerChceking : MonoBehaviour {
              yield return new WaitForSeconds(2);
             // manager.gamePanels[].SetActive(false);
             //currentPanel.SetActive(false);
-           // if(GameManager.instance.levelCounter<73){
-             GameManager.instance.ActivatingPanels();
-           GameManager.instance.deactiveCurrentPanel();
+            // if(GameManager.instance.levelCounter<73){
+            GameManager.instance.deactiveCurrentPanel();
+            transitionPanel.SetActive(true);
+            GameManager.instance.FillTheFlask();
+            yield return new WaitForSeconds(1f);
+            transitionPanel.SetActive(false);
+          
+        
             //}
            
            // transitionPanel.SetActive(true);

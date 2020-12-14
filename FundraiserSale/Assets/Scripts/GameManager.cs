@@ -8,6 +8,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 //<<<<<<< HEAD
+ public static FlaskFilling flaskFilling;
+    public float fillAmountNumber;
+    
     public Image flaskFiller;
     public GameObject endingPanel;
     public GameObject transitionPanel;
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
             //checker = true;
         }
         else{
-            if (levelCounter < 9)
+            if (levelCounter <= 8 && VisitedlevelHistory.Count != 8)
             {
                 ActivatingPanels();
             }
@@ -151,6 +154,15 @@ public class GameManager : MonoBehaviour
     {
         gamePanels[index].SetActive (false); 
        // ActivatingPanels();
+    }
+    public void FillTheFlask()
+    {
+        if (PlayerPrefs.GetFloat("fillAmount") < 8)
+        {
+            fillAmountNumber += 0.0625f;
+            PlayerPrefs.SetFloat("fillAmount", fillAmountNumber);
+            flaskFiller.fillAmount += fillAmountNumber;
+        }
     }
 }
  
