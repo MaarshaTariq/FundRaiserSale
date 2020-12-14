@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 45661809}
   - component: {fileID: 45661811}
   - component: {fileID: 45661810}
+  - component: {fileID: 45661812}
   m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
@@ -495,6 +496,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 45661808}
+--- !u!225 &45661812
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 45661808}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &51179259
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +586,7 @@ GameObject:
   - component: {fileID: 66581002}
   - component: {fileID: 66581001}
   - component: {fileID: 66581000}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodTray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1128,6 @@ GameObject:
   - component: {fileID: 90981431}
   - component: {fileID: 90981433}
   - component: {fileID: 90981432}
-  - component: {fileID: 90981434}
   m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
@@ -1175,26 +1186,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 90981430}
---- !u!223 &90981434
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 90981430}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &93114059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96301754}
   - component: {fileID: 96301755}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1281,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1979232136}
-  - {fileID: 1546229346}
   m_Father: {fileID: 2139877951}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1557,7 +1547,7 @@ Transform:
   - {fileID: 471056475}
   - {fileID: 128085788}
   m_Father: {fileID: 2139877951}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &112579369
 GameObject:
@@ -1656,7 +1646,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 113211426}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: foodTrayItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,7 +1667,7 @@ Transform:
   - {fileID: 2081423586}
   - {fileID: 1791283112}
   m_Father: {fileID: 1483090724}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115645742
 GameObject:
@@ -1819,7 +1809,7 @@ GameObject:
   - component: {fileID: 144253196}
   - component: {fileID: 144253195}
   - component: {fileID: 144253194}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodTray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2090,7 +2080,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 151383961}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2261,7 +2251,7 @@ GameObject:
   - component: {fileID: 173952483}
   - component: {fileID: 173952484}
   - component: {fileID: 173952485}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -2460,7 +2450,7 @@ Transform:
   - {fileID: 1000958232}
   - {fileID: 2039942796}
   m_Father: {fileID: 1009988044}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186735287
 GameObject:
@@ -2471,7 +2461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186735289}
   - component: {fileID: 186735288}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2500,7 +2490,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 278270572}
-  - {fileID: 2044147513}
   m_Father: {fileID: 1828870971}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2519,7 +2508,6 @@ GameObject:
   - component: {fileID: 189170442}
   - component: {fileID: 189170441}
   - component: {fileID: 189170440}
-  - component: {fileID: 189170447}
   m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
@@ -2689,26 +2677,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189170438}
---- !u!223 &189170447
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 189170438}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 1
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 10
-  m_TargetDisplay: 0
 --- !u!1 &195080248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2791,7 +2759,7 @@ GameObject:
   - component: {fileID: 200363294}
   - component: {fileID: 200363293}
   - component: {fileID: 200363292}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies (2)
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -2816,26 +2784,17 @@ RectTransform:
   m_AnchoredPosition: {x: 763, y: 338}
   m_SizeDelta: {x: 137, y: 338}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &200363292
-Canvas:
+--- !u!225 &200363292
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 200363290}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!50 &200363293
 Rigidbody2D:
   serializedVersion: 4
@@ -3145,7 +3104,7 @@ Transform:
   - {fileID: 88489425}
   - {fileID: 103061672}
   m_Father: {fileID: 1828870971}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228518823
 GameObject:
@@ -3363,7 +3322,8 @@ GameObject:
   - component: {fileID: 248579608}
   - component: {fileID: 248579611}
   - component: {fileID: 248579610}
-  m_Layer: 0
+  - component: {fileID: 248579609}
+  m_Layer: 5
   m_Name: FoodRack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3377,17 +3337,28 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248579607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -22.480026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1519434393}
-  m_RootOrder: 1
+  m_Father: {fileID: 993038017}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 890, y: 254}
+  m_AnchoredPosition: {x: 890.3596, y: 266.6848}
   m_SizeDelta: {x: 841, y: 244}
   m_Pivot: {x: 1, y: 1}
+--- !u!225 &248579609
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248579607}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &248579610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,7 +3644,7 @@ GameObject:
   - component: {fileID: 278270572}
   - component: {fileID: 278270574}
   - component: {fileID: 278270573}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5353,7 +5324,7 @@ GameObject:
   - component: {fileID: 430486823}
   - component: {fileID: 430486822}
   - component: {fileID: 430486821}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -5855,7 +5826,6 @@ GameObject:
   - component: {fileID: 464218488}
   - component: {fileID: 464218490}
   - component: {fileID: 464218489}
-  - component: {fileID: 464218491}
   m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
@@ -5914,26 +5884,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 464218487}
---- !u!223 &464218491
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 464218487}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 8
-  m_TargetDisplay: 0
 --- !u!1 &464776557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5963,7 +5913,7 @@ Transform:
   - {fileID: 106265555}
   - {fileID: 2059088601}
   m_Father: {fileID: 1009988044}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467669186
 GameObject:
@@ -5980,7 +5930,7 @@ GameObject:
   - component: {fileID: 467669193}
   - component: {fileID: 467669194}
   - component: {fileID: 467669192}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -6425,6 +6375,7 @@ GameObject:
   - component: {fileID: 487098575}
   - component: {fileID: 487098577}
   - component: {fileID: 487098576}
+  - component: {fileID: 487098578}
   m_Layer: 5
   m_Name: cupcakes(3)
   m_TagString: cupcakes
@@ -6483,6 +6434,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 487098574}
+--- !u!225 &487098578
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487098574}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &499923313
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,9 +6612,9 @@ RectTransform:
   - {fileID: 89327067}
   - {fileID: 980019}
   - {fileID: 995882317}
+  - {fileID: 1241113599}
   - {fileID: 1342406439}
   - {fileID: 962787625}
-  - {fileID: 1241113599}
   - {fileID: 411886860}
   - {fileID: 528503458}
   m_Father: {fileID: 1790284138}
@@ -6876,7 +6838,7 @@ GameObject:
   - component: {fileID: 540097672}
   - component: {fileID: 540097674}
   - component: {fileID: 540097673}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6949,7 +6911,7 @@ GameObject:
   - component: {fileID: 542973679}
   - component: {fileID: 542973678}
   - component: {fileID: 542973677}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -7452,8 +7414,8 @@ GameObject:
   - component: {fileID: 572277940}
   - component: {fileID: 572277939}
   - component: {fileID: 572277938}
-  - component: {fileID: 572277937}
-  m_Layer: 0
+  - component: {fileID: 572277943}
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -7478,26 +7440,6 @@ RectTransform:
   m_AnchoredPosition: {x: 759, y: 338}
   m_SizeDelta: {x: 137, y: 338}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &572277937
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 572277935}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &572277938
 Rigidbody2D:
   serializedVersion: 4
@@ -7617,6 +7559,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 572277935}
+--- !u!225 &572277943
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572277935}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &574889965
 GameObject:
   m_ObjectHideFlags: 0
@@ -7720,7 +7673,7 @@ GameObject:
   - component: {fileID: 586847258}
   - component: {fileID: 586847257}
   - component: {fileID: 586847262}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -7864,26 +7817,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 586847255}
---- !u!223 &586847262
-Canvas:
+--- !u!225 &586847262
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 586847255}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &586920603
 GameObject:
   m_ObjectHideFlags: 0
@@ -8216,7 +8160,7 @@ GameObject:
   - component: {fileID: 601574718}
   - component: {fileID: 601574717}
   - component: {fileID: 601574716}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -8609,7 +8553,7 @@ GameObject:
   - component: {fileID: 625801378}
   - component: {fileID: 625801377}
   - component: {fileID: 625801376}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -8788,7 +8732,6 @@ GameObject:
   - component: {fileID: 627910300}
   - component: {fileID: 627910302}
   - component: {fileID: 627910301}
-  - component: {fileID: 627910303}
   m_Layer: 5
   m_Name: cookies (2)
   m_TagString: FR
@@ -8847,26 +8790,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 627910299}
---- !u!223 &627910303
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 627910299}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &638552009
 GameObject:
   m_ObjectHideFlags: 0
@@ -9321,7 +9244,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 659685464}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9526,7 +9449,7 @@ GameObject:
   - component: {fileID: 692602284}
   - component: {fileID: 692602283}
   - component: {fileID: 692602282}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -9710,7 +9633,6 @@ GameObject:
   - component: {fileID: 694773484}
   - component: {fileID: 694773483}
   - component: {fileID: 694773482}
-  - component: {fileID: 694773489}
   m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
@@ -9880,26 +9802,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694773480}
---- !u!223 &694773489
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 694773480}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 1
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 10
-  m_TargetDisplay: 0
 --- !u!1 &702522758
 GameObject:
   m_ObjectHideFlags: 0
@@ -10044,7 +9946,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 722736668}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10195,7 +10097,7 @@ Transform:
   - {fileID: 1753604478}
   - {fileID: 1903858380}
   m_Father: {fileID: 845050753}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771627455
 GameObject:
@@ -10212,7 +10114,7 @@ GameObject:
   - component: {fileID: 771627459}
   - component: {fileID: 771627458}
   - component: {fileID: 771627457}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -10745,8 +10647,8 @@ GameObject:
   - component: {fileID: 799971532}
   - component: {fileID: 799971531}
   - component: {fileID: 799971530}
-  - component: {fileID: 799971529}
-  m_Layer: 9
+  - component: {fileID: 799971535}
+  m_Layer: 5
   m_Name: brownies (1)
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -10771,26 +10673,6 @@ RectTransform:
   m_AnchoredPosition: {x: 645, y: 311}
   m_SizeDelta: {x: 297, y: 148}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &799971529
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 799971527}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &799971530
 Rigidbody2D:
   serializedVersion: 4
@@ -10910,6 +10792,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 799971527}
+--- !u!225 &799971535
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799971527}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &801198668
 GameObject:
   m_ObjectHideFlags: 0
@@ -11010,7 +10903,7 @@ GameObject:
   - component: {fileID: 804221007}
   - component: {fileID: 804221006}
   - component: {fileID: 804221005}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodTray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11130,7 +11023,7 @@ GameObject:
   - component: {fileID: 812943609}
   - component: {fileID: 812943608}
   - component: {fileID: 812943607}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -11626,9 +11519,9 @@ RectTransform:
   - {fileID: 51179260}
   - {fileID: 90944000}
   - {fileID: 1519434393}
+  - {fileID: 993038017}
   - {fileID: 1372211900}
   - {fileID: 760218276}
-  - {fileID: 993038017}
   - {fileID: 888645739}
   - {fileID: 443089770}
   m_Father: {fileID: 1790284138}
@@ -11718,8 +11611,8 @@ GameObject:
   - component: {fileID: 870263803}
   - component: {fileID: 870263802}
   - component: {fileID: 870263801}
-  - component: {fileID: 870263800}
-  m_Layer: 9
+  - component: {fileID: 870263806}
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -11744,26 +11637,6 @@ RectTransform:
   m_AnchoredPosition: {x: 506, y: 400}
   m_SizeDelta: {x: 297, y: 148}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &870263800
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 870263798}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &870263801
 Rigidbody2D:
   serializedVersion: 4
@@ -11883,6 +11756,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 870263798}
+--- !u!225 &870263806
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870263798}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &872110699
 GameObject:
   m_ObjectHideFlags: 0
@@ -11898,7 +11782,7 @@ GameObject:
   - component: {fileID: 872110703}
   - component: {fileID: 872110702}
   - component: {fileID: 872110701}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -12080,8 +11964,8 @@ GameObject:
   - component: {fileID: 872873212}
   - component: {fileID: 872873211}
   - component: {fileID: 872873210}
-  - component: {fileID: 872873209}
-  m_Layer: 9
+  - component: {fileID: 872873215}
+  m_Layer: 5
   m_Name: cupcakes (1)
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -12106,26 +11990,6 @@ RectTransform:
   m_AnchoredPosition: {x: 276, y: 302}
   m_SizeDelta: {x: 297, y: 166}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &872873209
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 872873207}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &872873210
 Rigidbody2D:
   serializedVersion: 4
@@ -12245,6 +12109,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872873207}
+--- !u!225 &872873215
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 872873207}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &873224792
 GameObject:
   m_ObjectHideFlags: 0
@@ -12408,7 +12283,7 @@ GameObject:
   - component: {fileID: 882256321}
   - component: {fileID: 882256324}
   - component: {fileID: 882256323}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12422,15 +12297,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 882256320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -22.480026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 995882317}
-  m_RootOrder: 1
+  m_Father: {fileID: 1241113599}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 890, y: 254}
+  m_AnchoredPosition: {x: 890.3596, y: 266.6848}
   m_SizeDelta: {x: 841, y: 244}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &882256323
@@ -12773,7 +12648,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 897141524}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13171,8 +13046,8 @@ GameObject:
   - component: {fileID: 937612770}
   - component: {fileID: 937612769}
   - component: {fileID: 937612768}
-  - component: {fileID: 937612767}
-  m_Layer: 9
+  - component: {fileID: 937612773}
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -13197,26 +13072,6 @@ RectTransform:
   m_AnchoredPosition: {x: 434, y: 389}
   m_SizeDelta: {x: 297, y: 166}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &937612767
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 937612765}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &937612768
 Rigidbody2D:
   serializedVersion: 4
@@ -13336,6 +13191,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 937612765}
+--- !u!225 &937612773
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 937612765}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &939098383
 GameObject:
   m_ObjectHideFlags: 0
@@ -13437,7 +13303,7 @@ Transform:
   - {fileID: 1717601950}
   - {fileID: 1429724115}
   m_Father: {fileID: 1015426434}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &949061993
 GameObject:
@@ -13648,7 +13514,7 @@ Transform:
   - {fileID: 1487452643}
   - {fileID: 407468512}
   m_Father: {fileID: 501221219}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984046598
 GameObject:
@@ -13815,7 +13681,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 993038017}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: foodTrayItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13836,8 +13702,9 @@ Transform:
   - {fileID: 1765677843}
   - {fileID: 870263799}
   - {fileID: 799971528}
+  - {fileID: 248579608}
   m_Father: {fileID: 845050753}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995882315
 GameObject:
@@ -13848,7 +13715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 995882317}
   - component: {fileID: 995882316}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13877,7 +13744,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 540097672}
-  - {fileID: 882256321}
   m_Father: {fileID: 501221219}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14011,6 +13877,7 @@ GameObject:
   - component: {fileID: 1000958232}
   - component: {fileID: 1000958234}
   - component: {fileID: 1000958233}
+  - component: {fileID: 1000958235}
   m_Layer: 5
   m_Name: cupcakes (1)
   m_TagString: cupcakes
@@ -14069,6 +13936,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1000958231}
+--- !u!225 &1000958235
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1000958231}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1002004200
 GameObject:
   m_ObjectHideFlags: 0
@@ -14082,8 +13960,8 @@ GameObject:
   - component: {fileID: 1002004205}
   - component: {fileID: 1002004204}
   - component: {fileID: 1002004203}
-  - component: {fileID: 1002004202}
-  m_Layer: 9
+  - component: {fileID: 1002004208}
+  m_Layer: 5
   m_Name: cupcakes (2)
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -14108,26 +13986,6 @@ RectTransform:
   m_AnchoredPosition: {x: 534, y: 290}
   m_SizeDelta: {x: 297, y: 166}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &1002004202
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1002004200}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &1002004203
 Rigidbody2D:
   serializedVersion: 4
@@ -14247,6 +14105,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1002004200}
+--- !u!225 &1002004208
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002004200}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1004063188
 GameObject:
   m_ObjectHideFlags: 0
@@ -14257,6 +14126,7 @@ GameObject:
   - component: {fileID: 1004063189}
   - component: {fileID: 1004063191}
   - component: {fileID: 1004063190}
+  - component: {fileID: 1004063192}
   m_Layer: 5
   m_Name: cupcakes (4)
   m_TagString: cupcakes
@@ -14315,6 +14185,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004063188}
+--- !u!225 &1004063192
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004063188}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1004417794
 GameObject:
   m_ObjectHideFlags: 0
@@ -14530,9 +14411,9 @@ RectTransform:
   - {fileID: 211042546}
   - {fileID: 1295449227}
   - {fileID: 1613565485}
+  - {fileID: 178914124}
   - {fileID: 1908611791}
   - {fileID: 464776558}
-  - {fileID: 178914124}
   - {fileID: 266399580}
   - {fileID: 1034995215}
   m_Father: {fileID: 1790284138}
@@ -14607,9 +14488,9 @@ RectTransform:
   - {fileID: 173922886}
   - {fileID: 876267351}
   - {fileID: 1030233322}
+  - {fileID: 1096146370}
   - {fileID: 943564406}
   - {fileID: 1087090214}
-  - {fileID: 1096146370}
   - {fileID: 1877835851}
   - {fileID: 782008081}
   m_Father: {fileID: 1790284138}
@@ -14691,7 +14572,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1653041766}
-  - {fileID: 1162830535}
   m_Father: {fileID: 1015426434}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14703,7 +14583,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1033143870}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14859,7 +14739,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1049139169}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15070,7 +14950,8 @@ GameObject:
   - component: {fileID: 1082142363}
   - component: {fileID: 1082142362}
   - component: {fileID: 1082142361}
-  m_Layer: 0
+  - component: {fileID: 1082142360}
+  m_Layer: 5
   m_Name: brownies (1)
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -15095,6 +14976,17 @@ RectTransform:
   m_AnchoredPosition: {x: 654, y: 364}
   m_SizeDelta: {x: 294, y: 147}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1082142360
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082142358}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!50 &1082142361
 Rigidbody2D:
   serializedVersion: 4
@@ -15243,7 +15135,7 @@ Transform:
   - {fileID: 586920604}
   - {fileID: 1666106619}
   m_Father: {fileID: 1015426434}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096146369
 GameObject:
@@ -15253,7 +15145,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1096146370}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: foodTrayItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15273,8 +15165,9 @@ Transform:
   - {fileID: 1111091741}
   - {fileID: 1082142359}
   - {fileID: 1639477290}
+  - {fileID: 1162830535}
   m_Father: {fileID: 1015426434}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096355414
 GameObject:
@@ -15394,7 +15287,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1101069042}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15432,7 +15325,8 @@ GameObject:
   - component: {fileID: 1111091745}
   - component: {fileID: 1111091744}
   - component: {fileID: 1111091743}
-  m_Layer: 0
+  - component: {fileID: 1111091742}
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -15457,6 +15351,17 @@ RectTransform:
   m_AnchoredPosition: {x: 279, y: 364}
   m_SizeDelta: {x: 294, y: 147}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1111091742
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1111091740}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!50 &1111091743
 Rigidbody2D:
   serializedVersion: 4
@@ -15701,7 +15606,7 @@ GameObject:
   - component: {fileID: 1117423453}
   - component: {fileID: 1117423454}
   - component: {fileID: 1117423455}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -15981,6 +15886,7 @@ GameObject:
   - component: {fileID: 1162830535}
   - component: {fileID: 1162830538}
   - component: {fileID: 1162830537}
+  - component: {fileID: 1162830536}
   m_Layer: 5
   m_Name: FoodRack (1)
   m_TagString: Untagged
@@ -15995,17 +15901,28 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1162830534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -22.480026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1030233322}
-  m_RootOrder: 1
+  m_Father: {fileID: 1096146370}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1821, y: 844}
+  m_AnchoredPosition: {x: 907.3596, y: 271.6848}
   m_SizeDelta: {x: 841, y: 244}
   m_Pivot: {x: 1, y: 1}
+--- !u!225 &1162830536
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162830534}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &1162830537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16117,7 +16034,10 @@ GameObject:
   - component: {fileID: 1179090227}
   - component: {fileID: 1179090229}
   - component: {fileID: 1179090228}
+  - component: {fileID: 1179090232}
+  - component: {fileID: 1179090231}
   - component: {fileID: 1179090230}
+  - component: {fileID: 1179090233}
   m_Layer: 5
   m_Name: cookies
   m_TagString: FR
@@ -16176,26 +16096,76 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1179090226}
---- !u!223 &1179090230
-Canvas:
+--- !u!61 &1179090230
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1179090226}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 1
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 10
-  m_TargetDisplay: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 15.626831, y: 9.940247}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 106.12573, y: 327.72107}
+  m_EdgeRadius: 0
+--- !u!50 &1179090231
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179090226}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!225 &1179090232
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179090226}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1179090233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179090226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb0641c9ccb1c64394b2f295bb045dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagHit: 0
+  ObjectTogetHit: {fileID: 1613565483}
+  initialTransform: {x: 0, y: 0, z: 0}
 --- !u!1 &1179367440
 GameObject:
   m_ObjectHideFlags: 0
@@ -16530,7 +16500,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1241113599}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: foodTrayItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16551,8 +16521,9 @@ Transform:
   - {fileID: 2058834647}
   - {fileID: 1635123965}
   - {fileID: 627910300}
+  - {fileID: 882256321}
   m_Father: {fileID: 501221219}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257740150
 GameObject:
@@ -16651,7 +16622,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1270286439}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16758,7 +16729,7 @@ GameObject:
   - component: {fileID: 1271695314}
   - component: {fileID: 1271695313}
   - component: {fileID: 1271695312}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: cupcakes (1)
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -16783,26 +16754,17 @@ RectTransform:
   m_AnchoredPosition: {x: 280, y: 430}
   m_SizeDelta: {x: 277, y: 159}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &1271695312
-Canvas:
+--- !u!225 &1271695312
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1271695310}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!50 &1271695313
 Rigidbody2D:
   serializedVersion: 4
@@ -17255,7 +17217,7 @@ GameObject:
   - component: {fileID: 1302305432}
   - component: {fileID: 1302305431}
   - component: {fileID: 1302305430}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: cookies (1)
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -17280,26 +17242,17 @@ RectTransform:
   m_AnchoredPosition: {x: 730, y: 338}
   m_SizeDelta: {x: 137, y: 338}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &1302305430
-Canvas:
+--- !u!225 &1302305430
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1302305428}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!50 &1302305431
 Rigidbody2D:
   serializedVersion: 4
@@ -17699,7 +17652,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1342406439}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OptionsImages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17724,7 +17677,7 @@ Transform:
   - {fileID: 1992152239}
   - {fileID: 1790371931}
   m_Father: {fileID: 501221219}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372211899
 GameObject:
@@ -17734,7 +17687,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1372211900}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OptionsImages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17759,7 +17712,7 @@ Transform:
   - {fileID: 1049139169}
   - {fileID: 144253193}
   m_Father: {fileID: 845050753}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1381798127
 GameObject:
@@ -18469,6 +18422,7 @@ GameObject:
   - component: {fileID: 1433972615}
   - component: {fileID: 1433972617}
   - component: {fileID: 1433972616}
+  - component: {fileID: 1433972618}
   m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
@@ -18527,6 +18481,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1433972614}
+--- !u!225 &1433972618
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433972614}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1479591088
 GameObject:
   m_ObjectHideFlags: 0
@@ -18628,7 +18593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1483090724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18643,9 +18608,9 @@ RectTransform:
   - {fileID: 195080249}
   - {fileID: 1196811907}
   - {fileID: 1636714990}
-  - {fileID: 1541509286}
   - {fileID: 113211426}
   - {fileID: 2031495233}
+  - {fileID: 1541509286}
   - {fileID: 80276223}
   - {fileID: 1575460109}
   m_Father: {fileID: 1790284138}
@@ -19009,7 +18974,7 @@ GameObject:
   - component: {fileID: 1512704964}
   - component: {fileID: 1512704966}
   - component: {fileID: 1512704965}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19215,7 +19180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1519434393}
   - component: {fileID: 1519434392}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19244,7 +19209,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1512704964}
-  - {fileID: 248579608}
   m_Father: {fileID: 845050753}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19379,7 +19343,7 @@ Transform:
   - {fileID: 1161164252}
   - {fileID: 873224793}
   m_Father: {fileID: 1483090724}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1546229345
 GameObject:
@@ -19391,7 +19355,8 @@ GameObject:
   - component: {fileID: 1546229346}
   - component: {fileID: 1546229348}
   - component: {fileID: 1546229347}
-  m_Layer: 0
+  - component: {fileID: 1546229349}
+  m_Layer: 5
   m_Name: FoodRack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19405,15 +19370,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1546229345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -22.480026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 96301754}
-  m_RootOrder: 1
+  m_Father: {fileID: 2059864335}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 890, y: 254}
+  m_AnchoredPosition: {x: 890.3596, y: 266.6848}
   m_SizeDelta: {x: 841, y: 244}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1546229347
@@ -19449,6 +19414,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1546229345}
+--- !u!225 &1546229349
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1546229345}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1565093151
 GameObject:
   m_ObjectHideFlags: 0
@@ -19457,7 +19433,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1565093152}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19485,7 +19461,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1572649948}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19944,7 +19920,8 @@ GameObject:
   - component: {fileID: 1610828456}
   - component: {fileID: 1610828458}
   - component: {fileID: 1610828457}
-  m_Layer: 0
+  - component: {fileID: 1610828459}
+  m_Layer: 5
   m_Name: cookies(1)
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -20002,6 +19979,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1610828455}
+--- !u!225 &1610828459
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1610828455}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1613565483
 GameObject:
   m_ObjectHideFlags: 0
@@ -20121,7 +20109,6 @@ GameObject:
   - component: {fileID: 1635123965}
   - component: {fileID: 1635123967}
   - component: {fileID: 1635123966}
-  - component: {fileID: 1635123968}
   m_Layer: 5
   m_Name: cookies (1)
   m_TagString: FR
@@ -20180,26 +20167,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635123964}
---- !u!223 &1635123968
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1635123964}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &1636714988
 GameObject:
   m_ObjectHideFlags: 0
@@ -20209,6 +20176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1636714990}
   - component: {fileID: 1636714989}
+  - component: {fileID: 1636714991}
   m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
@@ -20241,6 +20209,17 @@ Transform:
   m_Father: {fileID: 1483090724}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1636714991
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636714988}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1639477289
 GameObject:
   m_ObjectHideFlags: 0
@@ -20254,7 +20233,8 @@ GameObject:
   - component: {fileID: 1639477294}
   - component: {fileID: 1639477293}
   - component: {fileID: 1639477292}
-  m_Layer: 0
+  - component: {fileID: 1639477291}
+  m_Layer: 5
   m_Name: brownies (2)
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -20279,6 +20259,17 @@ RectTransform:
   m_AnchoredPosition: {x: 485.45105, y: 305}
   m_SizeDelta: {x: 294, y: 147}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1639477291
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639477289}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!50 &1639477292
 Rigidbody2D:
   serializedVersion: 4
@@ -20480,7 +20471,7 @@ GameObject:
   - component: {fileID: 1663724180}
   - component: {fileID: 1663724178}
   - component: {fileID: 1663724179}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}
@@ -20525,26 +20516,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!223 &1663724179
-Canvas:
+--- !u!225 &1663724179
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663724176}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -783401565
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!61 &1663724180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21120,7 +21102,7 @@ GameObject:
   - component: {fileID: 1719028529}
   - component: {fileID: 1719028528}
   - component: {fileID: 1719028527}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -21391,8 +21373,8 @@ GameObject:
   - component: {fileID: 1733396031}
   - component: {fileID: 1733396030}
   - component: {fileID: 1733396029}
-  - component: {fileID: 1733396028}
-  m_Layer: 0
+  - component: {fileID: 1733396034}
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -21417,17 +21399,6 @@ RectTransform:
   m_AnchoredPosition: {x: 658, y: 364}
   m_SizeDelta: {x: 137, y: 337}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &1733396028
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1733396026}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!50 &1733396029
 Rigidbody2D:
   serializedVersion: 4
@@ -21547,6 +21518,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1733396026}
+--- !u!225 &1733396034
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1733396026}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1739176891
 GameObject:
   m_ObjectHideFlags: 0
@@ -21693,6 +21675,7 @@ GameObject:
   - component: {fileID: 1752337434}
   - component: {fileID: 1752337436}
   - component: {fileID: 1752337435}
+  - component: {fileID: 1752337437}
   m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
@@ -21751,6 +21734,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752337433}
+--- !u!225 &1752337437
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752337433}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1753604477
 GameObject:
   m_ObjectHideFlags: 0
@@ -21874,8 +21868,8 @@ GameObject:
   - component: {fileID: 1765677847}
   - component: {fileID: 1765677846}
   - component: {fileID: 1765677845}
-  - component: {fileID: 1765677844}
-  m_Layer: 0
+  - component: {fileID: 1765677850}
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -21900,26 +21894,6 @@ RectTransform:
   m_AnchoredPosition: {x: 235, y: 338}
   m_SizeDelta: {x: 137, y: 337}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &1765677844
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1765677842}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!50 &1765677845
 Rigidbody2D:
   serializedVersion: 4
@@ -22039,6 +22013,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765677842}
+--- !u!225 &1765677850
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1765677842}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1767453676
 GameObject:
   m_ObjectHideFlags: 0
@@ -22291,7 +22276,7 @@ GameObject:
   - component: {fileID: 1790371934}
   - component: {fileID: 1790371933}
   - component: {fileID: 1790371932}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodTray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22484,6 +22469,7 @@ GameObject:
   - component: {fileID: 1817217358}
   - component: {fileID: 1817217360}
   - component: {fileID: 1817217359}
+  - component: {fileID: 1817217361}
   m_Layer: 5
   m_Name: cookies(1)
   m_TagString: FR
@@ -22542,6 +22528,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817217357}
+--- !u!225 &1817217361
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1817217357}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1818443057
 GameObject:
   m_ObjectHideFlags: 0
@@ -22840,9 +22837,9 @@ RectTransform:
   - {fileID: 2076848905}
   - {fileID: 996453804}
   - {fileID: 186735289}
+  - {fileID: 1998309043}
   - {fileID: 2015506026}
   - {fileID: 220995818}
-  - {fileID: 1998309043}
   - {fileID: 1423666542}
   - {fileID: 931820931}
   m_Father: {fileID: 1790284138}
@@ -22894,7 +22891,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1848051653}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OptionsImages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22919,7 +22916,7 @@ Transform:
   - {fileID: 659685464}
   - {fileID: 66580999}
   m_Father: {fileID: 2139877951}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869518466
 GameObject:
@@ -23328,7 +23325,7 @@ Transform:
   - {fileID: 409308972}
   - {fileID: 951922994}
   m_Father: {fileID: 1009988044}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919406332
 GameObject:
@@ -23757,7 +23754,7 @@ GameObject:
   - component: {fileID: 1979232136}
   - component: {fileID: 1979232138}
   - component: {fileID: 1979232137}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FoodRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23823,7 +23820,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1992152239}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23851,7 +23848,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1998309043}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: foodTrayItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23873,8 +23870,9 @@ Transform:
   - {fileID: 1002004201}
   - {fileID: 572277936}
   - {fileID: 1817217358}
+  - {fileID: 2044147513}
   m_Father: {fileID: 1828870971}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001484615
 GameObject:
@@ -23952,7 +23950,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2015506026}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OptionsImages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23977,7 +23975,7 @@ Transform:
   - {fileID: 151383961}
   - {fileID: 804221004}
   m_Father: {fileID: 1828870971}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023299273
 GameObject:
@@ -24125,7 +24123,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2031495233}
-  - component: {fileID: 2031495234}
   m_Layer: 5
   m_Name: OptionsImages
   m_TagString: Untagged
@@ -24151,19 +24148,8 @@ Transform:
   - {fileID: 420077264}
   - {fileID: 2088589804}
   m_Father: {fileID: 1483090724}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!225 &2031495234
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2031495232}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &2032351417
 GameObject:
   m_ObjectHideFlags: 0
@@ -24289,26 +24275,17 @@ RectTransform:
   m_AnchoredPosition: {x: 890.3596, y: 266.6848}
   m_SizeDelta: {x: 841, y: 244}
   m_Pivot: {x: 1, y: 1}
---- !u!223 &2039942797
-Canvas:
+--- !u!225 &2039942797
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2039942795}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 9
-  m_TargetDisplay: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &2039942798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24352,7 +24329,8 @@ GameObject:
   - component: {fileID: 2044147513}
   - component: {fileID: 2044147516}
   - component: {fileID: 2044147515}
-  m_Layer: 0
+  - component: {fileID: 2044147514}
+  m_Layer: 5
   m_Name: FoodRack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24366,17 +24344,28 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2044147512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -22.480026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 186735289}
-  m_RootOrder: 1
+  m_Father: {fileID: 1998309043}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 890, y: 254}
+  m_AnchoredPosition: {x: 890.3596, y: 266.6848}
   m_SizeDelta: {x: 841, y: 244}
   m_Pivot: {x: 1, y: 1}
+--- !u!225 &2044147514
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044147512}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &2044147515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24420,7 +24409,6 @@ GameObject:
   - component: {fileID: 2058834647}
   - component: {fileID: 2058834649}
   - component: {fileID: 2058834648}
-  - component: {fileID: 2058834650}
   m_Layer: 5
   m_Name: cookies
   m_TagString: FR
@@ -24479,26 +24467,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2058834646}
---- !u!223 &2058834650
-Canvas:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2058834646}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &2059088600
 GameObject:
   m_ObjectHideFlags: 0
@@ -24617,7 +24585,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2059864335}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: foodTrayItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24641,8 +24609,9 @@ Transform:
   - {fileID: 586847256}
   - {fileID: 1302305429}
   - {fileID: 200363291}
+  - {fileID: 1546229346}
   m_Father: {fileID: 2139877951}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065822018
 GameObject:
@@ -24973,8 +24942,8 @@ GameObject:
   - component: {fileID: 2081423590}
   - component: {fileID: 2081423589}
   - component: {fileID: 2081423588}
-  - component: {fileID: 2081423587}
-  m_Layer: 0
+  - component: {fileID: 2081423593}
+  m_Layer: 5
   m_Name: cookies (1)
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -24999,17 +24968,6 @@ RectTransform:
   m_AnchoredPosition: {x: 408, y: 364}
   m_SizeDelta: {x: 137, y: 337}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &2081423587
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2081423585}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!50 &2081423588
 Rigidbody2D:
   serializedVersion: 4
@@ -25129,6 +25087,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2081423585}
+--- !u!225 &2081423593
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081423585}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2088589803
 GameObject:
   m_ObjectHideFlags: 0
@@ -25523,9 +25492,9 @@ RectTransform:
   - {fileID: 1428330223}
   - {fileID: 617544283}
   - {fileID: 96301754}
+  - {fileID: 2059864335}
   - {fileID: 1848051653}
   - {fileID: 108862185}
-  - {fileID: 2059864335}
   - {fileID: 1919406333}
   - {fileID: 1037054997}
   m_Father: {fileID: 1790284138}
@@ -25604,7 +25573,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2144890969}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
