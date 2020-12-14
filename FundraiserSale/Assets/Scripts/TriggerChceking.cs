@@ -73,9 +73,12 @@ public class TriggerChceking : MonoBehaviour {
                         {
                             checkMarks[j].SetActive(true);
                             highlightText.increaseFillAmount(ImagesToBeHighlighted[j+1]);
+                           // GameManager.instance.transitionActive();
+                           
 
                             //  ImagesToBeHighlighted[j + 1].fillAmount = fillAmountForImage * Time.time * 0.2f;
                             highlighttext = true;
+
                         }
 
                         Debug.Log(index);
@@ -110,10 +113,19 @@ public class TriggerChceking : MonoBehaviour {
           //  Debug.Log(checkMarks[1].name);
             yield return new WaitForSeconds(3f);
             lastScoreImageActive = true;
+             yield return new WaitForSeconds(2);
             // manager.gamePanels[].SetActive(false);
             //currentPanel.SetActive(false);
-            GameManager.instance.deactiveCurrentPanel();
-            transitionPanel.SetActive(true);
+           // if(GameManager.instance.levelCounter<73){
+             GameManager.instance.ActivatingPanels();
+           GameManager.instance.deactiveCurrentPanel();
+            //}
+           
+           // transitionPanel.SetActive(true);
+           
+     //  StartCoroutine (GameManager.instance.transitionActive());
+       //Debug.Log("abc");
+            // GameManager.instance.ActivatingPanels();
            // StartCoroutine(deActivateTransitionPanels());
         }
     }

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         instance = this;
        // tg = new TriggerChceking();
         VisitedlevelHistory = new List<int>();
-        endingIndex = gamePanels.Length - 1;
+        endingIndex = gamePanels.Length-1 ;
         ActivatingPanels();
     }
     public void Update()
@@ -43,32 +43,46 @@ public class GameManager : MonoBehaviour
         //checkvartrue();
       // repeat (gamePanels[index], index);
     }
+    public IEnumerator transitionActive(){
+        yield return new WaitForSeconds(2);
+         transitionPanel.SetActive(true);
+            yield return new WaitForSeconds(3);
+                        flaskFiller.fillAmount += 0.125f;
+
+    }
     public IEnumerator randomizePanels(float sec)
     {
         yield return new WaitForSeconds(sec);
          index = Random.Range(startingIndex, endingIndex + 1);
+         Debug.Log("abc"+index);
+         
         if (VisitedlevelHistory.Contains(index) == false)
         {
+            Debug.Log("ac" +index);
             levelCounter++;
 
 
            // Debug.LogError("index ix " + index + " " + levelCounter);
 
             gamePanels[index].SetActive(true);
-            transitionPanel.SetActive(false);
+           
             // tg.allCheckmarksActivation();
             //if (tg.checkMarks[1].activeInHierarchy)
             //{
               //  transitionPanel.SetActive(true);
             //}
-            flaskFiller.fillAmount += 0.125f;
 
 
             LevelFinish(index);
+                      
+
           
             VisitedlevelHistory.Add(index);
            // manager.levelCounter = index;
             //checker = true;
+        }
+        else{
+
         }
     }
     public void ActivatingPanels()
@@ -88,7 +102,7 @@ public class GameManager : MonoBehaviour
             {
                 gamePanels[i].SetActive(false);
             }
-            levelCounter++;
+           // levelCounter++;
         }
     }
     
@@ -108,7 +122,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
 
             currentPanel.SetActive(false);
-            transitionPanel.SetActive(true);
+           // transitionPanel.SetActive(true);
           //  yield return new WaitForSeconds(2f);
 
 
@@ -128,6 +142,7 @@ public class GameManager : MonoBehaviour
     public void deactiveCurrentPanel()
     {
         gamePanels[index].SetActive (false); 
+       // ActivatingPanels();
     }
 }
  
