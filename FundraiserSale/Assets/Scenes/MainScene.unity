@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 87512731}
   - component: {fileID: 87512730}
   - component: {fileID: 87512729}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: brownies
   m_TagString: brownies
   m_Icon: {fileID: 0}
@@ -12825,7 +12825,7 @@ GameObject:
   - component: {fileID: 908465733}
   - component: {fileID: 908465732}
   - component: {fileID: 908465731}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: cookies
   m_TagString: FR
   m_Icon: {fileID: 0}
@@ -24106,7 +24106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2023936999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25349,7 +25349,7 @@ GameObject:
   - component: {fileID: 2139401715}
   - component: {fileID: 2139401714}
   - component: {fileID: 2139401713}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: cupcakes
   m_TagString: cupcakes
   m_Icon: {fileID: 0}

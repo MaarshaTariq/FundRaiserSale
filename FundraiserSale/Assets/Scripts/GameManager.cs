@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+              
                 endingPanel.SetActive(true);
             }
         }
@@ -157,11 +158,17 @@ public class GameManager : MonoBehaviour
     }
     public void FillTheFlask()
     {
-        if (PlayerPrefs.GetFloat("fillAmount") < 8)
+        if (PlayerPrefs.GetFloat("fillAmount") < 1)
         {
-            fillAmountNumber += 0.0625f;
+            fillAmountNumber += 0.125f;
             PlayerPrefs.SetFloat("fillAmount", fillAmountNumber);
-            flaskFiller.fillAmount += fillAmountNumber;
+            flaskFiller.fillAmount = PlayerPrefs.GetFloat("fillAmount");
+        }
+        else
+        {
+            fillAmountNumber = 0;
+            PlayerPrefs.SetFloat("fillAmount", fillAmountNumber);
+            flaskFiller.fillAmount = PlayerPrefs.GetFloat("fillAmount");
         }
     }
 }
