@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
 //<<<<<<< HEAD
     public Image flaskFiller;
+    public GameObject endingPanel;
     public GameObject transitionPanel;
     public int levelCounter;
     public int startingIndex=0;
@@ -82,7 +83,14 @@ public class GameManager : MonoBehaviour
             //checker = true;
         }
         else{
-
+            if (levelCounter < 9)
+            {
+                ActivatingPanels();
+            }
+            else
+            {
+                endingPanel.SetActive(true);
+            }
         }
     }
     public void ActivatingPanels()
