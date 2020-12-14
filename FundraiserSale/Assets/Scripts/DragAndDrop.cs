@@ -8,19 +8,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 {
     public bool flagHit;
     HighlightText highlightText;
-    public static DragAndDrop instance;
+    public static DragAndDrop dg;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector2 position;
+    public Vector2 position;
     public GameObject ObjectTogetHit;
     //public GameObject imageToBeDragged;
     public Vector3 initialTransform;
     public void Start()
     {
-        instance = this;
+        dg = this;
         highlightText = new HighlightText();
         rectTransform = GetComponent<RectTransform>();
         initialTransform = transform.position;
+        positionOftransform();
     }
 
     public void Awake()
@@ -44,7 +45,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         //Debug.Log("OnDrag");
         //startingValue = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition += eventData.delta;
-        position = rectTransform.position;
+        positionOftransform();
 
         //rectTransform.anchoredPosition = startingValue;
 
@@ -81,6 +82,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 
         //If Conditions meet
 
+    }
+    public void positionOftransform(){
+       position = rectTransform.position;
     }
 
     public void OnPointerDown(PointerEventData eventData)

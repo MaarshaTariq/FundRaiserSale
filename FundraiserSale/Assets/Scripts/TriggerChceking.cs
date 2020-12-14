@@ -46,7 +46,7 @@ public class TriggerChceking : MonoBehaviour {
                     Debug.Log("tagName" + tagName[j]);
                     //   Debug.Log("DragAndDrop.instance.flagHit" + DragAndDrop.instance.flagHit);
 
-                    DragAndDrop.instance.flagHit = true;
+                    DragAndDrop.dg.flagHit = true;
                     if (imageToBeDragged[index].tag == tagName[j])
                     {
                         imageToBeDragged[index].SetActive(true);
@@ -88,7 +88,7 @@ public class TriggerChceking : MonoBehaviour {
                         draggedObjectsCounter++;
 
                         //  Debug.Log(tagName[index]);
-                        Debug.Log("DragAndDrop.instance.flagHit" + DragAndDrop.instance.flagHit);
+                        Debug.Log("DragAndDrop.instance.flagHit" + DragAndDrop.dg.flagHit);
 
 
                     }

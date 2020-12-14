@@ -106,13 +106,18 @@ public class GameManager : MonoBehaviour
     {
         
         menuManager.SetActive(false);
+        if(levelCounter==0){
+            Debug.Log("Maarsha");
+           StartCoroutine( introActive());
+        }
         
         StartCoroutine(randomizePanels(0f));
     }
     public IEnumerator introActive()
     {
         introPanel.SetActive(true);
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(10);
+        //introPanel.SetActive(false);
 
     }
     public IEnumerator switchPanels(int indexForLevel, float seconds) {
