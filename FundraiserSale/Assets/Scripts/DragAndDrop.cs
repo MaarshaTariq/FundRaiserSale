@@ -11,7 +11,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     public static DragAndDrop dg;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    public Vector2 position;
+    public Vector3 position;
     public GameObject ObjectTogetHit;
     //public GameObject imageToBeDragged;
     public Vector3 initialTransform;
@@ -35,7 +35,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         canvasGroup.blocksRaycasts = false;
         Debug.Log("OnBeginDrag" + canvasGroup.blocksRaycasts);
         canvasGroup.alpha = 1f;
-
+        position = new Vector3 (rectTransform.anchoredPosition.x, rectTransform.localPosition.y, rectTransform.localPosition.z);
     }
 
 
@@ -77,14 +77,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
             
         }
         canvasGroup.alpha = 1f;
-        transform.position = initialTransform;
+        rectTransform.localPosition = position;
 
 
         //If Conditions meet
 
     }
     public void positionOftransform(){
-       position = rectTransform.position;
+      // position = rectTransform.position;
     }
 
     public void OnPointerDown(PointerEventData eventData)

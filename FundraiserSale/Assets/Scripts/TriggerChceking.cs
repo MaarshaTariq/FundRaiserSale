@@ -33,9 +33,10 @@ public class TriggerChceking : MonoBehaviour {
         highlightText = new HighlightText();
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
-        for(int j=0; j<tagName.Length; j++){
+        for (int j = 0; j < tagName.Length; j++) {
+            if (imageToBeDragged.Length > 1) { 
             if (other.gameObject.tag == tagName[j])
 
             {
@@ -75,9 +76,9 @@ public class TriggerChceking : MonoBehaviour {
                         if (index < imageToBeDragged.Length && imageToBeDragged[index].tag != imageToBeDragged[index - 1].tag)
                         {
                             checkMarks[j].SetActive(true);
-                           StartCoroutine( highlightText.highlightText(ImagesToBeHighlighted[j+1]));
-                           // GameManager.instance.transitionActive();
-                           
+                            StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[j + 1]));
+                            // GameManager.instance.transitionActive();
+
 
                             //  ImagesToBeHighlighted[j + 1].fillAmount = fillAmountForImage * Time.time * 0.2f;
                             highlighttext = true;
@@ -95,11 +96,19 @@ public class TriggerChceking : MonoBehaviour {
 
 
                 }
+
                 Debug.Log(("checkmark kis ka hai" + j));
                 //  highlightText.abc(ImagesToBeHighlighted[j]);
             }
-            
-     }
+        }
+            else if (imageToBeDragged.Length == 1)
+            {
+                imageToBeDragged[index].SetActive(true);
+                checkMarks[index].SetActive(true);
+                scoreBoardImages[index].SetActive(true);
+            }
+
+        }
        
         
     }

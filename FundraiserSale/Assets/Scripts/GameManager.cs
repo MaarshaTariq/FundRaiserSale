@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
         introPanel.SetActive(true);
         yield return new WaitForSeconds(10);
-        //introPanel.SetActive(false);
+        introPanel.SetActive(false);
 
     }
     public IEnumerator switchPanels(int indexForLevel, float seconds) {
