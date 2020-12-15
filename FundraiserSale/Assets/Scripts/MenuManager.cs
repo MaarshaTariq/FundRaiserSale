@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
 
 public class MenuManager : MonoBehaviour {
-	/*
+	
 	[DllImport("__Internal")]
 	private static extern void _OnGameStopped();
 	[DllImport("__Internal")]
 	private static extern void _ExitFullScreen();
-	public GameObject mainScreen;
+
+    public GameObject mainScreen;
 	public GameObject finalScreen;
 	public GameObject pauseScreen;
 	public GameObject playBtn;
@@ -29,10 +30,8 @@ public class MenuManager : MonoBehaviour {
 	}
 	public void OpenPause()
 	{
-		if (Toolbox.GameManager.CanClick ()) {
 			pauseScreen.SetActive (true);
 			Time.timeScale = 0;
-		}
 	}
 	public void StopGame(string state)
 	{
@@ -93,7 +92,6 @@ public class MenuManager : MonoBehaviour {
         //StartCoroutine (Toolbox.SoundManager._playSound(0));
         yield return StartCoroutine(Toolbox.SoundManager._playSound(0));
 
-		StartCoroutine (Toolbox.GameManager.LoadNextLevel());
 		mainScreen.GetComponent<Fade> ().Fadeout = true;
 		isMenu = false;
 
@@ -123,6 +121,6 @@ public class MenuManager : MonoBehaviour {
 	{
 		yield return new WaitUntil(() => RestAPIHandler.Instance.UploadedSuccessfully==true);
 		_OnGameStopped();
-	}*/
+	}
 
 }

@@ -16,7 +16,7 @@ public class LevelSwitcher : MonoBehaviour {
         {
             //GameManager.instance.fillAmountNumber += PlayerPrefs.GetFloat("fillAmount") + 0.125f;
 
-            StartCoroutine(GameManager.instance.FillTheFlask());
+            StartCoroutine(Toolbox.GameManager.FillTheFlask());
         }
       //  StartCoroutine(TriggerChceking.tg .allCheckmarksActivation());
         //StartCoroutine(TriggerChceking.tg.deActivateTransitionPanels());

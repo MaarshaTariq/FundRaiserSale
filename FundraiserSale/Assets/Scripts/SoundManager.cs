@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class SoundManager : MonoBehaviour {
 
+    public AudioClip correctaudio;
+    public AudioClip incorrectaudio;
+    [HideInInspector]
 	public List<AudioClip> sounds;
+
+    public List<LevelSounds> levelSoundClips;
     public GameObject inputBlocker;
 	private AudioSource audioPlayer;
+    public static SoundManager soundManager;
   
     // Use this for initialization
     private void Awake()
@@ -14,11 +22,53 @@ public class SoundManager : MonoBehaviour {
 		audioPlayer = this.GetComponent<AudioSource> ();
         
     }
-	
-	public void PlaySound(int index)
+    public void Start()
+    {
+        soundManager = this;
+    }
+    public void playcorrectAudio()
+    {
+        audioPlayer.clip = correctaudio;
+        audioPlayer.Play();
+    }
+    public void playIncorrectAudio()
+    {
+        audioPlayer.clip = incorrectaudio;
+        audioPlayer.Play();
+    }
+
+    public void PlaySound(int index)
 	{
+        
+        audioPlayer.clip = sounds[index];
+        audioPlayer.Play();
      //   Debug.Log("In PlaySound");
-        StartCoroutine(_playSound(index));
+        //StartCoroutine(_playSound(index));
+    }
+   public IEnumerator PlayHighlight_1(int index)
+	{
+        audioPlayer.clip = levelSoundClips[index].highlight_1;
+        yield return (StartCoroutine(_playCurrentClip()));
+    }
+    public IEnumerator PlayHighlight_2(int index)
+	{
+        audioPlayer.clip = levelSoundClips[index].highlight_2;
+        yield return (StartCoroutine(_playCurrentClip())); 
+    }
+    public IEnumerator PlayOption_1(int index)
+	{
+        audioPlayer.clip = levelSoundClips[index].option_1;
+        yield return (StartCoroutine(_playCurrentClip())); 
+    }
+    public IEnumerator PlayOption_2(int index)
+	{
+        audioPlayer.clip = levelSoundClips[index].option_2;
+        yield return (StartCoroutine(_playCurrentClip())); 
+    }
+    public IEnumerator PlayOption_3(int index)
+	{
+        audioPlayer.clip = levelSoundClips[index].option_3;
+        yield return (StartCoroutine(_playCurrentClip())); 
     }
    
     public void PlaySoundWithAudioClip(AudioClip _clip)
@@ -43,6 +93,22 @@ public class SoundManager : MonoBehaviour {
         yield return new WaitForSeconds(audioPlayer.clip.length);
         inputBlocker.SetActive(false);
     }
+     public IEnumerator _playCurrentClip()
+    {
+        inputBlocker.SetActive(true);
+        audioPlayer.Play();
+        yield return new WaitForSeconds(audioPlayer.clip.length);
+        inputBlocker.SetActive(false);
+    }
 
-
+   
+}
+[System.Serializable]
+public class LevelSounds
+{
+    public AudioClip highlight_1;
+    public AudioClip highlight_2;
+    public AudioClip option_1;
+    public AudioClip option_2;
+    public AudioClip option_3;
 }

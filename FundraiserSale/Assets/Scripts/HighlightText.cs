@@ -16,6 +16,7 @@ public class HighlightText : MonoBehaviour {
     public void Update()
     {
        StartCoroutine( highlightText(highlightImage));
+       
         //increaseFillAmount(highlightImage);
         //increaseFillAmount();
     }

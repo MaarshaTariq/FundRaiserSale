@@ -49,8 +49,16 @@ public class TextToSpeech : MonoBehaviour
                 else
                 {
                     AudioClip tempClip = DownloadHandlerAudioClip.GetContent(www);
-                    tempClip.name = textsToConvert[i];
-                    Toolbox.SoundManager.sounds.Add(tempClip);
+                   // if (i == 1)
+                   // {
+                        tempClip.name = textsToConvert[i];
+                        Toolbox.SoundManager.sounds.Add(tempClip);
+                    //}
+                    //if(i == 2 || i == 3)
+                    //{
+                      //  tempClip.name = textsToConvert[i];
+                        //Toolbox.SoundManager.sounds1.Add(tempClip);
+                    //}
                 }
             }
         }

@@ -42,9 +42,6 @@ public class Toolbox : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    public static void Set_GameplayController(GamePlayController game)
-    {
-        _gameplayController = game;
-    }
+  
 
 }

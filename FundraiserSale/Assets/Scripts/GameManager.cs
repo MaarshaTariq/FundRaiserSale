@@ -7,8 +7,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-//<<<<<<< HEAD
- public static FlaskFilling flaskFilling;
+    //<<<<<<< HEAD
+    [DllImport("__Internal")]
+    private static extern void _OnGameStarted();
+    [DllImport("__Internal")]
+    private static extern void _OnGameStopped();
+    [DllImport("__Internal")]
+    private static extern void _ExitFullScreen();
+
+    public string SceneName;
+
+    public static FlaskFilling flaskFilling;
     public float fillAmountNumber=0;
     public float temp;
     public float waitTime = 10f;
@@ -17,26 +26,27 @@ public class GameManager : MonoBehaviour
     public GameObject introPanel;
     public GameObject endingPanel;
     public GameObject transitionPanel;
+    public GameObject infoHandler;
     public int levelCounter;
+    public int soundCounter;
     public int startingIndex=0;
     int index;
     public int endingIndex;
     private List<int> VisitedlevelHistory;
+    public static GameManager gameManager;
 
     // TriggerChceking tg;
-    public static GameManager instance;
     public GameObject[] gamePanels;
    
 
     public void Awake()
     {
-        instance = this;
     }
     private void Start()
     {
+        gameManager = this;
         fillAmountNumber = 0.125f;
         temp = fillAmountNumber;
-        instance = this;
        // tg = new TriggerChceking();
         VisitedlevelHistory = new List<int>();
         endingIndex = gamePanels.Length-1 ;
@@ -74,11 +84,11 @@ public class GameManager : MonoBehaviour
            // Debug.LogError("index ix " + index + " " + levelCounter);
 
             gamePanels[index].SetActive(true);
-           
+
             // tg.allCheckmarksActivation();
             //if (tg.checkMarks[1].activeInHierarchy)
             //{
-              //  transitionPanel.SetActive(true);
+            //  transitionPanel.SetActive(true);
             //}
 
 
@@ -104,12 +114,13 @@ public class GameManager : MonoBehaviour
     }
     public void ActivatingPanels()
     {
-        
         menuManager.SetActive(false);
+        infoHandler.SetActive(true);
         if(levelCounter==0){
             Debug.Log("Maarsha");
            StartCoroutine( introActive());
         }
+
         
         StartCoroutine(randomizePanels(0f));
     }
@@ -127,7 +138,21 @@ public class GameManager : MonoBehaviour
         {
             if (i == indexForLevel)
             {
+                
                 gamePanels[i].SetActive(true);
+                
+                
+                    soundCounter = i;
+                   StartCoroutine( SoundManager.soundManager.PlayHighlight_1(i));
+                
+                //else
+                //{
+                 //   SoundManager.soundManager.PlaySound(soundCounter + 4);
+
+//                }
+                //soundCounter = i + 1;
+
+                //SoundManager.soundManager.PlaySound(0);
             }
             else
             {
@@ -195,6 +220,17 @@ public class GameManager : MonoBehaviour
             flaskFiller.fillAmount = PlayerPrefs.GetFloat("fillAmount");
         }*/
     }
+    public IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (Screen.fullScreen)
+        {
+            _ExitFullScreen();
+            Screen.fullScreen = !Screen.fullScreen;
+        }
+        SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+    }
+
 }
  
     
@@ -381,15 +417,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator LoadScene()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if (Screen.fullScreen)
-        {
-            _ExitFullScreen();
-            Screen.fullScreen = !Screen.fullScreen;
-        }
-        SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
-    }
+   
 
 } */
