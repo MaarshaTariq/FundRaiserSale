@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-	public AudioClip[] sounds;
+	public List<AudioClip> sounds;
     public GameObject inputBlocker;
 	private AudioSource audioPlayer;
   
@@ -24,6 +24,8 @@ public class SoundManager : MonoBehaviour {
     public void PlaySoundWithAudioClip(AudioClip _clip)
     {
         StartCoroutine(_playSoundWithAudioClip(_clip));
+        
+
     }
     public IEnumerator _playSound(int index)
     {

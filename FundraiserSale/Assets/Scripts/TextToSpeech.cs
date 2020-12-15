@@ -50,7 +50,7 @@ public class TextToSpeech : MonoBehaviour
                 {
                     AudioClip tempClip = DownloadHandlerAudioClip.GetContent(www);
                     tempClip.name = textsToConvert[i];
-                    downloadedClips.Add(tempClip);
+                    Toolbox.SoundManager.sounds.Add(tempClip);
                 }
             }
         }
@@ -78,7 +78,7 @@ public class TextToSpeech : MonoBehaviour
                 AudioClip downloadClip = DownloadHandlerAudioClip.GetContent(www);
                 downloadClip.name = tempTextToConvert;
                 SavWav.Save(downloadClip.name,downloadClip);
-                downloadedClips.Add(downloadClip);
+                Toolbox.SoundManager.sounds.Add(downloadClip);
                 
             }
         }
