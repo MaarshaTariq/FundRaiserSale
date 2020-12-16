@@ -774,6 +774,7 @@ MonoBehaviour:
   tagName:
   - cupcakes
   - FR
+  - brownies
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -1663,6 +1664,7 @@ MonoBehaviour:
   tagName:
   - FR
   - brownies
+  - cupcakes
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -11918,6 +11920,7 @@ MonoBehaviour:
   tagName:
   - cupcakes
   - FR
+  - brownies
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -12299,6 +12302,7 @@ MonoBehaviour:
   tagName:
   - FR
   - brownies
+  - cupcakes
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -14811,6 +14815,7 @@ MonoBehaviour:
   tagName:
   - brownies
   - cupcakes
+  - FR
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -19912,42 +19917,58 @@ MonoBehaviour:
   incorrectaudio: {fileID: 8300000, guid: 84a69dcbd67b06e4d91a1cbd57dbc496, type: 3}
   sounds: []
   levelSoundClips:
-  - highlight_1: {fileID: 8300000, guid: 7b4d4c23ac6f4914ea0e8e4bbeb7c29e, type: 3}
+  - selectedItemSounds:
+    - {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
+    highlight_1: {fileID: 8300000, guid: 7b4d4c23ac6f4914ea0e8e4bbeb7c29e, type: 3}
     highlight_2: {fileID: 8300000, guid: 7b4d4c23ac6f4914ea0e8e4bbeb7c29e, type: 3}
     option_1: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
     option_2: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_3: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
-  - highlight_1: {fileID: 8300000, guid: 7b4d4c23ac6f4914ea0e8e4bbeb7c29e, type: 3}
+  - selectedItemSounds:
+    - {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
+    - {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
+    - {fileID: 8300000, guid: b125be930cf1a7f4eb44853c5aa3c954, type: 3}
+    highlight_1: {fileID: 8300000, guid: 7b4d4c23ac6f4914ea0e8e4bbeb7c29e, type: 3}
     highlight_2: {fileID: 8300000, guid: 7f0f62956185be04cbdb0d37e75b4068, type: 3}
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
-  - highlight_1: {fileID: 8300000, guid: 6ce4862bac577654c91c72e5ed4da86e, type: 3}
+  - selectedItemSounds:
+    - {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
+    - {fileID: 8300000, guid: 0b12dbb7a195c13429a319549ec2bd9d, type: 3}
+    - {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
+    - {fileID: 8300000, guid: b125be930cf1a7f4eb44853c5aa3c954, type: 3}
+    highlight_1: {fileID: 8300000, guid: 6ce4862bac577654c91c72e5ed4da86e, type: 3}
     highlight_2: {fileID: 8300000, guid: 7f0f62956185be04cbdb0d37e75b4068, type: 3}
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
-  - highlight_1: {fileID: 8300000, guid: 1eec310aeba7f594dbb510f582dccff2, type: 3}
+  - selectedItemSounds: []
+    highlight_1: {fileID: 8300000, guid: 1eec310aeba7f594dbb510f582dccff2, type: 3}
     highlight_2: {fileID: 8300000, guid: 39aab36b229ea644ab73c221af4b14e7, type: 3}
     option_1: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
     option_2: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_3: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
-  - highlight_1: {fileID: 8300000, guid: a6cca19447120ee4fb5d1ca6f326ee9e, type: 3}
+  - selectedItemSounds: []
+    highlight_1: {fileID: 8300000, guid: a6cca19447120ee4fb5d1ca6f326ee9e, type: 3}
     highlight_2: {fileID: 8300000, guid: a6cca19447120ee4fb5d1ca6f326ee9e, type: 3}
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
-  - highlight_1: {fileID: 8300000, guid: c96998f90bb29da49b1d4935dc162150, type: 3}
+  - selectedItemSounds: []
+    highlight_1: {fileID: 8300000, guid: c96998f90bb29da49b1d4935dc162150, type: 3}
     highlight_2: {fileID: 8300000, guid: 6ce4862bac577654c91c72e5ed4da86e, type: 3}
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
-  - highlight_1: {fileID: 8300000, guid: 5f55283d64abeed479e4c5bffe7aa7d7, type: 3}
+  - selectedItemSounds: []
+    highlight_1: {fileID: 8300000, guid: 5f55283d64abeed479e4c5bffe7aa7d7, type: 3}
     highlight_2: {fileID: 8300000, guid: b99cfa736ddc7b349a300ceb3586983b, type: 3}
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
-  - highlight_1: {fileID: 8300000, guid: f7d325d1c7b26284a91085e7caed3edf, type: 3}
+  - selectedItemSounds: []
+    highlight_1: {fileID: 8300000, guid: f7d325d1c7b26284a91085e7caed3edf, type: 3}
     highlight_2: {fileID: 8300000, guid: b99cfa736ddc7b349a300ceb3586983b, type: 3}
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
@@ -19977,6 +19998,7 @@ MonoBehaviour:
   levelCounter: 0
   soundCounter: 0
   startingIndex: 0
+  index: 0
   endingIndex: 0
   gamePanels:
   - {fileID: 1483090723}
@@ -20813,6 +20835,7 @@ MonoBehaviour:
   tagName:
   - brownies
   - FR
+  - cupcakes
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -25304,6 +25327,7 @@ MonoBehaviour:
   tagName:
   - cupcakes
   - FR
+  - brownies
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:
@@ -28539,6 +28563,7 @@ MonoBehaviour:
   tagName:
   - FR
   - brownies
+  - cupcakes
   lastScoreImageActive: 0
   highlighttext: 0
   ImagesToBeHighlighted:

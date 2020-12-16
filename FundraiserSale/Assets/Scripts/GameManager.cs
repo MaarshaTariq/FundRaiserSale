@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public int levelCounter;
     public int soundCounter;
     public int startingIndex=0;
-    int index;
+    public int index;
     public int endingIndex;
     private List<int> VisitedlevelHistory;
     public static GameManager gameManager;

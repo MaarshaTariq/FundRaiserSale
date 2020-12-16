@@ -51,7 +51,7 @@ public class TriggerChceking : MonoBehaviour {
                         DragAndDrop.dg.flagHit = true;
                         if (imageToBeDragged[index].tag == tagName[j])
                         {
-                            SoundManager.soundManager.playcorrectAudio();
+                           //StartCoroutine( SoundManager.soundManager.playcorrectAudio());
 
                             //   if(tagName[j]==)
                             imageToBeDragged[index].SetActive(true);
@@ -62,6 +62,9 @@ public class TriggerChceking : MonoBehaviour {
                                 Debug.Log(index - 1);
                                 scoreBoardImages[index - 1].SetActive(false);
                                 scoreBoardImages[index].SetActive(true);
+                              StartCoroutine(  SoundManager.soundManager.PlaySoundOfSelectedItems(GameManager.gameManager.index, index));
+                                StartCoroutine( SoundManager.soundManager.playcorrectAudio());
+
                                 if (index == scoreBoardImages.Length - 1)
                                 {
                                     checkMarks[j].SetActive(true);
@@ -72,14 +75,18 @@ public class TriggerChceking : MonoBehaviour {
 
                             else
                             {
-                                if (index != scoreBoardImages.Length)
+                                if (index != scoreBoardImages.Length){
                                     scoreBoardImages[index].SetActive(true);
+                                   StartCoroutine( SoundManager.soundManager.PlaySoundOfSelectedItems(index, index));
+                                }
+
                             }
 
                             index = index + 1;
                             if (index < imageToBeDragged.Length && imageToBeDragged[index].tag != imageToBeDragged[index - 1].tag)
                             {
                                 checkMarks[j].SetActive(true);
+                                StartCoroutine(waitingTime());
                                 StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[j + 1]));
                                 StartCoroutine(SoundManager.soundManager.PlayHighlight_2(index));
                                 // GameManager.instance.transitionActive();
@@ -100,7 +107,7 @@ public class TriggerChceking : MonoBehaviour {
                         }
                         else
                         {
-                            SoundManager.soundManager.playIncorrectAudio();
+                           StartCoroutine( SoundManager.soundManager.playIncorrectAudio());
                         }
 
 
@@ -113,10 +120,15 @@ public class TriggerChceking : MonoBehaviour {
             }
             else if (imageToBeDragged.Length == 1)
             {
+                if(other.gameObject.tag==tagName[0]){
                 imageToBeDragged[index].SetActive(true);
                 checkMarks[index].SetActive(true);
                 scoreBoardImages[index].SetActive(true);
-                SoundManager.soundManager.playcorrectAudio();
+               StartCoroutine( SoundManager.soundManager.playcorrectAudio());
+                }
+                else{
+                      StartCoroutine( SoundManager.soundManager.playIncorrectAudio());
+                }
             }
 
         }
@@ -168,6 +180,9 @@ public class TriggerChceking : MonoBehaviour {
         transitionPanel.SetActive(false);
         Toolbox.GameManager.ActivatingPanels();
     
+    }
+    public IEnumerator waitingTime(){
+        yield return new WaitForSeconds(2);
     }
 }
     

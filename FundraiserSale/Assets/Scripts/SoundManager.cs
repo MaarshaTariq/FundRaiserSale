@@ -26,15 +26,20 @@ public class SoundManager : MonoBehaviour {
     {
         soundManager = this;
     }
-    public void playcorrectAudio()
+    public IEnumerator playcorrectAudio()
     {
         audioPlayer.clip = correctaudio;
-        audioPlayer.Play();
+        yield return (StartCoroutine(_playCurrentClip())); 
     }
-    public void playIncorrectAudio()
+    public IEnumerator playIncorrectAudio()
     {
         audioPlayer.clip = incorrectaudio;
-        audioPlayer.Play();
+        yield return (StartCoroutine(_playCurrentClip())); 
+
+    }
+    public IEnumerator PlaySoundOfSelectedItems(int index, int i){
+       audioPlayer.clip = levelSoundClips[index].selectedItemSounds[i];
+        yield return (StartCoroutine(_playCurrentClip()));
     }
 
     public void PlaySound(int index)
@@ -52,6 +57,7 @@ public class SoundManager : MonoBehaviour {
     }
     public IEnumerator PlayHighlight_2(int index)
 	{
+
         audioPlayer.clip = levelSoundClips[index].highlight_2;
         yield return (StartCoroutine(_playCurrentClip())); 
     }
@@ -106,6 +112,8 @@ public class SoundManager : MonoBehaviour {
 [System.Serializable]
 public class LevelSounds
 {
+    public List<AudioClip> selectedItemSounds;
+
     public AudioClip highlight_1;
     public AudioClip highlight_2;
     public AudioClip option_1;
