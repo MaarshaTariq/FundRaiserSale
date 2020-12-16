@@ -5,6 +5,12 @@ using UnityEngine;
 
 
 public class SoundManager : MonoBehaviour {
+     public AudioClip initialAudio;
+    public AudioClip cupcakesIncorrectSound;
+   
+    public AudioClip FRIncorrectSound;
+
+    public AudioClip browniesIncorrectSound;
 
     public AudioClip correctaudio;
     public AudioClip incorrectaudio;
@@ -89,7 +95,20 @@ public class SoundManager : MonoBehaviour {
         audioPlayer.clip = levelSoundClips[index].option_3;
         yield return (StartCoroutine(_playCurrentClip())); 
     }
-   
+    public AudioClip getCurrentSelection(string tagName){
+          if(tagName.Contains("FR")){
+             return FRIncorrectSound;
+          }
+          else if(tagName.Contains("cupcakes"))
+          {
+              return cupcakesIncorrectSound;
+          }
+
+        else
+         {
+            return browniesIncorrectSound;
+        }
+    }
     public void PlaySoundWithAudioClip(AudioClip _clip)
     {
         StartCoroutine(_playSoundWithAudioClip(_clip));
@@ -119,7 +138,26 @@ public class SoundManager : MonoBehaviour {
         yield return new WaitForSeconds(audioPlayer.clip.length);
         inputBlocker.SetActive(false);
     }
+    
+    public IEnumerator playInitialAudio(){
+                inputBlocker.SetActive(true);
 
+        audioPlayer.clip=initialAudio;
+        audioPlayer.Play();
+        yield return new WaitForSeconds(audioPlayer.clip.length);
+                inputBlocker.SetActive(false);
+
+    }
+
+    public IEnumerator _playCurrentTagitem(string tag)
+    {
+       
+        inputBlocker.SetActive(true);
+        audioPlayer.Play();
+        yield return new WaitForSeconds(audioPlayer.clip.length);
+        inputBlocker.SetActive(false);
+    }
+   
    
 }
 [System.Serializable]

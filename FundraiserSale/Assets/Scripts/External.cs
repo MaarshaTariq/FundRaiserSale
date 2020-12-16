@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System;
 public class External : MonoBehaviour
 {
-   /* [HideInInspector]
+    [HideInInspector]
     public GameObject assetDownloader;//Not Being used in Fundraiser.
     public static string urlFromServer;
     public bool Preview = false;
@@ -116,27 +116,27 @@ public class External : MonoBehaviour
 	IEnumerator WaitToPerformFunctionality(bool ISAccessibilty)
 	{
 		yield return new WaitForSeconds(0.15f);
-        Toolbox.GameManager.Accessibilty = ISAccessibilty;
+      //  Toolbox.GameManager.Accessibilty = ISAccessibilty;
 
-		Toolbox.GameManager.AccessibiltyObject.SetActive(ISAccessibilty);
+		//Toolbox.GameManager.AccessibiltyObject.SetActive(ISAccessibilty);
 
-		Toolbox.GameManager.isExternalDone = true;
+		//Toolbox.GameManager.isExternalDone = true;
 	}
 
 	//bool isAccesibilityAssigned;
 	public void EnableAccessibilty(string newValue)
 	{
-		if (Toolbox.GameManager.AccessibiltyObject == null)
-		{
-			if (Toolbox.GameManager.AccessibiltyObject == null)
-			{
-				Debug.LogError("Accessibility is not implemented in this game. Please contact your provider.");
-				return;
-			}
-		}
-		PlayerPrefs.SetString ("Accessibility", newValue);
-        Toolbox.GameManager.gameObject.SetActive(true);
-		StartCoroutine(WaitToPerformFunctionality(newValue == "true"));
+		// if (Toolbox.GameManager.AccessibiltyObject == null)
+		// {
+		// 	if (Toolbox.GameManager.AccessibiltyObject == null)
+		// 	{
+		// 		Debug.LogError("Accessibility is not implemented in this game. Please contact your provider.");
+		// 		return;
+		// 	}
+		// }
+		// PlayerPrefs.SetString ("Accessibility", newValue);
+        // Toolbox.GameManager.gameObject.SetActive(true);
+		// StartCoroutine(WaitToPerformFunctionality(newValue == "true"));
 	}
 
 	public void SetKey(string NewKey)//for local functionality
@@ -144,8 +144,8 @@ public class External : MonoBehaviour
 		KeyNew = NewKey;
 		Debug.Log("External->WaitToPerformFunctionality(NewKey: " + NewKey + ")");
 
-        Toolbox.GameManager.Accessibilty = IsAccessibility;
-        Toolbox.GameManager.AccessibiltyObject.SetActive(IsAccessibility);
+      //  Toolbox.GameManager.Accessibilty = IsAccessibility;
+       // Toolbox.GameManager.AccessibiltyObject.SetActive(IsAccessibility);
 
 		Debug.Log("New Key Added : " + NewKey);
 
@@ -188,7 +188,7 @@ public class GameStudentModel
     {
         this.StudentId = StID;
     }
-	*/
+	
 
 }
 

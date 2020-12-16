@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
                 
                 
                     soundCounter = i;
-                   StartCoroutine( SoundManager.soundManager.PlayHighlight_1(i));
+                  
                 
                 //else
                 //{
