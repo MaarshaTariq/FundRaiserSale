@@ -16,8 +16,7 @@ public class InfoManager : MonoBehaviour
 	public void ShowInfoBox()
 	{
         infoBox.SetActive(true);
-
-
+        //Play Sound of Drag correct stuff here
 	}
 
 	public void CloseInfoBox()

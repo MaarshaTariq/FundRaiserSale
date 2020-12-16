@@ -130,6 +130,7 @@ public class TriggerChceking : MonoBehaviour {
         if (firstOrderCompletion && indexCounter >= tags1.Length)
         {
             //Activate next Panel
+            yield return AllCheckmarksActivation();
             Toolbox.GameManager.ActivatingPanels();
         }
     }
@@ -141,7 +142,7 @@ public class TriggerChceking : MonoBehaviour {
     }
     public IEnumerator HighlightAudio(int index)
     {
-        if (!firstOrderCompletion)
+        if (!firstOrderCompletion && index==0)
         {
             yield return StartCoroutine(Toolbox.SoundManager.playInitialAudio());
             StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
@@ -159,11 +160,9 @@ public class TriggerChceking : MonoBehaviour {
     }
         
    
-   public  IEnumerator allCheckmarksActivation()
+   public  IEnumerator AllCheckmarksActivation()
     {
       
-        if (scoreBoardImages[scoreBoardImages.Length-1].activeInHierarchy)
-        {
             yield return new WaitForSeconds(3f);
             lastScoreImageActive = true;
             yield return new WaitForSeconds(2);
@@ -173,7 +172,7 @@ public class TriggerChceking : MonoBehaviour {
         
             yield return new WaitForSeconds(1f);
             transitionPanel.SetActive(false);
-        }
+        
     }
     
     public IEnumerator deActivateTransitionPanels()

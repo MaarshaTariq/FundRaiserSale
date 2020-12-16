@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     private List<int> VisitedlevelHistory;
     public static GameManager gameManager;
 
-    // TriggerChceking tg;
     public GameObject[] gamePanels;
    
 
@@ -47,20 +46,13 @@ public class GameManager : MonoBehaviour
         gameManager = this;
         fillAmountNumber = 0.125f;
         temp = fillAmountNumber;
-       // tg = new TriggerChceking();
         VisitedlevelHistory = new List<int>();
         endingIndex = gamePanels.Length-1 ;
         //ActivatingPanels();
     }
     public void Update()
     {
-       // if (TriggerChceking.tg.lastScoreImageActive)
-       // {
-        //    repeat(gamePanels[index], index);
-         //   ActivatingPanels();
-        //}
-        //checkvartrue();
-      // repeat (gamePanels[index], index);
+       
     }
     public IEnumerator transitionActive(){
         yield return new WaitForSeconds(2);
@@ -79,25 +71,9 @@ public class GameManager : MonoBehaviour
         {
             levelCounter++;
 
-
-           // Debug.LogError("index ix " + index + " " + levelCounter);
-
             gamePanels[index].SetActive(true);
-
-            // tg.allCheckmarksActivation();
-            //if (tg.checkMarks[1].activeInHierarchy)
-            //{
-            //  transitionPanel.SetActive(true);
-            //}
-
-
             LevelFinish(index);
-                      
-
-          
             VisitedlevelHistory.Add(index);
-           // manager.levelCounter = index;
-            //checker = true;
         }
         else{
             if (levelCounter <= 8 && VisitedlevelHistory.Count != 8)
@@ -116,72 +92,51 @@ public class GameManager : MonoBehaviour
         menuManager.SetActive(false);
         infoHandler.SetActive(true);
         if(levelCounter==0){
-            Debug.Log("Maarsha");
-           StartCoroutine( introActive());
+            //Debug.Log("Maarsha");
+           //StartCoroutine( IntroActive());//Fix this in later build.
         }
 
         
         StartCoroutine(randomizePanels(0f));
     }
-    public IEnumerator introActive()
+
+    public IEnumerator IntroActive()
     {
         introPanel.SetActive(true);
         yield return new WaitForSeconds(10);
         introPanel.SetActive(false);
-
     }
-    public IEnumerator switchPanels(int indexForLevel, float seconds) {
+    public IEnumerator SwitchPanels(int indexForLevel, float seconds) {
         yield return new WaitForSeconds(seconds);
 
         for (int i=0; i<gamePanels.Length; i++)
         {
             if (i == indexForLevel)
             {
-                
                 gamePanels[i].SetActive(true);
-                
-                
-                    soundCounter = i;
-                  
-                
-                //else
-                //{
-                 //   SoundManager.soundManager.PlaySound(soundCounter + 4);
-
-//                }
-                //soundCounter = i + 1;
-
-                //SoundManager.soundManager.PlaySound(0);
+                soundCounter = i;
             }
             else
             {
                 gamePanels[i].SetActive(false);
             }
-           // levelCounter++;
         }
     }
     
 
     public void LevelFinish(int ind)
     {
-        
-        StartCoroutine(switchPanels(ind, 0f));
-       
+        StartCoroutine(SwitchPanels(ind, 0f));
     }
     
      IEnumerator checkvartrue(GameObject currentPanel, int index)
     {
-        Debug.Log("last image active  "+TriggerChceking.tg.lastScoreImageActive);
+        Debug.Log("Last image active  "+TriggerChceking.tg.lastScoreImageActive);
        // if (TriggerChceking.tg.lastScoreImageActive)
         //{
             yield return new WaitForSeconds(2f);
 
             currentPanel.SetActive(false);
-           // transitionPanel.SetActive(true);
-          //  yield return new WaitForSeconds(2f);
-
-
-        //}
     }
     public IEnumerator checkvartruecoroutine(GameObject currentPanel, int index)
     {
@@ -211,13 +166,6 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         
-    
-       /* else
-        {
-            fillAmountNumber = 0;
-            PlayerPrefs.SetFloat("fillAmount", fillAmountNumber);
-            flaskFiller.fillAmount = PlayerPrefs.GetFloat("fillAmount");
-        }*/
     }
     public IEnumerator LoadScene()
     {
