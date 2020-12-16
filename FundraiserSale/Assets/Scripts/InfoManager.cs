@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InfoManager : MonoBehaviour
 {
     public GameObject infoBox;
-	public GameObject closeBlock;
 	public Text txt;
 	public static InfoManager instance;
 
@@ -14,21 +13,17 @@ public class InfoManager : MonoBehaviour
 	void Start () {
 		instance = this;
 	}
-	public void InfoHandler()
+	public void ShowInfoBox()
 	{
-			StartCoroutine (OpenCloseInfo ());	
-	}
-	IEnumerator OpenCloseInfo()
-	{
-		if (!infoBox.activeInHierarchy) {
-			infoBox.SetActive (true);
-			closeBlock.SetActive (true);
-            //PlayAudioClip of instructions here.
+        infoBox.SetActive(true);
 
-		} else {
-			yield return new WaitForSeconds (0.6f);
-			infoBox.SetActive (false);
-			closeBlock.SetActive (false);
-		}
+
 	}
+
+	public void CloseInfoBox()
+	{
+        infoBox.SetActive(false);
+
+	}
+	
 }
