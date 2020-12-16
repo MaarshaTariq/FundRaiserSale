@@ -62,8 +62,12 @@ public class TriggerChceking : MonoBehaviour {
                                 Debug.Log(index - 1);
                                 scoreBoardImages[index - 1].SetActive(false);
                                 scoreBoardImages[index].SetActive(true);
-                              StartCoroutine(  SoundManager.soundManager.PlaySoundOfSelectedItems(GameManager.gameManager.index, index));
-                                StartCoroutine( SoundManager.soundManager.playcorrectAudio());
+                                // StartCoroutine(  SoundManager.soundManager.PlaySoundOfSelectedItems(GameManager.gameManager.index, index));
+                                StartCoroutine(waitTillLength());
+                                StartCoroutine(correctSound());
+                                
+                             //   StartCoroutine( SoundManager.soundManager.playcorrectAudio());
+                               // StartCoroutine( SoundManager.soundManager.correctAudio());
 
                                 if (index == scoreBoardImages.Length - 1)
                                 {
@@ -77,7 +81,7 @@ public class TriggerChceking : MonoBehaviour {
                             {
                                 if (index != scoreBoardImages.Length){
                                     scoreBoardImages[index].SetActive(true);
-                                   StartCoroutine( SoundManager.soundManager.PlaySoundOfSelectedItems(index, index));
+                                  // StartCoroutine( SoundManager.soundManager.PlaySoundOfSelectedItems(index, index));
                                 }
 
                             }
@@ -108,6 +112,8 @@ public class TriggerChceking : MonoBehaviour {
                         else
                         {
                            StartCoroutine( SoundManager.soundManager.playIncorrectAudio());
+                          //  StartCoroutine(SoundManager.soundManager.tryAgainAudio());
+
                         }
 
 
@@ -183,6 +189,18 @@ public class TriggerChceking : MonoBehaviour {
     }
     public IEnumerator waitingTime(){
         yield return new WaitForSeconds(2);
+    }
+    public IEnumerator waitTillLength()
+    {
+        StartCoroutine(SoundManager.soundManager.playcorrectAudio());
+
+        yield return new WaitForSeconds(SoundManager.soundManager.audioPlayer.clip.length);
+    }
+    public IEnumerator correctSound()
+    {
+        StartCoroutine(SoundManager.soundManager.correctAudio());
+
+        yield return new WaitForSeconds(SoundManager.soundManager.audioPlayer.clip.length);
     }
 }
     

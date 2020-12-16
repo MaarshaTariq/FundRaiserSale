@@ -8,12 +8,14 @@ public class SoundManager : MonoBehaviour {
 
     public AudioClip correctaudio;
     public AudioClip incorrectaudio;
+    public AudioClip correct;
+    public AudioClip tryAgain;
     [HideInInspector]
 	public List<AudioClip> sounds;
 
     public List<LevelSounds> levelSoundClips;
     public GameObject inputBlocker;
-	private AudioSource audioPlayer;
+	public AudioSource audioPlayer;
     public static SoundManager soundManager;
   
     // Use this for initialization
@@ -34,6 +36,17 @@ public class SoundManager : MonoBehaviour {
     public IEnumerator playIncorrectAudio()
     {
         audioPlayer.clip = incorrectaudio;
+        yield return (StartCoroutine(_playCurrentClip())); 
+
+    }
+    public IEnumerator correctAudio()
+    {
+        audioPlayer.clip = correct;
+        yield return (StartCoroutine(_playCurrentClip())); 
+    }
+    public IEnumerator tryAgainAudio()
+    {
+        audioPlayer.clip = tryAgain;
         yield return (StartCoroutine(_playCurrentClip())); 
 
     }
