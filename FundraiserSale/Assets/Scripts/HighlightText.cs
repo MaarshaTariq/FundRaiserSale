@@ -15,7 +15,7 @@ public class HighlightText : MonoBehaviour {
  
     public void Update()
     {
-       StartCoroutine( highlightText(highlightImage));
+      // StartCoroutine( highlightText(highlightImage));
        
         //increaseFillAmount(highlightImage);
         //increaseFillAmount();
@@ -24,7 +24,6 @@ public class HighlightText : MonoBehaviour {
     
     public IEnumerator highlightText(Image highlightImage)
     {
-       
         yield return new WaitForSeconds(0.5f);
        
         while (highlightImage.fillAmount <= 1)
@@ -33,7 +32,4 @@ public class HighlightText : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
     }
-
-        
-
-    }
+}

@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour {
 
     public List<LevelSounds> levelSoundClips;
     public GameObject inputBlocker;
-	public AudioSource audioPlayer;
+	private AudioSource audioPlayer;
     public static SoundManager soundManager;
   
     // Use this for initialization
@@ -96,18 +96,19 @@ public class SoundManager : MonoBehaviour {
         yield return (StartCoroutine(_playCurrentClip())); 
     }
     public AudioClip getCurrentSelection(string tagName){
-          if(tagName.Contains("FR")){
-             return FRIncorrectSound;
-          }
-          else if(tagName.Contains("cupcakes"))
-          {
-              return cupcakesIncorrectSound;
-          }
+            if(tagName.Contains("FR"))
+            {
+                return FRIncorrectSound;
 
-        else
-         {
+            }
+            else if(tagName.Contains("cupcakes"))
+            {
+                return cupcakesIncorrectSound;
+            }
+            else
+            {
             return browniesIncorrectSound;
-        }
+            }
     }
     public void PlaySoundWithAudioClip(AudioClip _clip)
     {
@@ -140,12 +141,11 @@ public class SoundManager : MonoBehaviour {
     }
     
     public IEnumerator playInitialAudio(){
-                inputBlocker.SetActive(true);
-
+        inputBlocker.SetActive(true);
         audioPlayer.clip=initialAudio;
         audioPlayer.Play();
         yield return new WaitForSeconds(audioPlayer.clip.length);
-                inputBlocker.SetActive(false);
+        inputBlocker.SetActive(false);
 
     }
 

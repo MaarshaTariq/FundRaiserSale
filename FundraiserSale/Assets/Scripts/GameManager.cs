@@ -73,11 +73,10 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(sec);
          index = Random.Range(startingIndex, endingIndex + 1);
-         Debug.Log("abc"+index);
+
          
         if (VisitedlevelHistory.Contains(index) == false)
         {
-            Debug.Log("ac" +index);
             levelCounter++;
 
 

@@ -31,9 +31,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+       // Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
-        Debug.Log("OnBeginDrag" + canvasGroup.blocksRaycasts);
+        //Debug.Log("OnBeginDrag" + canvasGroup.blocksRaycasts);
         canvasGroup.alpha = 1f;
         position = new Vector3 (rectTransform.anchoredPosition.x, rectTransform.localPosition.y, rectTransform.localPosition.z);
     }
@@ -64,15 +64,15 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        Debug.Log("Final Transform" + initialTransform);
-        Debug.Log("flagHit " + flagHit);
+       // Debug.Log("Final Transform" + initialTransform);
+       // Debug.Log("flagHit " + flagHit);
         if (flagHit)
         {
            // highlightText.fillAmountForImage -= 400;
             //highlightText.increaseFillAmount(eventData.pointerDrag.GetComponent<Image>());
             // imageToBeDragged.SetActive(true);
             // imageToBeDragged.layer = 3;
-            Debug.Log("OnEndDrag");
+            //Debug.Log("OnEndDrag");
 
             
         }
@@ -89,7 +89,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
     }
 
 }
