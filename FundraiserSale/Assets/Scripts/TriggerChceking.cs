@@ -50,7 +50,7 @@ public class TriggerChceking : MonoBehaviour {
     }
     private void OnEnable()
     {
-
+           firstOrderCompletion = false;
            StartCoroutine(HighlightAudio(0));
 
     }
@@ -141,19 +141,21 @@ public class TriggerChceking : MonoBehaviour {
     }
     public IEnumerator HighlightAudio(int index)
     {
-        if(!firstOrderCompletion)
+        if (!firstOrderCompletion)
         {
             yield return StartCoroutine(Toolbox.SoundManager.playInitialAudio());
             StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
             yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
         }
-        else if (ImagesToBeHighlighted.Length>1)//If Orders are more than 1
+        else
         {
-            scoreBoardImages[scoreBoardImages.Length - 1].SetActive(false);
-            StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
-            yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
+            if (firstOrderCompletion&& ImagesToBeHighlighted.Length>1)//If Orders are more than 1
+            {
+                scoreBoardImages[scoreBoardImages.Length - 1].SetActive(false);
+                StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
+                yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
+            }
         }
-
     }
         
    

@@ -768,7 +768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -1683,7 +1682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -11958,7 +11956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -12361,7 +12358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -13205,8 +13201,8 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872110699}
-  m_BodyType: 0
-  m_Simulated: 0
+  m_BodyType: 1
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -13568,7 +13564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoBox: {fileID: 1434401608}
-  closeBlock: {fileID: 1305373239}
   txt: {fileID: 1585768397}
 --- !u!225 &873293566
 CanvasGroup:
@@ -14891,7 +14886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -17320,8 +17314,8 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1117423447}
-  m_BodyType: 0
-  m_Simulated: 0
+  m_BodyType: 1
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -20080,8 +20074,7 @@ MonoBehaviour:
     option_1: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731, type: 3}
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
-  inputBlocker: {fileID: 2017149270}
-  audioPlayer: {fileID: 0}
+  inputBlocker: {fileID: 1767453676}
 --- !u!114 &1352902541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20752,7 +20745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -25260,7 +25252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
@@ -28526,7 +28517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a75f0508625dcc4a801a71ba847b132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialAudio: {fileID: 0}
   transitionPanel: {fileID: 2023936998}
   fl: {fileID: 0}
   flaskfill: 0
