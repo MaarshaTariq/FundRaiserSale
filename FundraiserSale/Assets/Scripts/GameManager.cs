@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     }
     public void ActivatingPanels()
     {
+
         menuManager.SetActive(false);
         infoHandler.SetActive(true);
         if(levelCounter==0){

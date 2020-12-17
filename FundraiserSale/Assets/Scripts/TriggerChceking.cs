@@ -9,6 +9,8 @@ public class TriggerChceking : MonoBehaviour {
 
     private int indexCounter=0;
     private bool firstOrderCompletion=false;
+    private int currentOrderIndex=0;
+
     public GameObject transitionPanel;
     public FlaskFilling fl;
     public bool flaskfill = false;
@@ -74,6 +76,7 @@ public class TriggerChceking : MonoBehaviour {
                         StartCoroutine(CorrectAnswer(audiosFor1stOrder[i]));
                         if (indexCounter == tags.Length)
                         {
+                            currentOrderIndex = 1;
                             indexCounter = 0;
                             firstOrderCompletion = true;
                             checkMarks[0].SetActive(true);
@@ -130,7 +133,9 @@ public class TriggerChceking : MonoBehaviour {
         if (firstOrderCompletion && indexCounter >= tags1.Length)
         {
             //Activate next Panel
+            InfoManager.instance.CloseInfoBox();
             yield return AllCheckmarksActivation();
+
             Toolbox.GameManager.ActivatingPanels();
         }
     }
@@ -144,7 +149,7 @@ public class TriggerChceking : MonoBehaviour {
     {
         if (!firstOrderCompletion && index==0)
         {
-            yield return StartCoroutine(Toolbox.SoundManager.playInitialAudio());
+            yield return StartCoroutine(Toolbox.SoundManager.PlayInitialAudio());
             StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
             yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
         }
@@ -157,6 +162,21 @@ public class TriggerChceking : MonoBehaviour {
                 yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
             }
         }
+    }
+    public IEnumerator HighlightAudioFromBtn(int index)
+    {
+        if (index == 0)
+        {
+            yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
+        }
+        else
+        {
+            yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
+        }
+    }
+    public void PlayHighlightAudio()//Being Called from Orders button
+    {
+        StartCoroutine(HighlightAudioFromBtn(currentOrderIndex));
     }
         
    

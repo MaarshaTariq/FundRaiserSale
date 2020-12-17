@@ -5,34 +5,34 @@ using UnityEngine;
 
 
 public class SoundManager : MonoBehaviour {
-     public AudioClip initialAudio;
-    public AudioClip cupcakesIncorrectSound;
-   
-    public AudioClip FRIncorrectSound;
 
+    public AudioClip initialAudio;
+
+    public AudioClip FRIncorrectSound;
+    public AudioClip cupcakesIncorrectSound;
     public AudioClip browniesIncorrectSound;
 
     public AudioClip correctaudio;
     public AudioClip incorrectaudio;
+
     public AudioClip correct;
     public AudioClip tryAgain;
+
     [HideInInspector]
 	public List<AudioClip> sounds;
 
-    public List<LevelSounds> levelSoundClips;
+    public List<LevelSounds> levelSoundClips;//Dont think being used
+
     public GameObject inputBlocker;
-	private AudioSource audioPlayer;
-    public static SoundManager soundManager;
+
+    private AudioSource audioPlayer;
+
   
     // Use this for initialization
     private void Awake()
     {
 		audioPlayer = this.GetComponent<AudioSource> ();
         
-    }
-    public void Start()
-    {
-        soundManager = this;
     }
     public IEnumerator playcorrectAudio()
     {
@@ -140,7 +140,7 @@ public class SoundManager : MonoBehaviour {
         inputBlocker.SetActive(false);
     }
     
-    public IEnumerator playInitialAudio(){
+    public IEnumerator PlayInitialAudio(){
         inputBlocker.SetActive(true);
         audioPlayer.clip=initialAudio;
         audioPlayer.Play();

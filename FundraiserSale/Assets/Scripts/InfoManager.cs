@@ -9,13 +9,14 @@ public class InfoManager : MonoBehaviour
 	public Text txt;
 	public static InfoManager instance;
 
-	// Use this for initialization
-	void Start () {
-		instance = this;
-	}
+    public void Awake()
+    {
+        instance = this;
+    }
 	public void ShowInfoBox()
 	{
         infoBox.SetActive(true);
+        StartCoroutine(Toolbox.SoundManager.PlayInitialAudio());
         //Play Sound of Drag correct stuff here
 	}
 
