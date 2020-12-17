@@ -52,11 +52,14 @@ public class TriggerChceking : MonoBehaviour {
     }
     private void OnEnable()
     {
-           firstOrderCompletion = false;
-           StartCoroutine(HighlightAudio(0));
-
+        firstOrderCompletion = false;
+        StartCoroutine(HighlightAudio(0));
+        Toolbox.GameManager.progressBars.gameObject.SetActive(true);
     }
-
+    private void OnDisable()
+    {
+        Toolbox.GameManager.progressBars.gameObject.SetActive(false);
+    }
     public void OnTriggerExit2D(Collider2D other)
     {
 

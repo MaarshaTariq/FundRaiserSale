@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public string SceneName;
 
+    public GameObject progressBars;
     public static FlaskFilling flaskFilling;
     public float fillAmountNumber=0;
     public float temp;
@@ -78,11 +79,12 @@ public class GameManager : MonoBehaviour
         else{
             if (levelCounter <= 8 && VisitedlevelHistory.Count != 8)
             {
+                
                 ActivatingPanels();
             }
             else
             {
-              
+                
                 endingPanel.SetActive(true);
             }
         }
@@ -97,7 +99,8 @@ public class GameManager : MonoBehaviour
            //StartCoroutine( IntroActive());//Fix this in later build.
         }
 
-        
+        Debug.Log("Calling progress bar");
+        SetProgress(levelCounter+1);
         StartCoroutine(randomizePanels(0f));
     }
 
@@ -158,22 +161,32 @@ public class GameManager : MonoBehaviour
     public IEnumerator FillTheFlask()
     {
         temp = levelCounter * fillAmountNumber;
-       
-        
-
-            while (flaskFiller.fillAmount <= temp)
-            {
-                flaskFiller.fillAmount +=fillAmountNumber / waitTime * Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-        
+        while (flaskFiller.fillAmount <= temp)
+        {
+            flaskFiller.fillAmount +=fillAmountNumber / waitTime * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
+    void SetProgress(int count)
+    {
+        for (int i = 0; i < count*2.5; i++)
+        {
+            progressBars.transform.GetChild(i).gameObject.GetComponent<CanvasGroup>().alpha = 1;
+        }
+    }
+    public void OnPressAgain()//Being called from Again button on FinalScreen
+    {
+        StartCoroutine(LoadScene());
+    }
+
     public IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(0.1f);
         if (Screen.fullScreen)
         {
+#if !UNITY_EDITOR
             _ExitFullScreen();
+#endif
             Screen.fullScreen = !Screen.fullScreen;
         }
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
