@@ -16,7 +16,7 @@ public class InfoManager : MonoBehaviour
 	public void ShowInfoBox()
 	{
         infoBox.SetActive(true);
-        StartCoroutine(Toolbox.SoundManager.PlayInitialAudio());
+        StartCoroutine(Toolbox.SoundManager.playInitialAudio());
         //Play Sound of Drag correct stuff here
 	}
 

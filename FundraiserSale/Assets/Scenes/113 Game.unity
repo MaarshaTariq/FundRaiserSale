@@ -20239,9 +20239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialAudio: {fileID: 8300000, guid: 8435b05c7f23ebb4a94c724c479212f7, type: 3}
-  FRIncorrectSound: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
   cupcakesIncorrectSound: {fileID: 8300000, guid: 672289dde27afa245b84cd787d1d3731,
     type: 3}
+  FRIncorrectSound: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
   browniesIncorrectSound: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5,
     type: 3}
   correctaudio: {fileID: 8300000, guid: 59d0026bf8d386d40a84dd841e55a33e, type: 3}
@@ -20307,6 +20307,7 @@ MonoBehaviour:
     option_2: {fileID: 8300000, guid: b1b8c5f6b73dbd14d80276da9d1402e5, type: 3}
     option_3: {fileID: 8300000, guid: 4d08f57de5678424fb7cc5ff09d1d76b, type: 3}
   inputBlocker: {fileID: 2017149270}
+  audioPlayer: {fileID: 0}
 --- !u!114 &1352902541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20320,6 +20321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 113 Game
   progressBars: {fileID: 944152428}
+  flaskFillinfSound: {fileID: 8300000, guid: f7b1baa8168804443a41c9c53f8e0bd3, type: 3}
   closeButton: {fileID: 1270042397}
   uiInteractions: {fileID: 1494993226}
   fillAmountNumber: 0
@@ -24566,6 +24568,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1719028525}
+--- !u!1 &1724415327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1724415328}
+  - component: {fileID: 1724415330}
+  - component: {fileID: 1724415329}
+  m_Layer: 5
+  m_Name: flaskBackground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1724415328
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724415327}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2023936999}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 175, y: 3}
+  m_SizeDelta: {x: 632, y: 1063}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1724415329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724415327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 1b672629d0e85ff479c5fae5085d7486, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1724415330
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724415327}
 --- !u!1 &1725406610
 GameObject:
   m_ObjectHideFlags: 0
@@ -25519,7 +25589,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2023936999}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26738,7 +26808,7 @@ RectTransform:
   m_Children:
   - {fileID: 548032480}
   m_Father: {fileID: 2023936999}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28172,6 +28242,7 @@ RectTransform:
   - {fileID: 939098384}
   - {fileID: 1146595974}
   - {fileID: 536895871}
+  - {fileID: 1724415328}
   - {fileID: 1781280076}
   - {fileID: 1882832683}
   m_Father: {fileID: 1790284138}

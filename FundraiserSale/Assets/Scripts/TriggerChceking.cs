@@ -159,7 +159,7 @@ public class TriggerChceking : MonoBehaviour {
     {
         if (!firstOrderCompletion && index==0)
         {
-            yield return StartCoroutine(Toolbox.SoundManager.PlayInitialAudio());
+            yield return StartCoroutine(Toolbox.SoundManager.playInitialAudio());
             StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
             yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
         }

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public string SceneName;
 
     public GameObject progressBars;
+    public AudioClip flaskFillinfSound;
+   
     public GameObject closeButton;
     public GameObject uiInteractions;
     public static FlaskFilling flaskFilling;
@@ -165,6 +167,8 @@ public class GameManager : MonoBehaviour
         temp = levelCounter * fillAmountNumber;
         while (flaskFiller.fillAmount <= temp)
         {
+            Toolbox.SoundManager.audioPlayer.clip = flaskFillinfSound;
+            Toolbox.SoundManager.audioPlayer.Play();
             flaskFiller.fillAmount +=fillAmountNumber / waitTime * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
