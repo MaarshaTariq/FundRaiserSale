@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public string SceneName;
 
     public GameObject progressBars;
+    public GameObject closeButton;
     public GameObject uiInteractions;
     public static FlaskFilling flaskFilling;
     public float fillAmountNumber=0;
@@ -192,15 +193,16 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
     }
-    public void deactivateProgressBar()
+    public void DeactivateUiInteractions()
     {
         uiInteractions.SetActive(false);
 
     }
-    public void activateProgressBar()
+    public void ActivateUiInteractions()
     {
         uiInteractions.SetActive(true);
-
+        closeButton.SetActive(true);
+        progressBars.transform.parent.gameObject.SetActive(true);
     }
     
 

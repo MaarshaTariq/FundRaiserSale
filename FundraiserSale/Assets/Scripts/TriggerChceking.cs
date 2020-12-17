@@ -54,11 +54,10 @@ public class TriggerChceking : MonoBehaviour {
     {
         firstOrderCompletion = false;
         StartCoroutine(HighlightAudio(0));
-        Toolbox.GameManager.progressBars.gameObject.SetActive(true);
+        Toolbox.GameManager.ActivateUiInteractions();
     }
     private void OnDisable()
     {
-        Toolbox.GameManager.progressBars.gameObject.SetActive(false);
     }
     public void OnTriggerExit2D(Collider2D other)
     {
@@ -191,13 +190,12 @@ public class TriggerChceking : MonoBehaviour {
             yield return new WaitForSeconds(2);
             Toolbox.GameManager.deactiveCurrentPanel();
             flaskfill = true;
-            Toolbox.GameManager.deactivateProgressBar();
+            Toolbox.GameManager.DeactivateUiInteractions();
             transitionPanel.SetActive(true);
     
         
             yield return new WaitForSeconds(1f);
             transitionPanel.SetActive(false);
-            Toolbox.GameManager.activateProgressBar();
 
 
 
