@@ -61,66 +61,38 @@ public class TriggerChceking : MonoBehaviour {
     }
     public void OnTriggerExit2D(Collider2D other)
     {
+        SelectionLogic(other);
+       
+    }
 
-         if(!firstOrderCompletion)
-         {
-            for(int i=indexCounter; i<tags.Length; i++)
+    public void SelectionLogic(Collider2D other)
+    {
+        if (!firstOrderCompletion)
+        {
+            for (int i = indexCounter; i < tags.Length; i++)
             {
-                    if (other.gameObject.tag == tags[i])
-                    {
-                        indexCounter++;
-                        imageToBeDragged[i].SetActive(true);
+                if (other.gameObject.tag == tags[i])
+                {
+                    indexCounter++;
+                    imageToBeDragged[i].SetActive(true);
                     if (ImagesToBeHighlighted[0].isActiveAndEnabled)
                     {
                         ImagesToBeHighlighted[0].enabled = false;
                     }
                     if (i > 0)
-                        {
-                            scoreBoardImages[i - 1].SetActive(false);
-                        }
-                        scoreBoardImages[i].SetActive(true);
-                        StartCoroutine(CorrectAnswer(audiosFor1stOrder[i]));
-                        if (indexCounter == tags.Length)
-                        {
-                            currentOrderIndex = 1;
-                            indexCounter = 0;
-                            firstOrderCompletion = true;
-                            checkMarks[0].SetActive(true);
-                        }
-                        break;
-                    }
-                    else
                     {
-                       StartCoroutine(IncorrectAnswer( Toolbox.SoundManager.getCurrentSelection(other.tag)));
+                        scoreBoardImages[i - 1].SetActive(false);
                     }
-            }
-         }
-        else
-        {
-            for(int i=indexCounter; i<tags1.Length; i++)
-            {
-                if(other.gameObject.tag== tags1[i])
-                {
-                     indexCounter++;
-                     imagesToBeDragged1[i].SetActive(true);
-                    if (ImagesToBeHighlighted[1].isActiveAndEnabled)
+                    scoreBoardImages[i].SetActive(true);
+                    StartCoroutine(CorrectAnswer(audiosFor1stOrder[i]));
+                    if (indexCounter == tags.Length)
                     {
-                        ImagesToBeHighlighted[1].enabled = false;
+                        currentOrderIndex = 1;
+                        indexCounter = 0;
+                        firstOrderCompletion = true;
+                        checkMarks[0].SetActive(true);
                     }
-
-                    if (i>0)
-                     {
-                         scoreBoardImages1[i-1].SetActive(false);
-                     }
-                     scoreBoardImages1[i].SetActive(true);
-
-                     StartCoroutine(CorrectAnswer(audiosFor2ndOrder[i]));
-                     if(indexCounter==tags1.Length)
-                     {
-                        firstOrderCompletion=true;
-                        checkMarks[1].SetActive(true);
-                     }
-                        break;
+                    break;
                 }
                 else
                 {
@@ -128,10 +100,45 @@ public class TriggerChceking : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            for (int i = indexCounter; i < tags1.Length; i++)
+            {
+                if (other.gameObject.tag == tags1[i])
+                {
+                    indexCounter++;
+                    imagesToBeDragged1[i].SetActive(true);
+                    if (ImagesToBeHighlighted[1].isActiveAndEnabled)
+                    {
+                        ImagesToBeHighlighted[1].enabled = false;
+                    }
+
+                    if (i > 0)
+                    {
+                        scoreBoardImages1[i - 1].SetActive(false);
+                    }
+                    scoreBoardImages1[i].SetActive(true);
+
+                    StartCoroutine(CorrectAnswer(audiosFor2ndOrder[i]));
+                    if (indexCounter == tags1.Length)
+                    {
+                        firstOrderCompletion = true;
+                        checkMarks[1].SetActive(true);
+                    }
+                    break;
+                }
+                else
+                {
+                    StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
+                }
+            }
+        }
+
     }
+
     public IEnumerator CorrectAnswer(AudioClip clip)
     {
-        Debug.Log("IndexCounter: "+indexCounter);
+        //Debug.Log("IndexCounter: "+indexCounter);
         yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(clip));
         yield return StartCoroutine(Toolbox.SoundManager.playcorrectAudio());
         yield return StartCoroutine(Toolbox.SoundManager.correctAudio());

@@ -24,6 +24,12 @@ public class MenuManager : MonoBehaviour {
 		pauseScreen.SetActive (false);
         Time.timeScale = 1;
 	}
+    public void OnPressMainScreenPlay()
+    {
+        
+        StartCoroutine(MainScreenPlay());
+        
+    }
     public void OnPressStop()
     {
         //Check if Gameplay or Final
@@ -31,8 +37,15 @@ public class MenuManager : MonoBehaviour {
         _OnGameStopped();
 #endif
     }
-	
-	public void OnPressAgain()
+
+
+    private IEnumerator MainScreenPlay()
+    {
+        yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[0]));//Play Sound
+        Toolbox.GameManager.ActivatingPanels();
+    }
+
+    public void OnPressAgain()
 	{
 		Time.timeScale = 1f;
 		StartCoroutine(Toolbox.GameManager.LoadScene());

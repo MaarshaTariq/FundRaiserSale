@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class AccessibilityManager : MonoBehaviour
 {
-    /*
     #region Variables
 
     #region private
@@ -29,14 +28,14 @@ public class AccessibilityManager : MonoBehaviour
     [HideInInspector]
     public bool LastCheck;
     public float switchWait = 10f;
-    public bool isSpaceEnabled;
+    public bool isSpaceEnabled;//LaterUsage
     public bool enablepause = true;
     public bool isSingleDestination = false;
     public bool DragnDrop = false;
     public bool ShowPausePanel = true;
     public bool autoExitGameplay;
 
-    public GameObject GreenBox;
+    public GameObject YellowBox;
     public GameObject block;
     public GameObject LoadingScreen;
     public GameObject pausePanel;
@@ -55,7 +54,7 @@ public class AccessibilityManager : MonoBehaviour
     void Start()
     {
         if (LoadingScreen)
-            LoadingScreen.SetActive(true);
+            //LoadingScreen.SetActive(true);
 
         LastCheck = true;
         //CanCheckInfo = true;
@@ -64,10 +63,10 @@ public class AccessibilityManager : MonoBehaviour
 
         // Blocking all inputs from mouse
         if (block != null)
-            block.SetActive(true);
+            //block.SetActive(true);
 
-        if (GreenBox != null)
-            GreenBox.SetActive(true);
+        if (YellowBox != null)
+            YellowBox.SetActive(true);
 
 
         PlayerPrefs.SetString("clickable", "false");
@@ -82,50 +81,85 @@ public class AccessibilityManager : MonoBehaviour
         if (LoadingScreen)
             LoadingScreen.SetActive(false);
     }
-    
+
     public void EndGame()
     {
-       //EndGame Functionality 
-       
+        //EndGame Functionality 
+
     }
-    
-    
-    
+
+
+
     #region userInput Fuction
     //<--------- User controls -------- called from index.html file ----------------->
     public void swipeUp()
     {
-        if (FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
+        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
+            Toolbox.MainMenuManager.UpArrowPressed();
+        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().UpArrowPressed();
+
 
         Debug.Log("Next");
-        EventController.instance.CountScreenInteractionWithoutCheck();
+        //EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
         checkActivity = true;
     }
 
-    public void swipeUp(int dummy)
-    {
-        if (FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
-
-        Debug.Log("Next");
-        checkActivity = true;
-    }
+    
     public void swipeDown()
     {
-        if (FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
+        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
+            Toolbox.MainMenuManager.DownArrowPressed();
+        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().DownArrowPressed();
+        //if (GameManager.Instance.pauseScreen.activeInHierarchy)
+        //{
+        //    GameManager.Instance.pauseScreen.GetComponent<PauseScreen>().DownArrowPressed();
+        //}
+        //else if (GameManager.Instance.titleScreen.activeInHierarchy)
+        //{
+        //    GameManager.Instance.titleScreen.GetComponent<PlayButton>().DownArrowPressed();
+        //}
+        //else if (GameManager.Instance.buttonsPlayPanel.activeInHierarchy)
+        //{
+        //    GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().DownArrowPressed();
+        //}
+        //else if (GameManager.Instance.endScreen.activeInHierarchy)
+        //{
+        //    GameManager.Instance.endScreen.GetComponent<EndScreen>().DownArrowPressed();
+        //}
 
-        Debug.Log("Prev");
-        EventController.instance.CountScreenInteractionWithoutCheck();
+        //EventController.instance.CountScreenInteractionWithoutCheck();
         checkActivity = true;
     }
     public void select()
     {
-        if (FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
 
-        EventController.instance.CountScreenInteractionWithoutCheck();
+        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
+            Toolbox.MainMenuManager.SpacePressed();
+        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().SpacePressed();
+        //if (GameManager.Instance.pauseScreen.activeInHierarchy)
+        //{
+        //    GameManager.Instance.pauseScreen.GetComponent<PauseScreen>().SpacePressed();
+        //}
+        //else if (GameManager.Instance.titleScreen.activeInHierarchy)
+        //{
+        //    GameManager.Instance.titleScreen.GetComponent<PlayButton>().SpacePressed();
+        //}
+        //else if (GameManager.Instance.buttonsPlayPanel.activeInHierarchy)
+        //{
+        //    GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().SpacePressed();
+        //}
+        //else if (GameManager.Instance.endScreen.activeInHierarchy)
+        //{
+        //    GameManager.Instance.endScreen.GetComponent<EndScreen>().SpacePressed();
+        //}
+
+
+
+
+        // EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
         checkActivity = true;
 
     }
@@ -134,20 +168,12 @@ public class AccessibilityManager : MonoBehaviour
     }
     public void Close()
     {
-        if (FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
 
-        try
-        {
-           
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("Targetscript nor found: " + ex);
-        }
+        //GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().CKeyPressed();
+        
 
         print("AccessibilityManager->Close() called");
-        EventController.instance.CountScreenInteractionWithoutCheck();
+        //EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
     }
 
     // Variable to let info play while being controls are freezed
@@ -155,14 +181,12 @@ public class AccessibilityManager : MonoBehaviour
 
     public void Info()
     {
-        if (!isUrgentInfo && FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
+        //GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().IKeyPressed();
 
-        
-        if(!isUrgentInfo)
-            EventController.instance.CountScreenInteractionWithoutCheck();
+        //if (!isUrgentInfo)
+            //EventController.instance.CountScreenInteractionWithoutCheck();
 
-        
+
     }
 
     public void Info(bool isUrgentInfo)
@@ -178,8 +202,6 @@ public class AccessibilityManager : MonoBehaviour
         PlayerPrefs.SetString("clickable", "false");
         PlayerPrefs.SetInt("Click", 1);
 
-        if (FreezeControlsHandler.Instance.isControllsFreezed)
-            return;
 
         ScreenTimeoutNotifier();
 
@@ -204,7 +226,7 @@ public class AccessibilityManager : MonoBehaviour
             Up = false;
 
         }
-        if (space && isSpaceEnabled)
+        if (space )
         {
             select();
             checkActivity = true;
@@ -255,8 +277,7 @@ public class AccessibilityManager : MonoBehaviour
             timeOutTimer = -2.0f;
         }
     }
-    
+
     #endregion
-    */
 
 }

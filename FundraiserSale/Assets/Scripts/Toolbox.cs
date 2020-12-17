@@ -12,10 +12,16 @@ public class Toolbox : MonoBehaviour
     private static GamePlayController _gameplayController;
     private static TextToSpeech _textToSpeech;
     private static External _externalHandler;
+    private static MainMenuManager _mainMenuManager;
+
 
     public static GameManager GameManager
     {
         get { return _gameManager; }
+    }
+    public static MainMenuManager MainMenuManager
+    {
+        get { return _mainMenuManager; }
     }
 
     public static TextToSpeech TextToSpeech
@@ -55,6 +61,10 @@ public class Toolbox : MonoBehaviour
     public static void Set_ExternalHandler(External _external)
     {
         _externalHandler = _external;
+    }
+    public static void Set_MainMenuManger(MainMenuManager _mainMenuM)
+    {
+        _mainMenuManager = _mainMenuM;
     }
 
 }

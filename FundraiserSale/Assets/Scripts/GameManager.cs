@@ -41,7 +41,12 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
 
     public GameObject[] gamePanels;
-   
+
+    public bool isExternalDone = false;
+    private bool accessibilty = false;
+
+    public bool Accessibilty;
+    
 
     public void Awake()
     {
@@ -103,7 +108,6 @@ public class GameManager : MonoBehaviour
            //StartCoroutine( IntroActive());//Fix this in later build.
         }
 
-        Debug.Log("Calling progress bar");
         SetProgress(levelCounter+1);
         StartCoroutine(randomizePanels(0f));
     }

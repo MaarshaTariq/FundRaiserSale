@@ -18,21 +18,20 @@ public class SoundManager : MonoBehaviour {
     public AudioClip tryAgain;
     [HideInInspector]
 	public List<AudioClip> sounds;
+	public List<AudioClip> basicSounds;
 
+    [HideInInspector]
     public List<LevelSounds> levelSoundClips;
     public GameObject inputBlocker;
-	public AudioSource audioPlayer;
-    public static SoundManager soundManager;
+
+    [HideInInspector]
+    public AudioSource audioPlayer;
   
     // Use this for initialization
     private void Awake()
     {
 		audioPlayer = this.GetComponent<AudioSource> ();
         
-    }
-    public void Start()
-    {
-        soundManager = this;
     }
     public IEnumerator playcorrectAudio()
     {
@@ -160,7 +159,6 @@ public class SoundManager : MonoBehaviour {
    
    
 }
-[System.Serializable]
 public class LevelSounds
 {
     public List<AudioClip> selectedItemSounds;
