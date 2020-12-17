@@ -70,7 +70,11 @@ public class TriggerChceking : MonoBehaviour {
                     {
                         indexCounter++;
                         imageToBeDragged[i].SetActive(true);
-                        if (i > 0)
+                    if (ImagesToBeHighlighted[0].isActiveAndEnabled)
+                    {
+                        ImagesToBeHighlighted[0].enabled = false;
+                    }
+                    if (i > 0)
                         {
                             scoreBoardImages[i - 1].SetActive(false);
                         }
@@ -99,8 +103,12 @@ public class TriggerChceking : MonoBehaviour {
                 {
                      indexCounter++;
                      imagesToBeDragged1[i].SetActive(true);
-                     
-                     if(i>0)
+                    if (ImagesToBeHighlighted[1].isActiveAndEnabled)
+                    {
+                        ImagesToBeHighlighted[1].enabled = false;
+                    }
+
+                    if (i>0)
                      {
                          scoreBoardImages1[i-1].SetActive(false);
                      }
