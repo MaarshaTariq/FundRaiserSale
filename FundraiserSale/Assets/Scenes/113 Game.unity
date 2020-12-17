@@ -20243,6 +20243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 113 Game
   progressBars: {fileID: 944152428}
+  uiInteractions: {fileID: 1494993226}
   fillAmountNumber: 0
   temp: 0
   waitTime: 1

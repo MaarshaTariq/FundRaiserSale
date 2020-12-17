@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public string SceneName;
 
     public GameObject progressBars;
+    public GameObject uiInteractions;
     public static FlaskFilling flaskFilling;
     public float fillAmountNumber=0;
     public float temp;
@@ -191,6 +192,17 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
     }
+    public void deactivateProgressBar()
+    {
+        uiInteractions.SetActive(false);
+
+    }
+    public void activateProgressBar()
+    {
+        uiInteractions.SetActive(true);
+
+    }
+    
 
 }
  

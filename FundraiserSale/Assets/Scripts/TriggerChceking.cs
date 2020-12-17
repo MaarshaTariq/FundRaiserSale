@@ -138,7 +138,7 @@ public class TriggerChceking : MonoBehaviour {
             //Activate next Panel
             InfoManager.instance.CloseInfoBox();
             yield return AllCheckmarksActivation();
-
+            
             Toolbox.GameManager.ActivatingPanels();
         }
     }
@@ -191,11 +191,17 @@ public class TriggerChceking : MonoBehaviour {
             yield return new WaitForSeconds(2);
             Toolbox.GameManager.deactiveCurrentPanel();
             flaskfill = true;
+            Toolbox.GameManager.deactivateProgressBar();
             transitionPanel.SetActive(true);
+    
         
             yield return new WaitForSeconds(1f);
             transitionPanel.SetActive(false);
-        
+            Toolbox.GameManager.activateProgressBar();
+
+
+
+
     }
     
     public IEnumerator deActivateTransitionPanels()
