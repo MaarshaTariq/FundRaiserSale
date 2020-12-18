@@ -107,8 +107,10 @@ public class GameManager : MonoBehaviour
             //Debug.Log("Maarsha");
            //StartCoroutine( IntroActive());//Fix this in later build.
         }
-
-        SetProgress(levelCounter+1);
+        if (levelCounter <= 7)
+        {
+            SetProgress(levelCounter + 1);
+        }
         StartCoroutine(randomizePanels(0f));
     }
 

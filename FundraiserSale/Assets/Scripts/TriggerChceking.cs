@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
+
 using UnityEngine.UI;
 
-public class TriggerChceking : MonoBehaviour {
+public class TriggerChceking : MonoBehaviour, IPointerUpHandler
+{
     
 
     private int indexCounter=0;
@@ -200,16 +203,14 @@ public class TriggerChceking : MonoBehaviour {
    public  IEnumerator AllCheckmarksActivation()
     {
       
-            yield return new WaitForSeconds(3f);
-            lastScoreImageActive = true;
-            yield return new WaitForSeconds(2);
+           
             Toolbox.GameManager.deactiveCurrentPanel();
             flaskfill = true;
             Toolbox.GameManager.DeactivateUiInteractions();
             transitionPanel.SetActive(true);
     
         
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             transitionPanel.SetActive(false);
 
 
@@ -227,6 +228,9 @@ public class TriggerChceking : MonoBehaviour {
     public IEnumerator waitingTime(){
         yield return new WaitForSeconds(2);
     }
-    
+    public void OnPointerUp(PointerEventData eventData)
+    {
+    }
+
 }
     
