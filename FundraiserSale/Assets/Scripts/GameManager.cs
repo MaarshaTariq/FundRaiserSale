@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
    
     public GameObject closeButton;
     public GameObject uiInteractions;
+    public Sprite[] FullScreenIMG;
     public static FlaskFilling flaskFilling;
     public float fillAmountNumber=0;
     public float temp;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject endingPanel;
     public GameObject transitionPanel;
     public GameObject infoHandler;
+    public Image img;
     public int levelCounter;
     public int soundCounter;
     public int startingIndex=0;
@@ -214,7 +216,30 @@ public class GameManager : MonoBehaviour
         closeButton.SetActive(true);
         progressBars.transform.parent.gameObject.SetActive(true);
     }
-    
+    public void MaximizeButtonPressed()
+    {
+        if (Screen.fullScreen)
+        {
+            //_ExitFullScreen();
+            Screen.fullScreen = false;
+            img.sprite = FullScreenIMG[0];
+        }
+        if (!Screen.fullScreen)
+        {
+            img.sprite = FullScreenIMG[1];
+            Screen.fullScreen = true;
+        }
+    }
+    public void ChangeMaximizeButtonSprite(int index)
+    {
+      //  img.sprite = FullScreenBtn.InstanceOfFullScreen.FullScreenIMG[index];
+    }
+
+    public void CloseButtonPressed()
+    {
+        _OnGameStopped();
+    }
+
 
 }
  

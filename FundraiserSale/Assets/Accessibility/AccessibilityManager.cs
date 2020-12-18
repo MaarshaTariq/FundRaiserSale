@@ -94,10 +94,14 @@ public class AccessibilityManager : MonoBehaviour
     //<--------- User controls -------- called from index.html file ----------------->
     public void swipeUp()
     {
-        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
-            Toolbox.MainMenuManager.UpArrowPressed();
-        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
-            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().UpArrowPressed();
+       // if (//!Toolbox.SoundManager.audioPlayer.isPlaying)
+        {
+            if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
+                Toolbox.MainMenuManager.UpArrowPressed();
+            else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+                Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().UpArrowPressed();
+
+        }
 
 
         Debug.Log("Next");
@@ -108,10 +112,14 @@ public class AccessibilityManager : MonoBehaviour
     
     public void swipeDown()
     {
-        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
-            Toolbox.MainMenuManager.DownArrowPressed();
-        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
-            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().DownArrowPressed();
+
+       // if (!Toolbox.SoundManager.audioPlayer.isPlaying)
+        {
+            if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
+                Toolbox.MainMenuManager.DownArrowPressed();
+            else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+                Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().DownArrowPressed();
+        }
         //if (GameManager.Instance.pauseScreen.activeInHierarchy)
         //{
         //    GameManager.Instance.pauseScreen.GetComponent<PauseScreen>().DownArrowPressed();

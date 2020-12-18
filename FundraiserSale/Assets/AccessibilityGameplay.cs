@@ -22,9 +22,9 @@ public class AccessibilityGameplay : MonoBehaviour {
             int temp = getDecIndex();
 
             highlight.transform.SetParent(currentSelectables[temp].transform);
-            highlight.rectTransform.localPosition = Vector3.zero;
             highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
+            highlight.rectTransform.anchoredPosition = new Vector3(0,0,0);
 
             ShowCaptionAndSound(temp);
         }
@@ -37,9 +37,9 @@ public class AccessibilityGameplay : MonoBehaviour {
             int temp = getIncIndex();
 
             highlight.transform.SetParent(currentSelectables[temp].transform);
-            highlight.rectTransform.localPosition = Vector3.zero;
             highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
+            highlight.rectTransform.localPosition = Vector3.zero;
 
             ShowCaptionAndSound(temp);
         }
@@ -98,18 +98,16 @@ public class AccessibilityGameplay : MonoBehaviour {
     {
         if (temp == 0)
         {
-            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[1]));
-            Debug.Log("Play_Caption");
+            Toolbox.SoundManager._playSoundWithAudioClip( Toolbox.SoundManager.getCurrentSelection("cupcakes"));
             CloseCaption.CCManager.instance.CreateCaption("cupcakes", Toolbox.SoundManager.basicSounds[1].length);
         }
         if (temp == 1)
         {
-            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[0]));
-            Debug.Log("FundraiserSale_Caption");
+            Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("brownies"));
             CloseCaption.CCManager.instance.CreateCaption("brownies", Toolbox.SoundManager.basicSounds[0].length);
         } if (temp == 2)
         {
-            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[0]));
+            Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR"));
             Debug.Log("FundraiserSale_Caption");
             CloseCaption.CCManager.instance.CreateCaption("cookies", Toolbox.SoundManager.basicSounds[0].length);
         }

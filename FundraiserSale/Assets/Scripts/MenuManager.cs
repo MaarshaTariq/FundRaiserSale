@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour {
 	[DllImport("__Internal")]
 	private static extern void _ExitFullScreen();
 
-   
+    public GameObject introPanel;
 	public GameObject pauseScreen;
 	
 	public void OnPressPauseGame()
@@ -42,6 +42,12 @@ public class MenuManager : MonoBehaviour {
     private IEnumerator MainScreenPlay()
     {
         yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[0]));//Play Sound
+        if (Toolbox.GameManager.levelCounter == 0)
+        {
+            introPanel.SetActive(true);
+            yield return new WaitForSeconds(4f);
+        }
+        introPanel.SetActive(false);
         Toolbox.GameManager.ActivatingPanels();
     }
 

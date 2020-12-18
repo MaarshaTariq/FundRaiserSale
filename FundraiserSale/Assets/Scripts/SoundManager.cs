@@ -23,6 +23,7 @@ public class SoundManager : MonoBehaviour {
     [HideInInspector]
     public List<LevelSounds> levelSoundClips;
     public GameObject inputBlocker;
+    public bool accessibilityBlocker;
 
     [HideInInspector]
     public AudioSource audioPlayer;
