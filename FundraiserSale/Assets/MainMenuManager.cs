@@ -86,13 +86,11 @@ public class MainMenuManager : MonoBehaviour {
         if (temp == 0)
         {
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[1]));
-            Debug.Log("Play_Caption");
             CloseCaption.CCManager.instance.CreateCaption("Play", Toolbox.SoundManager.basicSounds[1].length);
         }
         if (temp == 1)
         {
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[0]));
-            Debug.Log("FundraiserSale_Caption");
             CloseCaption.CCManager.instance.CreateCaption("Fundraiser Sale", Toolbox.SoundManager.basicSounds[0].length);
         }
 

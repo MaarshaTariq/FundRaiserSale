@@ -51,6 +51,8 @@ public class AccessibilityGameplay : MonoBehaviour {
             if (currentSelectables[currentListIndex].GetComponent<Collider2D>() != null)
             {
                 panelTriger.SelectionLogic(currentSelectables[currentListIndex].GetComponent<Collider2D>());
+                Debug.Log("On Drop  other incorrect");
+
             }
             else
             {
@@ -65,14 +67,14 @@ public class AccessibilityGameplay : MonoBehaviour {
         if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             InfoManager.instance.ShowAccessibilityInfoBox();
+
         }
     }
     public void CKeyPressed()
     {
         if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
-            //GameManager.Instance.OpenPauseScreen();
-            //checkButtonAnimation = false;
+            Toolbox.MenuManager.OnPressPauseGame();
         }
     }
 

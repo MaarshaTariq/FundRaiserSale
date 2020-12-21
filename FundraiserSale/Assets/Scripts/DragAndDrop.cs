@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public bool flagHit;
     HighlightText highlightText;
@@ -12,7 +12,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     public Vector3 position;
-    public GameObject ObjectTogetHit;
+    //public GameObject ObjectTogetHit;
     //public GameObject imageToBeDragged;
     public Vector3 initialTransform;
     public void Start()
@@ -21,7 +21,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         highlightText = new HighlightText();
         rectTransform = GetComponent<RectTransform>();
         initialTransform = transform.position;
-        positionOftransform();
+        GetComponent<Button>().onClick.AddListener(OnOptionClick);
     }
 
     public void Awake()
@@ -45,7 +45,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         //Debug.Log("OnDrag");
         //startingValue = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition += eventData.delta;
-        positionOftransform();
 
         //rectTransform.anchoredPosition = startingValue;
 
@@ -83,13 +82,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         //If Conditions meet
 
     }
-    public void positionOftransform(){
-      // position = rectTransform.position;
-    }
+    
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnOptionClick()
     {
+        StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection(GetComponent<Collider2D>().tag)));
     }
+   
+    
 
 }
 

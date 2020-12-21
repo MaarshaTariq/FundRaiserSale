@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using Newtonsoft.Json;
 using System;
+using UnityEngine.UI;
+
 public class External : MonoBehaviour
 {
     [HideInInspector]
@@ -9,6 +11,10 @@ public class External : MonoBehaviour
     public static string urlFromServer;
     public bool Preview = false;
 	public static External Instance;
+
+    public GameObject accessibilityInputBlocker;
+    public GameObject fullscreenBtn;
+
 
 	string baseURL;
 	[HideInInspector]
@@ -27,7 +33,6 @@ public class External : MonoBehaviour
 
 	bool IsAccessibility;
 	public bool AccessibilityLocalTest;
-	public bool isAccessibilityLocalTest;
 
 	void Awake()
 	{
@@ -41,8 +46,14 @@ public class External : MonoBehaviour
 		Invoke("ManagerAccessibility", 0);
 		#endif
 	}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
 
-	void ManagerAccessibility()
+        }
+    }
+    void ManagerAccessibility()
 	{
 		Debug.Log("External->OnEnable()");
 		if (AccessibilityLocalTest)
@@ -55,11 +66,10 @@ public class External : MonoBehaviour
     void Start()
     {
 
-        // GetUrlFromServer("https://l3skills.n2y-dev.com/api/GameAssetApi/GetGameAssets?gameId=72");
     }
     public void DisableFullScreen()
     {
-        PlayerPrefs.SetInt("DisableFullScreen", 1);
+        Destroy(fullscreenBtn);
     }
 
     public void PlayUnityScene()
@@ -116,9 +126,9 @@ public class External : MonoBehaviour
 	IEnumerator WaitToPerformFunctionality(bool ISAccessibilty)
 	{
 		yield return new WaitForSeconds(0.15f);
-      //  Toolbox.GameManager.Accessibilty = ISAccessibilty;
 
-		//Toolbox.GameManager.AccessibiltyObject.SetActive(ISAccessibilty);
+        Toolbox.GameManager.Accessibilty = ISAccessibilty;
+
 
 		//Toolbox.GameManager.isExternalDone = true;
 	}
@@ -126,27 +136,21 @@ public class External : MonoBehaviour
 	//bool isAccesibilityAssigned;
 	public void EnableAccessibilty(string newValue)
 	{
-		// if (Toolbox.GameManager.AccessibiltyObject == null)
-		// {
-		// 	if (Toolbox.GameManager.AccessibiltyObject == null)
-		// 	{
-		// 		Debug.LogError("Accessibility is not implemented in this game. Please contact your provider.");
-		// 		return;
-		// 	}
-		// }
-		// PlayerPrefs.SetString ("Accessibility", newValue);
-        // Toolbox.GameManager.gameObject.SetActive(true);
-		// StartCoroutine(WaitToPerformFunctionality(newValue == "true"));
-	}
+        if (newValue.Contains("true"))
+        {
+            accessibilityInputBlocker.gameObject.SetActive(true);
+        }
+        else
+        {
+            accessibilityInputBlocker.gameObject.SetActive(false);
+        }
+
+        StartCoroutine(WaitToPerformFunctionality(newValue == "true"));
+    }
 
 	public void SetKey(string NewKey)//for local functionality
 	{
 		KeyNew = NewKey;
-		Debug.Log("External->WaitToPerformFunctionality(NewKey: " + NewKey + ")");
-
-      //  Toolbox.GameManager.Accessibilty = IsAccessibility;
-       // Toolbox.GameManager.AccessibiltyObject.SetActive(IsAccessibility);
-
 		Debug.Log("New Key Added : " + NewKey);
 
 	}

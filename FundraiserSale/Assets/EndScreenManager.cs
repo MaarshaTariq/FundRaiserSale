@@ -1,69 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
+using UnityEngine;
 using UnityEngine.UI;
+public class EndScreenManager : MonoBehaviour {
 
-public class MenuManager : MonoBehaviour {
-	
-	[DllImport("__Internal")]
-	private static extern void _OnGameStopped();
-	[DllImport("__Internal")]
-	private static extern void _ExitFullScreen();
 
-    public GameObject introPanel;
-	public GameObject pauseScreen;
+    [DllImport("__Internal")]
+    private static extern void _OnGameStopped();
+    [DllImport("__Internal")]
+    private static extern void _ExitFullScreen();
+
     public Image highlight;
     public List<GameObject> currentSelectables;
     private int currentListIndex = -1;
+    [HideInInspector]
+    public static EndScreenManager instance; 
 
-    public void OnPressPauseGame()
-	{
-		pauseScreen.SetActive (true);
-        Time.timeScale = 0;
-	}
-	public void OnPressPlay()
-	{
-		pauseScreen.SetActive (false);
-        Time.timeScale = 1;
-	}
-    public void OnPressMainScreenPlay()
+    private void Awake()
     {
-        
-        StartCoroutine(MainScreenPlay());
-        
+        instance = this;
     }
+
     public void OnPressStop()
     {
-        //Check if Gameplay or Final
+        //Final
 #if !UNITY_EDITOR
         _OnGameStopped();
 #endif
     }
 
-
-    private IEnumerator MainScreenPlay()
-    {
-        yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[0]));//Play Sound
-        if (Toolbox.GameManager.levelCounter == 0)
-        {
-            introPanel.SetActive(true);
-            yield return new WaitForSeconds(4f);
-        }
-        introPanel.SetActive(false);
-        Toolbox.GameManager.ActivatingPanels();
-    }
-
     public void OnPressAgain()
-	{
-		Time.timeScale = 1f;
-		StartCoroutine(Toolbox.GameManager.LoadScene());
+    {
+        Time.timeScale = 1f;
+        StartCoroutine(Toolbox.GameManager.LoadScene());
     }
 
     public IEnumerator CallStop()
     {
-        yield return new WaitUntil(() => RestAPIHandler.Instance.UploadedSuccessfully==true);
+        yield return new WaitUntil(() => RestAPIHandler.Instance.UploadedSuccessfully == true);
 
 #if !UNITY_EDITOR
         _OnGameStopped();
@@ -94,8 +69,8 @@ public class MenuManager : MonoBehaviour {
         }
         return currentListIndex;
     }
-    
-    public void PauseDownArrowPressed()
+
+    public void EndScreenDownArrowPressed()
     {
         if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
@@ -110,7 +85,7 @@ public class MenuManager : MonoBehaviour {
         }
     }
 
-    public void PauseUpArrowPressed()
+    public void EndScreenUpArrowPressed()
     {
         if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
@@ -124,37 +99,32 @@ public class MenuManager : MonoBehaviour {
             ShowCaptionAndSound(temp);
         }
     }
-    public void PauseSpacePressed()
+    public void EndScreenSpacePressed()
     {
         if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
-            if (currentListIndex == 0)//On Play Button
+            if (currentListIndex == 0)//On Again Button
             {
-                Toolbox.MenuManager.OnPressPlay();
+                this.OnPressAgain();
             }
             else//On Stop button
             {
-#if !UNITY_EDITOR
-                _OnGameStopped();
-#endif
+                this.OnPressStop();
             }
 
         }
     }
-    private 
-        void ShowCaptionAndSound(int temp)
+    private void ShowCaptionAndSound(int temp)
     {
         if (temp == 0)//Play
         {
-            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[1]));
-            CloseCaption.CCManager.instance.CreateCaption("Play", Toolbox.SoundManager.basicSounds[1].length);
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[4]));
+            CloseCaption.CCManager.instance.CreateCaption("Again", Toolbox.SoundManager.basicSounds[4].length);
         }
         if (temp == 1)//Stop
         {
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.basicSounds[2]));
             CloseCaption.CCManager.instance.CreateCaption("Stop", Toolbox.SoundManager.basicSounds[2].length);
         }
-
     }
-
 }

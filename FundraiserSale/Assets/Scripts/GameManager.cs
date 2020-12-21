@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject progressBars;
     public AudioClip flaskFillinfSound;
+    public AudioClip endingPanelSound;
    
     public GameObject closeButton;
     public GameObject uiInteractions;
@@ -52,6 +53,11 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
+
+#if !UNITY_EDITOR
+        _OnGameStarted();      
+#endif
+
     }
     private void Start()
     {
@@ -86,8 +92,9 @@ public class GameManager : MonoBehaviour
          
         if (VisitedlevelHistory.Contains(index) == false)
         {
+            
             levelCounter++;
-
+            EventController.instance.levelCounter++;
             gamePanels[index].SetActive(true);
             LevelFinish(index);
             VisitedlevelHistory.Add(index);
@@ -100,8 +107,9 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+               endingPanel.SetActive(true);
+               yield return StartCoroutine (Toolbox.SoundManager._playSoundWithAudioClip(endingPanelSound));
                 
-                endingPanel.SetActive(true);
             }
         }
     }

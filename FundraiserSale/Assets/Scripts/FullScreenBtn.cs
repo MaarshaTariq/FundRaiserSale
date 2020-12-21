@@ -1,44 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FullScreenBtn : MonoBehaviour {
-	// Use this for initialization
-	public Sprite[] FullScreenIMG;
-	public static FullScreenBtn Instance;
-	[HideInInspector]
-	public Image IMG;
-	bool CanSetIMG=true;
-	void Awake()
-	{
-		Instance = this;
-		SetFullScreenButton();
-	}
-	void Start () {
-		IMG = GetComponent<Image> ();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if (CanSetIMG) {
-			if (!Screen.fullScreen) {
-				IMG.sprite = FullScreenIMG [0];
-			} else {
-				IMG.sprite = FullScreenIMG [1];
-			}
-			CanSetIMG = false;
-		}
+    // Use this for initialization
+    [DllImport("__Internal")]
+    private static extern void _OnGameStopped();
+    [DllImport("__Internal")]
+    private static extern void _ExitFullScreen();
 
-		SetFullScreenButton();
-	}
+    public Sprite []fullScreenImg;
+    public void MaximizeButtonPressed()
+    {
 
-	void SetFullScreenButton()
-	{
-//		Debug.Log ("full");
-		if (PlayerPrefs.GetInt ("DisableFullScreen") == 1) {
-			this.gameObject.SetActive (false);
-		}
-	}
+        if (Screen.fullScreen)
+        {
+#if !UNITY_EDITOR
+            _ExitFullScreen();
+#endif
+            Screen.fullScreen = false;
+            GetComponent<Image>().sprite= fullScreenImg[0];
+        }
+        if (!Screen.fullScreen)
+        {
+            GetComponent<Image>().sprite = fullScreenImg[1  ];
+            Screen.fullScreen = true;
+        }
+    }
 }

@@ -108,6 +108,8 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
                 }
                 else
                 {
+                    EventController.instance.wrongOptionSelectionCounter++;
+                    Debug.Log("first Else Count : " + EventController.instance.wrongOptionSelectionCounter);
                     StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
                 }
             }
@@ -141,6 +143,8 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
                 }
                 else
                 {
+                    EventController.instance.wrongOptionSelectionCounter++;
+                    Debug.Log("second Else Count : " + EventController.instance.wrongOptionSelectionCounter);
                     StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
                 }
             }
@@ -170,6 +174,8 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     }
     public IEnumerator IncorrectAnswer(AudioClip clip)
     {
+        //++EventController.instance.wrongOptionSelectionCounter;
+        Debug.Log("Incorrect attempts is : " + EventController.instance.wrongOptionSelectionCounter);
         yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(clip));
         yield return StartCoroutine(Toolbox.SoundManager.playIncorrectAudio());
         yield return StartCoroutine(Toolbox.SoundManager.tryAgainAudio());
