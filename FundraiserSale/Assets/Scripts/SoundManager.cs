@@ -7,10 +7,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
      public AudioClip initialAudio;
     public AudioClip cupcakesIncorrectSound;
-   
     public AudioClip FRIncorrectSound;
-
     public AudioClip browniesIncorrectSound;
+    public AudioClip orderFormSound;
 
     public AudioClip correctaudio;
     public AudioClip incorrectaudio;
@@ -96,19 +95,24 @@ public class SoundManager : MonoBehaviour {
         yield return (StartCoroutine(_playCurrentClip())); 
     }
     public AudioClip getCurrentSelection(string tagName){
-            if(tagName.Contains("FR"))
-            {
-                return FRIncorrectSound;
+        if (tagName.Contains("FR"))
+        {
+            return FRIncorrectSound;
 
-            }
-            else if(tagName.Contains("cupcakes"))
-            {
-                return cupcakesIncorrectSound;
-            }
-            else
-            {
+        }
+        else if (tagName.Contains("cupcakes"))
+        {
+            return cupcakesIncorrectSound;
+        }
+        else if (tagName.Contains("brownies"))
+        {
             return browniesIncorrectSound;
-            }
+        }
+        else
+        {
+            return orderFormSound;
+
+        }
     }
     public void PlaySoundWithAudioClip(AudioClip _clip)
     {

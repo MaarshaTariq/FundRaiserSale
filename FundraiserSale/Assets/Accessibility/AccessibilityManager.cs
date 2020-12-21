@@ -94,80 +94,31 @@ public class AccessibilityManager : MonoBehaviour
     //<--------- User controls -------- called from index.html file ----------------->
     public void swipeUp()
     {
-       // if (//!Toolbox.SoundManager.audioPlayer.isPlaying)
-        {
             if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
                 Toolbox.MainMenuManager.UpArrowPressed();
             else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
                 Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().UpArrowPressed();
 
-        }
-
-
-        //Debug.Log("Next");
-        //EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
         checkActivity = true;
     }
 
     
     public void swipeDown()
     {
-
-       // if (!Toolbox.SoundManager.audioPlayer.isPlaying)
-        {
             if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
                 Toolbox.MainMenuManager.DownArrowPressed();
             else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
                 Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().DownArrowPressed();
-        }
-        //if (GameManager.Instance.pauseScreen.activeInHierarchy)
-        //{
-        //    GameManager.Instance.pauseScreen.GetComponent<PauseScreen>().DownArrowPressed();
-        //}
-        //else if (GameManager.Instance.titleScreen.activeInHierarchy)
-        //{
-        //    GameManager.Instance.titleScreen.GetComponent<PlayButton>().DownArrowPressed();
-        //}
-        //else if (GameManager.Instance.buttonsPlayPanel.activeInHierarchy)
-        //{
-        //    GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().DownArrowPressed();
-        //}
-        //else if (GameManager.Instance.endScreen.activeInHierarchy)
-        //{
-        //    GameManager.Instance.endScreen.GetComponent<EndScreen>().DownArrowPressed();
-        //}
-
-        //EventController.instance.CountScreenInteractionWithoutCheck();
+        
         checkActivity = true;
     }
     public void select()
     {
-
         if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
             Toolbox.MainMenuManager.SpacePressed();
         else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
             Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().SpacePressed();
-        //if (GameManager.Instance.pauseScreen.activeInHierarchy)
-        //{
-        //    GameManager.Instance.pauseScreen.GetComponent<PauseScreen>().SpacePressed();
-        //}
-        //else if (GameManager.Instance.titleScreen.activeInHierarchy)
-        //{
-        //    GameManager.Instance.titleScreen.GetComponent<PlayButton>().SpacePressed();
-        //}
-        //else if (GameManager.Instance.buttonsPlayPanel.activeInHierarchy)
-        //{
-        //    GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().SpacePressed();
-        //}
-        //else if (GameManager.Instance.endScreen.activeInHierarchy)
-        //{
-        //    GameManager.Instance.endScreen.GetComponent<EndScreen>().SpacePressed();
-        //}
 
-
-
-
-        // EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
         checkActivity = true;
 
     }
@@ -176,12 +127,7 @@ public class AccessibilityManager : MonoBehaviour
     }
     public void Close()
     {
-
-        //GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().CKeyPressed();
-        
-
         print("AccessibilityManager->Close() called");
-        //EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
     }
 
     // Variable to let info play while being controls are freezed
@@ -189,11 +135,8 @@ public class AccessibilityManager : MonoBehaviour
 
     public void Info()
     {
-        //GameManager.Instance.buttonsPlayPanel.GetComponent<ChooseAnswer>().IKeyPressed();
-
-        //if (!isUrgentInfo)
-            //EventController.instance.CountScreenInteractionWithoutCheck();
-
+        if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().IKeyPressed();
 
     }
 

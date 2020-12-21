@@ -110,7 +110,7 @@ namespace CloseCaption
 
             captionArray[(int)caption.priority] = caption;
 
-            Debug.Log("Added: " + caption.priority.ToString() + ": " + caption.displayText + ", " + caption.endTime);
+            //Debug.Log("Added: " + caption.priority.ToString() + ": " + caption.displayText + ", " + caption.endTime);
             UpdatePlacementPosition(placementPos);
             UpdateCaptions();
         }
@@ -122,7 +122,7 @@ namespace CloseCaption
 
             placementPos = newPlacementPos;
             // top = transform.GetChild(0).gameObject
-            Debug.Log("CCPos:" + newPlacementPos);
+            //Debug.Log("CCPos:" + newPlacementPos);
             transform.GetChild(0).gameObject.SetActive(placementPos == CCPlacement.Top);
             // bottom = transform.GetChild(1).gameObject
             transform.GetChild(1).gameObject.SetActive(placementPos == CCPlacement.Bottom);

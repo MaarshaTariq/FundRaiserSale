@@ -13,17 +13,33 @@ public class InfoManager : MonoBehaviour
     {
         instance = this;
     }
-	public void ShowInfoBox()
+    private void Start()
+    {
+        if (Toolbox.GameManager.Accessibilty)//Removing Close btn for Info box in Accessiblity mode.
+        {
+            infoBox.transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
+    public void ShowInfoBox()
 	{
         infoBox.SetActive(true);
         StartCoroutine(Toolbox.SoundManager.playInitialAudio());
         //Play Sound of Drag correct stuff here
 	}
+    public void ShowAccessibilityInfoBox()
+	{
+        StartCoroutine(this.AccessibilityInfoBoxToggle());
+    }
 
 	public void CloseInfoBox()
 	{
         infoBox.SetActive(false);
-
 	}
-	
+
+    IEnumerator AccessibilityInfoBoxToggle()
+    {
+        infoBox.SetActive(true);
+        yield return StartCoroutine(Toolbox.SoundManager.playInitialAudio());
+        infoBox.SetActive(false);
+    }
 }

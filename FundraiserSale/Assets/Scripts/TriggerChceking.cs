@@ -12,7 +12,8 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
 
     private int indexCounter=0;
     private bool firstOrderCompletion=false;
-    private int currentOrderIndex=0;
+    [HideInInspector]
+    public int currentOrderIndex=0;
 
     public GameObject transitionPanel;
     public FlaskFilling fl;
