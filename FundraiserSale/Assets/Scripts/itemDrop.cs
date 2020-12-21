@@ -13,13 +13,10 @@ public class itemDrop : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-       if(eventData.pointerDrag != null)
-        {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<Transform>().position;
-            
-        }  
-            
-                }
+        //Debug.Log(eventData.pointerDrag.name);
+        this.transform.parent.GetComponentInChildren<TriggerChceking>().SelectionLogic(eventData.pointerPress.gameObject.GetComponent<Collider2D>());
+
+    }
 
     
 }

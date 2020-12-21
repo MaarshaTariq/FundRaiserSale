@@ -43,18 +43,23 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
 
     public GameObject[] gamePanels;
+    public int gameSpeed;
 
     public bool isExternalDone = false;
     private bool accessibilty = false;
 
     public bool Accessibilty;
-    
 
     public void Awake()
     {
     }
     private void Start()
     {
+
+#if UNITY_EDITOR
+        Time.timeScale = gameSpeed;
+#endif
+
         gameManager = this;
         fillAmountNumber = 0.125f;
         temp = fillAmountNumber;

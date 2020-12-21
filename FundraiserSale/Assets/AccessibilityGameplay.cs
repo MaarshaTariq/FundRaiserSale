@@ -17,7 +17,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     public void DownArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && playButtonPressedCheck)
+        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getDecIndex();
 
@@ -32,7 +32,7 @@ public class AccessibilityGameplay : MonoBehaviour {
 
     public void UpArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && playButtonPressedCheck)
+        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getIncIndex();
 
@@ -46,7 +46,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     public void SpacePressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.inputBlocker.activeInHierarchy)
+        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             panelTriger.SelectionLogic(currentSelectables[currentListIndex].GetComponent<Collider2D>());
 
@@ -55,14 +55,14 @@ public class AccessibilityGameplay : MonoBehaviour {
 
     public void IKeyPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.inputBlocker.activeInHierarchy)
+        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             //InfoManager.Instance.SoundHandler();
         }
     }
     public void CKeyPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.inputBlocker.activeInHierarchy)
+        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             //GameManager.Instance.OpenPauseScreen();
             //checkButtonAnimation = false;
@@ -96,13 +96,19 @@ public class AccessibilityGameplay : MonoBehaviour {
 
     private void ShowCaptionAndSound(int temp)
     {
-        if (temp == 0)
+        if (temp == 0)//Option-1
         {
+<<<<<<< Updated upstream
             Toolbox.SoundManager._playSoundWithAudioClip( Toolbox.SoundManager.getCurrentSelection("cupcakes"));
             CloseCaption.CCManager.instance.CreateCaption("cupcakes", Toolbox.SoundManager.basicSounds[1].length);
+=======
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("cupcakes")));
+            CloseCaption.CCManager.instance.CreateCaption("5 Cupcakes", Toolbox.SoundManager.getCurrentSelection("cupcakes").length);
+>>>>>>> Stashed changes
         }
-        if (temp == 1)
+        if (temp == 1)//Option-2
         {
+<<<<<<< Updated upstream
             Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("brownies"));
             CloseCaption.CCManager.instance.CreateCaption("brownies", Toolbox.SoundManager.basicSounds[0].length);
         } if (temp == 2)
@@ -110,6 +116,30 @@ public class AccessibilityGameplay : MonoBehaviour {
             Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR"));
             Debug.Log("FundraiserSale_Caption");
             CloseCaption.CCManager.instance.CreateCaption("cookies", Toolbox.SoundManager.basicSounds[0].length);
+=======
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("brownies")));
+            CloseCaption.CCManager.instance.CreateCaption("5 Brownies", Toolbox.SoundManager.getCurrentSelection("brownies").length);
+        }
+        if (temp == 2)//OPtion-3
+        {
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR")));
+            CloseCaption.CCManager.instance.CreateCaption("10 Cookies", Toolbox.SoundManager.getCurrentSelection("FR").length);
+        }
+        if (temp == 3)//OrderForm
+        {
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR")));
+            CloseCaption.CCManager.instance.CreateCaption("Order Form", Toolbox.SoundManager.basicSounds[0].length);
+        }
+        if (temp == 4)//InfoBox
+        {
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR")));
+            CloseCaption.CCManager.instance.CreateCaption("Complete the order by choosing the correct number of baked goods", Toolbox.SoundManager.basicSounds[0].length);
+        }
+        if (temp == 4)//CloseButton
+        {
+            StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR")));
+            CloseCaption.CCManager.instance.CreateCaption("10 Cookies", Toolbox.SoundManager.basicSounds[0].length);
+>>>>>>> Stashed changes
         }
 
     }

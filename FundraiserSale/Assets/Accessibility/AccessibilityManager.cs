@@ -63,7 +63,7 @@ public class AccessibilityManager : MonoBehaviour
 
         // Blocking all inputs from mouse
         if (block != null)
-            //block.SetActive(true);
+            block.SetActive(true);
 
         if (YellowBox != null)
             YellowBox.SetActive(true);
@@ -104,7 +104,7 @@ public class AccessibilityManager : MonoBehaviour
         }
 
 
-        Debug.Log("Next");
+        //Debug.Log("Next");
         //EventController.instance.CountScreenInteractionWithoutCheck();//Manaan
         checkActivity = true;
     }
@@ -281,7 +281,7 @@ public class AccessibilityManager : MonoBehaviour
         // If timer reaches zero, start screensaver
         if (timeOutTimer > timeOut && LastCheck)
         {
-            Debug.Log("AccessibilityManager->ScreenTimeoutNotifier() timeout");
+            //Debug.Log("AccessibilityManager->ScreenTimeoutNotifier() timeout");
             timeOutTimer = -2.0f;
         }
     }

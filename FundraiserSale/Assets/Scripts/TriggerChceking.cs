@@ -47,11 +47,17 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     int indexForTags = 0;
     public bool checkMarksTags = false;
     public int draggedObjectsCounter;
+
+
+    
+
     public void Start()
     {
         fl = new FlaskFilling();
         tg = this;
         highlightText = new HighlightText();
+
+
     }
     private void OnEnable()
     {
@@ -64,7 +70,9 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     }
     public void OnTriggerExit2D(Collider2D other)
     {
-        SelectionLogic(other);
+       
+        //SelectionLogic(other);
+        
        
     }
 
