@@ -54,14 +54,15 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
 
-#if !UNITY_EDITOR
-        _OnGameStarted();      
-#endif
+
 
     }
     private void Start()
     {
 
+#if !UNITY_EDITOR
+        _OnGameStarted();   
+#endif
 #if UNITY_EDITOR
         Time.timeScale = gameSpeed;
 #endif

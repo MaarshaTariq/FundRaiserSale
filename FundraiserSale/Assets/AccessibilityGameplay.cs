@@ -51,7 +51,7 @@ public class AccessibilityGameplay : MonoBehaviour {
             if (currentSelectables[currentListIndex].GetComponent<Collider2D>() != null)
             {
                 panelTriger.SelectionLogic(currentSelectables[currentListIndex].GetComponent<Collider2D>());
-                Debug.Log("On Drop  other incorrect");
+                //Debug.Log("On Drop  other incorrect");
 
             }
             else
