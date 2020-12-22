@@ -167,9 +167,11 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
         {
             //Activate next Panel
             InfoManager.instance.CloseInfoBox();
-            yield return AllCheckmarksActivation();
-            
-            Toolbox.GameManager.ActivatingPanels();
+          
+            yield return StartCoroutine(AllCheckmarksActivation());
+            Debug.Log("Maarsha");
+
+           // Toolbox.GameManager.ActivatingPanels();
         }
     }
     public IEnumerator IncorrectAnswer(AudioClip clip)
@@ -221,18 +223,20 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
            
             Toolbox.GameManager.deactiveCurrentPanel();
             flaskfill = true;
-            Toolbox.GameManager.DeactivateUiInteractions();
-            transitionPanel.SetActive(true);
-    
-        
+           Toolbox.GameManager.DeactivateUiInteractions();
+           transitionPanel.SetActive(true);
             yield return new WaitForSeconds(0.5f);
-            transitionPanel.SetActive(false);
+           Debug.Log("whyBroWhy");
+            StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
+            Debug.Log("mmmmmmmmm");
+
+        //  transitionPanel.SetActive(false);
 
 
 
 
     }
-    
+
     public IEnumerator deActivateTransitionPanels()
     {
         yield return new WaitForSeconds(2f);

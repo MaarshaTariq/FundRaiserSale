@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 public class AccessibilityGameplay : MonoBehaviour {
 
-    public List<GameObject>currentSelectables;
+    public GameObject[] currentSelectables;
     private int currentListIndex = -1;
     public Image highlight;
     public TriggerChceking panelTriger;
@@ -18,7 +18,8 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     private void Start()
     {
-        SortCurrentSelectables();
+        Debug.Log("From Accessibility Gameplay");
+       Invoke( "SortCurrentSelectables", 2f);
     }
     private void SortCurrentSelectables()
     {
@@ -28,10 +29,10 @@ public class AccessibilityGameplay : MonoBehaviour {
 
         }
         GameObject temp;
-        for (int i = 0; i < currentSelectables.Count - 1; i++)
+        for (int i = 0; i < currentSelectables.Length - 1; i++)
 
             // traverse i+1 to array length 
-            for (int j = i + 1; j < currentSelectables.Count; j++)
+            for (int j = i + 1; j < currentSelectables.Length; j++)
 
                 // compare array element with  
                 // all next element 
@@ -59,7 +60,7 @@ public class AccessibilityGameplay : MonoBehaviour {
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
             highlight.rectTransform.anchoredPosition = Vector3.zero;
 
-            ShowCaptionAndSound(temp);
+            ShowCaptionAndSound(highlight.transform.parent.tag);
         }
     }
 
@@ -74,7 +75,7 @@ public class AccessibilityGameplay : MonoBehaviour {
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
             highlight.rectTransform.anchoredPosition = Vector3.zero;
 
-            ShowCaptionAndSound(temp);
+            ShowCaptionAndSound(highlight.transform.parent.tag);
         }
     }
     public void SpacePressed()
@@ -113,7 +114,7 @@ public class AccessibilityGameplay : MonoBehaviour {
 
     private int getIncIndex()
     {
-        if (currentListIndex + 1 > currentSelectables.Count - 1)
+        if (currentListIndex + 1 > currentSelectables.Length - 1)
         {
             currentListIndex = 0;
         }
@@ -127,7 +128,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     {
         if (currentListIndex - 1 <= -1)
         {
-            currentListIndex = currentSelectables.Count - 1;
+            currentListIndex = currentSelectables.Length - 1;
         }
         else
         {
@@ -136,24 +137,24 @@ public class AccessibilityGameplay : MonoBehaviour {
         return currentListIndex;
     }
 
-    private void ShowCaptionAndSound(int temp)
+    private void ShowCaptionAndSound(string temp)
     {
-        if (temp == 0)//Option-1
+        if (temp == "cupcakes")//Option-1
         {
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("cupcakes")));
             CloseCaption.CCManager.instance.CreateCaption("5 Cupcakes", Toolbox.SoundManager.getCurrentSelection("cupcakes").length);
         }
-        if (temp == 1)
+        if (temp == "brownies")
         {
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("brownies")));
             CloseCaption.CCManager.instance.CreateCaption("5 Brownies", Toolbox.SoundManager.getCurrentSelection("brownies").length);
         }
-        if (temp == 2)//OPtion-3
+        if (temp == "FR")//OPtion-3
         {
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("FR")));
             CloseCaption.CCManager.instance.CreateCaption("10 Cookies", Toolbox.SoundManager.getCurrentSelection("FR").length);
         }
-        if (temp == 3)//OrderForm
+        if (temp == "OrderForm")//OrderForm
         {
             //StartCoroutine(panelTriger.HighlightAudioFromBtn(panelTriger.currentOrderIndex));
             StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection("Order Form or Is it ???? :p")));

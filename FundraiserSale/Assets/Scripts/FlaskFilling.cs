@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FlaskFilling : MonoBehaviour {
-    /* public static FlaskFilling flaskFilling;
-     public float fillAmountNumber;
+     public static FlaskFilling flaskFilling;
+     /*public float fillAmountNumber;
      public Image flaskFiller;
 
      public void Start()
@@ -25,7 +25,8 @@ public class FlaskFilling : MonoBehaviour {
      */
     public void Start()
     {
-        StartCoroutine(transitionPanelDeactivate());
+        flaskFilling = this;
+        //StartCoroutine(transitionPanelDeactivate());
     }
     public void Update()
     {
@@ -36,9 +37,10 @@ public class FlaskFilling : MonoBehaviour {
     }
     public IEnumerator transitionPanelDeactivate()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Toolbox.GameManager.ActivatingPanels();
         TriggerChceking.tg.transitionPanel.SetActive(false);
+        Debug.Log("mmmmmmmmddddm");
         Toolbox.GameManager.flaskFiller.fillAmount = 0;
         
     }
