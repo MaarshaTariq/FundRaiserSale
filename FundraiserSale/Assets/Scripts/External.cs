@@ -50,7 +50,7 @@ public class External : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-
+            EnableAccessibilty("true");
         }
     }
     void ManagerAccessibility()
