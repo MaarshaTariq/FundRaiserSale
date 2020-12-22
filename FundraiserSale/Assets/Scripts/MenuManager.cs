@@ -51,8 +51,10 @@ public class MenuManager : MonoBehaviour {
             introPanel.SetActive(true);
             yield return new WaitForSeconds(4f);
         }
-        introPanel.SetActive(false);
         Toolbox.GameManager.ActivatingPanels();
+
+        yield return new WaitForSeconds(1f);
+        introPanel.SetActive(false);
     }
 
     public void OnPressAgain()

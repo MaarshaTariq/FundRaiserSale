@@ -30,6 +30,7 @@ public class TextToSpeech : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TotalAudioToDownload = textsToConvert.Count-1;
         if (LocalTTS)
         {
             StartCoroutine(GetLocalDownlaodedAudioFiles());

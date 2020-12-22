@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 116898828}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3778,7 +3778,7 @@ GameObject:
   - component: {fileID: 264870677}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6667,8 +6667,8 @@ Camera:
   m_GameObject: {fileID: 479892731}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.85098046, g: 0.92549026, b: 0.92549026, a: 0.591}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -6869,7 +6869,7 @@ GameObject:
   - component: {fileID: 501134576}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8988,7 +8988,7 @@ GameObject:
   - component: {fileID: 617256891}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15136,7 +15136,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: V 1.0
+  m_Text: V 1.1
 --- !u!222 &993016465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18608,7 +18608,7 @@ GameObject:
   - component: {fileID: 1270827056}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19797,7 +19797,6 @@ MonoBehaviour:
   waitTime: 1
   flaskFiller: {fileID: 1781280078}
   menuManager: {fileID: 1516376176}
-  introPanel: {fileID: 1514840462}
   endingPanel: {fileID: 151368112}
   transitionPanel: {fileID: 2023936998}
   infoHandler: {fileID: 873293562}
@@ -19908,7 +19907,7 @@ GameObject:
   - component: {fileID: 1381798131}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21421,7 +21420,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1514840463}
   - component: {fileID: 1514840465}
-  - component: {fileID: 1514840464}
   m_Layer: 5
   m_Name: Introduction
   m_TagString: Untagged
@@ -21448,33 +21446,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1514840464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1514840462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1514840465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22666,7 +22637,7 @@ GameObject:
   - component: {fileID: 1633803013}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28187,7 +28158,7 @@ GameObject:
   - component: {fileID: 2067272443}
   m_Layer: 0
   m_Name: OrderForm
-  m_TagString: Untagged
+  m_TagString: OrderForm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

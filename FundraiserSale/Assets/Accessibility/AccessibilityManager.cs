@@ -55,19 +55,11 @@ public class AccessibilityManager : MonoBehaviour
     {
         if (LoadingScreen)
             //LoadingScreen.SetActive(true);
-
         LastCheck = true;
-        //CanCheckInfo = true;
         ShowPausePanel = true;
-        //ShowPausePanel = true;
 
         if (YellowBox != null)
             YellowBox.SetActive(true);
-
-
-        PlayerPrefs.SetString("clickable", "false");
-        PlayerPrefs.SetInt("Click", 1);
-
         instance = this;
     }
     IEnumerator StartingAccessibilty()
@@ -129,14 +121,13 @@ public class AccessibilityManager : MonoBehaviour
         checkActivity = true;
 
     }
-    public void unSelect()
+    public void unSelect()//Not used in Game 112 Fundraiser sale
     {
     }
     public void Close()
     {
         if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
             Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().CKeyPressed();
-        print("AccessibilityManager->Close() called");
     }
 
     // Variable to let info play while being controls are freezed
@@ -206,12 +197,7 @@ public class AccessibilityManager : MonoBehaviour
         }
         if (close && ShowPausePanel && LastCheck)
         {
-            Debug.Log("AccessibilityManager->c pressed");
             Close();
-            // GameManager.Instance.Stop();
-            //  ToggleNaviagtion(false);
-            //  pausePanel.SetActive(true);
-
             close = false;
         }
 
@@ -220,8 +206,6 @@ public class AccessibilityManager : MonoBehaviour
 
     public void ScreenTimeoutNotifier()
     {
-        //Debug.Log("AccessibilityManager->ScreenTimeoutNotifier() called: " + timeOutTimer);
-
         timeOutTimer += Time.deltaTime;
         // If screen is tapped, reset timer
         if (checkActivity)
@@ -230,14 +214,10 @@ public class AccessibilityManager : MonoBehaviour
             checkActivity = false;
             //Dont active screensaver
         }
-        // If timer reaches zero, start screensaver
         if (timeOutTimer > timeOut && LastCheck)
         {
-            //Debug.Log("AccessibilityManager->ScreenTimeoutNotifier() timeout");
             timeOutTimer = -2.0f;
         }
     }
-
     #endregion
-
 }
