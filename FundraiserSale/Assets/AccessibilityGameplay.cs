@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
+using System;
 public class AccessibilityGameplay : MonoBehaviour {
 
-    public List<GameObject> currentSelectables;
+    public List<GameObject>currentSelectables;
     private int currentListIndex = -1;
     public Image highlight;
     public TriggerChceking panelTriger;
@@ -14,6 +15,38 @@ public class AccessibilityGameplay : MonoBehaviour {
     public void Awake()
     {
         //Toolbox.Set_MainMenuManger(this);
+    }
+    private void Start()
+    {
+        SortCurrentSelectables();
+    }
+    private void SortCurrentSelectables()
+    {
+        foreach ( GameObject g in currentSelectables)
+        {
+            print(g.GetComponent<RectTransform>().localPosition.x);
+
+        }
+        GameObject temp;
+        for (int i = 0; i < currentSelectables.Count - 1; i++)
+
+            // traverse i+1 to array length 
+            for (int j = i + 1; j < currentSelectables.Count; j++)
+
+                // compare array element with  
+                // all next element 
+                if (currentSelectables[i].GetComponent<RectTransform>().localPosition.x < currentSelectables[j].GetComponent<RectTransform>().localPosition.x)
+                {
+
+                    temp = currentSelectables[i];
+                    currentSelectables[i] = currentSelectables[j];
+                    currentSelectables[j] = temp;
+                }
+        foreach (GameObject g in currentSelectables)
+        {
+            print(g.GetComponent<RectTransform>().localPosition.x);
+
+        }
     }
     public void DownArrowPressed()
     {
