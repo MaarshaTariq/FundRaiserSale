@@ -13,7 +13,7 @@ public class OptionRandomization : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("From Option Randomization");
+        //Debug.Log("From Option Randomization");
         RandomizeOptions();
         op=this;
 	}

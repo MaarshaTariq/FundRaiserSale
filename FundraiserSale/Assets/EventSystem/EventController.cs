@@ -118,7 +118,7 @@ public class EventController : MonoBehaviour
     public void CountScreenInteraction()
     {
 		
-            if (Input.GetMouseButtonUp(0) && !Toolbox.GameManager.Accessibilty)
+            if (Input.GetMouseButtonUp(0) && !Toolbox.GameManager.accessibilityCheck)
             {
                 report.setResponsiveness(report.getResponsiveness() + 1);
             }
@@ -126,7 +126,7 @@ public class EventController : MonoBehaviour
 	}
 	public void DecreaseCountForPlayPause()
 	{
-		if (!External.Instance.Preview) {
+		if (!Toolbox.ExternalHandler.Preview) {
 
 			report.setResponsiveness (report.getResponsiveness () - 1);
 			Debug.Log ("--");
@@ -134,13 +134,13 @@ public class EventController : MonoBehaviour
 	}
 	public void CountScreenInteractionWithoutCheck()
 	{
-		if(!External.Instance.Preview)
+		if(!Toolbox.ExternalHandler.Preview)
 			report.setResponsiveness(report.getResponsiveness() + 1);
 	}
 
 	public void SetResponsiveness(int increaseBy = 1)
 	{
-		if(!External.Instance.Preview)
+		if(!Toolbox.ExternalHandler.Preview)
 			report.setResponsiveness(report.getResponsiveness() + increaseBy);
 	}
 	public void GameMode(string mode)
@@ -246,18 +246,18 @@ public class EventController : MonoBehaviour
 		
 		PlayerGameScore playerGameScore = new PlayerGameScore ();
 		playerGameScore.Complete =(int)report.getPercentage();
-		playerGameScore.CreatedBy = (External.Instance.Model.GetGameId()).ToString();
+		playerGameScore.CreatedBy = (Toolbox.ExternalHandler.Model.GetGameId()).ToString();
 		playerGameScore.CreatedDate = report.GetFirstPostDateTime ();
 		playerGameScore.Duration = (int)report.getPlaytime ();
-		playerGameScore.GameId = External.Instance.Model.GetGameId();
+		playerGameScore.GameId = Toolbox.ExternalHandler.Model.GetGameId();
 		playerGameScore.IncorrectAttempts = report.getIncorrectAttempts();
 		playerGameScore.InstanceId = 0;
-		playerGameScore.IsInAccessibilityMode = Toolbox.GameManager.Accessibilty;
-		playerGameScore.ModifiedBy = (External.Instance.Model.GetGameId()).ToString();
+		playerGameScore.IsInAccessibilityMode = Toolbox.GameManager.accessibilityCheck;
+		playerGameScore.ModifiedBy = (Toolbox.ExternalHandler.Model.GetGameId()).ToString();
 		playerGameScore.ModifiedDate = System.DateTime.UtcNow;
 		playerGameScore.PlayType = GetGameType();
 		playerGameScore.Responsiveness = report.getResponsiveness();
-		playerGameScore.StudentId = External.Instance.Model.GetStudentId ();
+		playerGameScore.StudentId = Toolbox.ExternalHandler.Model.GetStudentId ();
 		playerGameScore.Timestamp = report.getDatetime();
 
 
@@ -278,7 +278,7 @@ public class EventController : MonoBehaviour
 		
 		string JsonString = JsonConvert.SerializeObject (playerGameScore);
 		Debug.Log (JsonString);
-		string Url=External.Instance.BaseUrl + "api/PlayerScoreApi/SavePlayerScore";
+		string Url= Toolbox.ExternalHandler.baseURL + "api/PlayerScoreApi/SavePlayerScore";
 		Debug.Log ("URl used for posting : "+Url);
 		RestAPIHandler.Instance.StartCoroutine(RestAPIHandler.Instance.PostRequest(Url,JsonString));
 

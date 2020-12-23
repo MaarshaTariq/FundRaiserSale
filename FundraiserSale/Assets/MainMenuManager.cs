@@ -16,7 +16,7 @@ public class MainMenuManager : MonoBehaviour {
     }
     public void DownArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && playButtonPressedCheck)
+        if (Toolbox.GameManager.accessibilityCheck && playButtonPressedCheck)
         {
             int temp = getIncIndex();
 
@@ -31,7 +31,7 @@ public class MainMenuManager : MonoBehaviour {
 
     public void UpArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && playButtonPressedCheck)
+        if (Toolbox.GameManager.accessibilityCheck && playButtonPressedCheck)
         {
             int temp = getDecIndex();
 
@@ -45,7 +45,7 @@ public class MainMenuManager : MonoBehaviour {
     }
     public void SpacePressed()
     {
-        if (Toolbox.GameManager.Accessibilty && playButtonPressedCheck)
+        if (Toolbox.GameManager.accessibilityCheck && playButtonPressedCheck)
         {
             if (currentListIndex == 0)
             {

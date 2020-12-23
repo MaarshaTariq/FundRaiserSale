@@ -99,7 +99,7 @@ public class MenuManager : MonoBehaviour {
     
     public void PauseDownArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getIncIndex();
 
@@ -114,7 +114,7 @@ public class MenuManager : MonoBehaviour {
 
     public void PauseUpArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getDecIndex();
 
@@ -128,7 +128,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void PauseSpacePressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             if (currentListIndex == 0)//On Play Button
             {

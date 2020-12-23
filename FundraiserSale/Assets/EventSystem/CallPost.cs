@@ -7,7 +7,7 @@ public class CallPost : MonoBehaviour
     
     void OnEnable()
     {
-        if (EventController.instance != null && !External.Instance.Preview)
+        if (EventController.instance != null && !Toolbox.ExternalHandler.Preview)
             EventController.instance.currentGamePercentage();
         else
             Debug.LogError("Event Controller instance does not exist or you are in preview mode...");

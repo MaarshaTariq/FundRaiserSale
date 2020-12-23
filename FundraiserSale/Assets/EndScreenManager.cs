@@ -72,7 +72,7 @@ public class EndScreenManager : MonoBehaviour {
 
     public void EndScreenDownArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getIncIndex();
 
@@ -87,7 +87,7 @@ public class EndScreenManager : MonoBehaviour {
 
     public void EndScreenUpArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getDecIndex();
 
@@ -101,7 +101,7 @@ public class EndScreenManager : MonoBehaviour {
     }
     public void EndScreenSpacePressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             if (currentListIndex == 0)//On Again Button
             {

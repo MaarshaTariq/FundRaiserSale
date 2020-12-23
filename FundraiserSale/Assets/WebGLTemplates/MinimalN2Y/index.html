@@ -3,15 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="bootstrap-css.css" />
 
     <script src="https://use.fontawesome.com/de58f08536.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script> -->
     <script src="audiocontext-polyfill.js"></script>
     <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <title>%UNITY_WEB_NAME%</title>
@@ -131,6 +133,30 @@
     </div>
 	
 	 <script>
+	 //console.log("Sound Stuff");
+	 <!-- window.addEventListener('touchstart', function()  -->
+	 <!-- { -->
+
+		<!-- // for legacy browsers -->
+		<!-- var AudioContext = window.AudioContext || window.webkitAudioContext; -->
+		<!-- var audioCtx = new AudioContext(); -->
+		<!-- // create empty buffer -->
+		<!-- var buffer = audioCtx.createBuffer(1, 1, 22050); -->
+		<!-- var source = audioCtx.createBufferSource(); -->
+		<!-- source.buffer = buffer; -->
+
+		
+		
+		<!-- // connect to output (your speakers) -->
+		<!-- source.connect(audioCtx.destination); -->
+
+		<!-- // play the file -->
+		<!-- //<--source.noteOn(0);>-- -->
+		<!-- source.start(0); -->
+		<!-- console.log("Sound Played"); -->
+		
+	<!-- }, false); -->
+
         var holder;
           window.onload = getQueryParameters;
 

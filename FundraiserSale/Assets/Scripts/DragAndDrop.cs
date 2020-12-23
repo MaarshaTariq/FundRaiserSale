@@ -15,6 +15,9 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     //public GameObject ObjectTogetHit;
     //public GameObject imageToBeDragged;
     public Vector3 initialTransform;
+
+    private Vector2 lastMousePosition;
+
     public void Start()
     {
         dg = this;
@@ -42,23 +45,42 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
-        //startingValue = rectTransform.anchoredPosition;
-        rectTransform.anchoredPosition += eventData.delta;
+        //rectTransform.anchoredPosition += eventData.delta;
 
-        //rectTransform.anchoredPosition = startingValue;
-
-        /*if (position.x > 890 && position.x < 1735 )
+        Vector2 currentMousePosition = eventData.position;
+        Vector2 diff = currentMousePosition - lastMousePosition;
+        RectTransform rect = GetComponent<RectTransform>();
+        Vector3 newPosition = rect.position + new Vector3(diff.x, diff.y, transform.position.z);
+        Vector3 oldPos = rect.position;
+        rect.position = newPosition;
+        if (!IsRectTransformInsideSreen(rect))
         {
-            imageToBeDragged.SetActive(true);
-            rectTransform.anchoredPosition = startingValue;
+            rect.position = oldPos;
         }
-        else
-        {
-            rectTransform.anchoredPosition = startingValue;
-        }
-       */
+        lastMousePosition = currentMousePosition;
     }
+    private bool IsRectTransformInsideSreen(RectTransform rectTransform)
+    {
+        bool isInside = false;
+        Vector3[] corners = new Vector3[4];
+        rectTransform.GetWorldCorners(corners);
+        int visibleCorners = 0;
+        Rect rect = new Rect(0, 0, Screen.width, Screen.height);
+        foreach (Vector3 corner in corners)
+        {
+            if (rect.Contains(corner))
+            {
+                visibleCorners++;
+            }
+        }
+        if (visibleCorners == 4)
+        {
+            isInside = true;
+        }
+        return isInside;
+    }
+
+
 
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -67,12 +89,7 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
        // Debug.Log("flagHit " + flagHit);
         if (flagHit)
         {
-           // highlightText.fillAmountForImage -= 400;
-            //highlightText.increaseFillAmount(eventData.pointerDrag.GetComponent<Image>());
-            // imageToBeDragged.SetActive(true);
-            // imageToBeDragged.layer = 3;
-            //Debug.Log("OnEndDrag");
-
+       
             
         }
         canvasGroup.alpha = 1f;
@@ -93,10 +110,3 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
 }
 
-/*StartCoroutine(waitingTime());
-imageToBeDragged.SetActive(true);
-        StartCoroutine(waitingTime());
-rectTransform.anchoredPosition = startingValue;
-        StartCoroutine(waitingTime());*/
-
-//  && position.y > 540 && position.y< 7

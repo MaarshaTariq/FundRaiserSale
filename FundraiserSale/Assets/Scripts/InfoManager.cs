@@ -15,7 +15,7 @@ public class InfoManager : MonoBehaviour
     }
     private void Start()
     {
-        if (Toolbox.GameManager.Accessibilty)//Removing Close btn for Info box in Accessiblity mode.
+        if (Toolbox.GameManager.accessibilityCheck)//Removing Close btn for Info box in Accessiblity mode.
         {
             infoBox.transform.GetChild(1).gameObject.SetActive(false);
         }

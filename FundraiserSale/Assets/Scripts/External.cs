@@ -10,24 +10,14 @@ public class External : MonoBehaviour
     public GameObject assetDownloader;//Not Being used in Fundraiser.
     public static string urlFromServer;
     public bool Preview = false;
-	public static External Instance;
 
     public GameObject accessibilityInputBlocker;
     public GameObject fullscreenBtn;
 
 
-	string baseURL;
-	[HideInInspector]
-	public string BaseUrl
-	{
-		get { return baseURL; }
-		set
-		{
-			print("Updating baseURL: " + value);
-			baseURL = value;
-		}
-	}
-	[HideInInspector]
+    [HideInInspector]
+    public string baseURL =" ";
+    [HideInInspector]
 	public string KeyNew;
 	public GameStudentModel Model;
 
@@ -36,12 +26,12 @@ public class External : MonoBehaviour
 
 	void Awake()
 	{
-		Instance = this;
+        Toolbox.Set_ExternalHandler(this);
+
 	}
 	// Use this for initialization
 	void OnEnable()
 	{
-		Instance = this;
 		#if UNITY_EDITOR //for testing purposes in editor
 		Invoke("ManagerAccessibility", 0);
 		#endif
@@ -93,7 +83,7 @@ public class External : MonoBehaviour
     public void GetBaseUrl(string uRL)
     {
         Debug.Log("The Base Url from server is : " + uRL);
-        BaseUrl = uRL;
+        baseURL = uRL;
     }
 
 
@@ -127,7 +117,7 @@ public class External : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.15f);
 
-        Toolbox.GameManager.Accessibilty = ISAccessibilty;
+        Toolbox.GameManager.accessibilityCheck = ISAccessibilty;
 
 
 		//Toolbox.GameManager.isExternalDone = true;

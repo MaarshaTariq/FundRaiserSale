@@ -93,7 +93,7 @@ namespace CloseCaption
 
         public void CreateCaption(CCPriority priority, string displayText, float displayTime)
         {
-            if (Toolbox.GameManager != null && !Toolbox.GameManager.Accessibilty)
+            if (Toolbox.GameManager != null && !Toolbox.GameManager.accessibilityCheck)
                 return;
 
 
@@ -117,7 +117,7 @@ namespace CloseCaption
 
         public void UpdatePlacementPosition(CCPlacement newPlacementPos)
         {
-            if (Toolbox.GameManager != null && !Toolbox.GameManager.Accessibilty)
+            if (Toolbox.GameManager != null && !Toolbox.GameManager.accessibilityCheck)
                 return;
 
             placementPos = newPlacementPos;
@@ -138,7 +138,7 @@ namespace CloseCaption
 
         void UpdateCaptions()
         {
-            if (Toolbox.GameManager != null && !Toolbox.GameManager.Accessibilty)
+            if (Toolbox.GameManager != null && !Toolbox.GameManager.accessibilityCheck)
                 return;
 
             //			Debug.Log ("UpdateCaptions");

@@ -16,6 +16,7 @@ public class GetAudio
 public class TextToSpeech : MonoBehaviour
 {
     public bool LocalTTS;//false for main n2y build , true for local build 	
+    public bool N2YTTS;
 
     public string apiLink;
     public string apiKey;
@@ -35,7 +36,7 @@ public class TextToSpeech : MonoBehaviour
         {
             StartCoroutine(GetLocalDownlaodedAudioFiles());
         }
-        else//Else get it from the N2Y server
+        else if (N2YTTS)//Else get it from the N2Y server
         {
             StartCoroutine(DownloadSoundClipsFromN2Y());
         }
@@ -53,8 +54,8 @@ public class TextToSpeech : MonoBehaviour
             Regex rg = new Regex("\\s+");
             string result = rg.Replace(textsToConvert[i], "+");
 
-            print("TextToSpeech->ExternalRef.BaseUrl: " + Toolbox.ExternalHandler.BaseUrl);
-            string url = Toolbox.ExternalHandler.BaseUrl + "api/speechapi/GetDynamicSpeechData?text=" + result + "&speed=30&volume=90&speechLanguage=en";//n2y server
+            print("TextToSpeech->ExternalRef.BaseUrl: " + Toolbox.ExternalHandler.baseURL);
+            string url = Toolbox.ExternalHandler.baseURL + "api/speechapi/GetDynamicSpeechData?text=" + result + "&speed=30&volume=90&speechLanguage=en";//n2y server
             print(url);
 
             WWW ww = new WWW(url);

@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     public bool isExternalDone = false;
     private bool accessibilty = false;
 
-    public bool Accessibilty;
+    public bool accessibilityCheck;
 
     public void Awake()
     {

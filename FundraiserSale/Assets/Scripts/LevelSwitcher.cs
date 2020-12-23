@@ -32,7 +32,7 @@ public class LevelSwitcher : MonoBehaviour {
        // yield return new WaitForSeconds(2f);
         Toolbox.GameManager.ActivatingPanels();
         TriggerChceking.tg.transitionPanel.SetActive(false);
-        Debug.Log("mmmmmmmmddddm");
+        //Debug.Log("mmmmmmmmddddm");
         Toolbox.GameManager.flaskFiller.fillAmount = 0;
 
     }

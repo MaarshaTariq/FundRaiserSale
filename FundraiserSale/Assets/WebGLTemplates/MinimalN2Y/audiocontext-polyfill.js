@@ -64,8 +64,12 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext ||
 
         }
     };
-
-if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+console.log("audiocontext-polyfill_version:1.6");
+var isRunOnce=false;
+var isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
+let isIOS = /iPad|iPhone|iPod/.test(navigator.platform) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+if (isIOS || isMac) {
     var OriginalAudioContext = AudioContext;
     window.AudioContext = function AudioContext() {
         var iOSCtx = new OriginalAudioContext();
@@ -75,18 +79,30 @@ if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
         var tmpProc = iOSCtx.createScriptProcessor(256, 1, 1);
 
         body.addEventListener('touchstart', instantProcess, false);
-
-        function instantProcess() {
-            tmpBuf.start(0);
-            tmpBuf.connect(tmpProc);
-            tmpProc.connect(iOSCtx.destination);
+        //window.addEventListener("blur",instantProcess);
+        body.addEventListener('click', instantProcess, false);
+        function instantProcess()
+        {
+            console.log("instantProcess() called");
+            try
+            {
+                console.log("instantProcess() running");
+                tmpBuf.start(0);
+                tmpBuf.connect(tmpProc);
+                tmpProc.connect(iOSCtx.destination);
+                isRunOnce = true;
+            }
+            catch(err) {
+                console.log("instantProcess() message");
+                console.log(err.message);
+            }
         }
 
         // This function will be called once and for all.
         tmpProc.onaudioprocess = function () {
             tmpBuf.disconnect();
             tmpProc.disconnect();
-            body.removeEventListener('touchstart', instantProcess, false);
+           // body.removeEventListener('touchstart', instantProcess, false);
             tmpProc.onaudioprocess = null;
         };
 

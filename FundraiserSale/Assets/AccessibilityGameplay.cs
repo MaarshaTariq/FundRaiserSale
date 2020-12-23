@@ -18,16 +18,16 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     private void Start()
     {
-        Debug.Log("From Accessibility Gameplay");
+        //Debug.Log("From Accessibility Gameplay");
        Invoke( "SortCurrentSelectables", 2f);
     }
     private void SortCurrentSelectables()
     {
-        foreach ( GameObject g in currentSelectables)
-        {
-            print(g.GetComponent<RectTransform>().localPosition.x);
+        //foreach ( GameObject g in currentSelectables)
+        //{
+        //    print(g.GetComponent<RectTransform>().localPosition.x);
 
-        }
+        //}
         GameObject temp;
         for (int i = 0; i < currentSelectables.Length - 1; i++)
 
@@ -43,15 +43,15 @@ public class AccessibilityGameplay : MonoBehaviour {
                     currentSelectables[i] = currentSelectables[j];
                     currentSelectables[j] = temp;
                 }
-        foreach (GameObject g in currentSelectables)
-        {
-            print(g.GetComponent<RectTransform>().localPosition.x);
+        //foreach (GameObject g in currentSelectables)
+        //{
+        //    print(g.GetComponent<RectTransform>().localPosition.x);
 
-        }
+        //}
     }
     public void DownArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getDecIndex();
 
@@ -66,7 +66,7 @@ public class AccessibilityGameplay : MonoBehaviour {
 
     public void UpArrowPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getIncIndex();
 
@@ -80,7 +80,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     public void SpacePressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             if (currentSelectables[currentListIndex].GetComponent<Collider2D>() != null)
             {
@@ -98,7 +98,7 @@ public class AccessibilityGameplay : MonoBehaviour {
 
     public void IKeyPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             InfoManager.instance.ShowAccessibilityInfoBox();
 
@@ -106,7 +106,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     public void CKeyPressed()
     {
-        if (Toolbox.GameManager.Accessibilty && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             Toolbox.MenuManager.OnPressPauseGame();
         }
