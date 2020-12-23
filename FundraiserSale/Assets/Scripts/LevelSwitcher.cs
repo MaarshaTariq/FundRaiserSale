@@ -13,18 +13,27 @@ public class LevelSwitcher : MonoBehaviour {
         //  tg = new TriggerChceking();
 
     }
+    public void OnEnable()
+    {
+        StartCoroutine(activePanelAndTransition());
+    }
 
     public void Update()
     {
-        StartCoroutine(activePanelAndTransition());
+       // StartCoroutine(activePanelAndTransition());
         //  StartCoroutine(TriggerChceking.tg .allCheckmarksActivation());
         //StartCoroutine(TriggerChceking.tg.deActivateTransitionPanels());
     }
     public IEnumerator activePanelAndTransition()
     {
        
-        StartCoroutine(Toolbox.GameManager.FillTheFlask());
-        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(Toolbox.GameManager.FillTheFlask());
+        yield return new WaitForSeconds(2f);
+       // yield return new WaitForSeconds(2f);
+        Toolbox.GameManager.ActivatingPanels();
+        TriggerChceking.tg.transitionPanel.SetActive(false);
+        Debug.Log("mmmmmmmmddddm");
+        Toolbox.GameManager.flaskFiller.fillAmount = 0;
 
     }
 }

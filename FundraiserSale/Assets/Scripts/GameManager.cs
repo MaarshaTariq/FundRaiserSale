@@ -184,10 +184,11 @@ public class GameManager : MonoBehaviour
     public IEnumerator FillTheFlask()
     {
         temp = levelCounter * fillAmountNumber;
+        Toolbox.SoundManager.audioPlayer.clip = flaskFillinfSound;
+        Toolbox.SoundManager.audioPlayer.Play();
         while (flaskFiller.fillAmount <= temp)
         {
-            Toolbox.SoundManager.audioPlayer.clip = flaskFillinfSound;
-            Toolbox.SoundManager.audioPlayer.Play();
+            
             flaskFiller.fillAmount += fillAmountNumber / waitTime * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }

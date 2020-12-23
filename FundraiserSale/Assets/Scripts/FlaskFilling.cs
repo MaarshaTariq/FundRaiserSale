@@ -30,18 +30,18 @@ public class FlaskFilling : MonoBehaviour {
     }
     public void Update()
     {
-        if (TriggerChceking.tg.transitionPanel.activeInHierarchy)
+       /* if (TriggerChceking.tg.transitionPanel.activeInHierarchy)
         {
             StartCoroutine(transitionPanelDeactivate());
-        }
+        }*/
     }
-    public IEnumerator transitionPanelDeactivate()
+    /* public IEnumerator transitionPanelDeactivate()
     {
-        yield return new WaitForSeconds(2f);
+       yield return new WaitForSeconds(2f);
         Toolbox.GameManager.ActivatingPanels();
         TriggerChceking.tg.transitionPanel.SetActive(false);
         Debug.Log("mmmmmmmmddddm");
         Toolbox.GameManager.flaskFiller.fillAmount = 0;
-        
-    }
+
+}*/
 }

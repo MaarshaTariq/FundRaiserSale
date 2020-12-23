@@ -249,7 +249,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
          //   StartCoroutine(ls.activePanelAndTransition());
             yield return new WaitForSeconds(0f);
            
-            StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
+          //  StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
         //  transitionPanel.SetActive(false);
 
 
