@@ -8,15 +8,15 @@ using UnityEngine.UI;
 
 public class TriggerChceking : MonoBehaviour, IPointerUpHandler
 {
-    
 
+     LevelSwitcher ls;
     private int indexCounter=0;
     private bool firstOrderCompletion=false;
     [HideInInspector]
     public int currentOrderIndex=0;
 
     public GameObject transitionPanel;
-    public FlaskFilling fl;
+  //  public FlaskFilling fl;
     public bool flaskfill = false;
     public string[] incorrectableTags;
     public string[] tagName ;
@@ -38,6 +38,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     public GameObject[] scoreBoardImages;
     public GameObject[] scoreBoardImages1;
     public GameObject[] checkMarks;
+    public GameObject[] highlightAudioButtons;
    
     public string[] tags ;
 
@@ -54,7 +55,8 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
 
     public void Start()
     {
-        fl = new FlaskFilling();
+        ls = new LevelSwitcher();
+        //fl = new FlaskFilling();
         tg = this;
         highlightText = new HighlightText();
 
@@ -81,6 +83,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     {
         if (!firstOrderCompletion)
         {
+            highlightAudioButtons[0].SetActive(true);
             for (int i = indexCounter; i < tags.Length; i++)
             {
                 if (other.gameObject.tag == tags[i])
@@ -103,6 +106,8 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
                         indexCounter = 0;
                         firstOrderCompletion = true;
                         checkMarks[0].SetActive(true);
+                        highlightAudioButtons[0].SetActive(false);
+                        highlightAudioButtons[1].SetActive(true);
                     }
                     break;
                 }
@@ -116,6 +121,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
         }
         else
         {
+           
             for (int i = indexCounter; i < tags1.Length; i++)
             {
                 if (other.gameObject.tag == tags1[i])
@@ -136,9 +142,11 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
                     StartCoroutine(CorrectAnswer(audiosFor2ndOrder[i]));
                     if (indexCounter == tags1.Length)
                     {
+                        //indexCounter = 0;
                         firstOrderCompletion = true;
                         checkMarks[1].SetActive(true);
                     }
+                    
                     break;
                 }
                 else
@@ -149,6 +157,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
                 }
             }
         }
+      //  highlightAudioButtons[1].SetActive(false);
 
     }
 
@@ -156,15 +165,18 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     {
         //Debug.Log("IndexCounter: "+indexCounter);
         yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(clip));
-        yield return StartCoroutine(Toolbox.SoundManager.playcorrectAudio());
-        yield return StartCoroutine(Toolbox.SoundManager.correctAudio());
+       
 
         if (firstOrderCompletion && indexCounter < 1)
         {
+            yield return StartCoroutine(Toolbox.SoundManager.playcorrectAudio());
+            yield return StartCoroutine(Toolbox.SoundManager.correctAudio());
             yield return StartCoroutine(HighlightAudio(1));//For Second Option
         }
-        if (firstOrderCompletion && indexCounter >= tags1.Length)
+         if (firstOrderCompletion && indexCounter >= tags1.Length && indexCounter !=0)
         {
+            yield return StartCoroutine(Toolbox.SoundManager.playcorrectAudio());
+            yield return StartCoroutine(Toolbox.SoundManager.correctAudio());
             //Activate next Panel
             InfoManager.instance.CloseInfoBox();
           
@@ -172,6 +184,12 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
             Debug.Log("Maarsha");
 
            // Toolbox.GameManager.ActivatingPanels();
+        }
+        else if(firstOrderCompletion && indexCounter >= tags1.Length)
+        {
+            InfoManager.instance.CloseInfoBox();
+
+            yield return StartCoroutine(AllCheckmarksActivation());
         }
     }
     public IEnumerator IncorrectAnswer(AudioClip clip)
@@ -225,11 +243,13 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
             flaskfill = true;
            Toolbox.GameManager.DeactivateUiInteractions();
            transitionPanel.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-           Debug.Log("whyBroWhy");
-            StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
-            Debug.Log("mmmmmmmmm");
 
+        //GameManager.instance.fillAmountNumber += PlayerPrefs.GetFloat("fillAmount") + 0.125f;
+
+       // StartCoroutine(LevelSwitcher.levelSwitcher.activePanelAndTransition());
+        yield return new WaitForSeconds(0f);
+           
+            StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
         //  transitionPanel.SetActive(false);
 
 
@@ -237,13 +257,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
 
     }
 
-    public IEnumerator deActivateTransitionPanels()
-    {
-        yield return new WaitForSeconds(2f);
-        transitionPanel.SetActive(false);
-        Toolbox.GameManager.ActivatingPanels();
-    
-    }
+   
     public IEnumerator waitingTime(){
         yield return new WaitForSeconds(2);
     }
