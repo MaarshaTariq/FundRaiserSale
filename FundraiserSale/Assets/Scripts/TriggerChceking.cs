@@ -245,9 +245,9 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
            transitionPanel.SetActive(true);
 
         //GameManager.instance.fillAmountNumber += PlayerPrefs.GetFloat("fillAmount") + 0.125f;
-
-       // StartCoroutine(LevelSwitcher.levelSwitcher.activePanelAndTransition());
-        yield return new WaitForSeconds(0f);
+        
+         //   StartCoroutine(ls.activePanelAndTransition());
+            yield return new WaitForSeconds(0f);
            
             StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
         //  transitionPanel.SetActive(false);
