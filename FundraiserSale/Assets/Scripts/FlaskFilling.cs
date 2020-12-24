@@ -44,4 +44,10 @@ public class FlaskFilling : MonoBehaviour {
         Toolbox.GameManager.flaskFiller.fillAmount = 0;
 
 }*/
+
+    private void OnEnable()
+    {
+            
+    }
+
 }

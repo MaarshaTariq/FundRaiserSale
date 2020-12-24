@@ -17,8 +17,12 @@ public class OptionRandomization : MonoBehaviour {
         RandomizeOptions();
         op=this;
 	}
-	
-	public void RandomizeOptions()
+    private void OnDisable()
+    {
+        Toolbox.GameManager.transitionCounter++;
+    }
+
+    public void RandomizeOptions()
     {
         for(int i=0; i<transformOptions.Length; i++)
         {

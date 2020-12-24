@@ -1,39 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class LevelSwitcher : MonoBehaviour {
-    //TriggerChceking tg;
-  //  public GameObject transitionPanel;
-   public static LevelSwitcher levelSwitcher;
-    public void Start()
-    {
-        levelSwitcher = this;
-        StartCoroutine(activePanelAndTransition());
-        //  tg = new TriggerChceking();
+public class LevelSwitcher : MonoBehaviour
+{
 
-    }
+    private float temp;
+    public float fillAmountNumber = 0;
+    public AudioClip flaskFillinfSound;
+    public Image flaskFiller;
+    public float waitTime = 10f;
     public void OnEnable()
     {
         StartCoroutine(activePanelAndTransition());
     }
-
-    public void Update()
+    private void Start()
     {
-       // StartCoroutine(activePanelAndTransition());
-        //  StartCoroutine(TriggerChceking.tg .allCheckmarksActivation());
-        //StartCoroutine(TriggerChceking.tg.deActivateTransitionPanels());
+        fillAmountNumber = 0.125f;
+        temp = fillAmountNumber;
     }
     public IEnumerator activePanelAndTransition()
     {
-       
-        yield return StartCoroutine(Toolbox.GameManager.FillTheFlask());
+        yield return StartCoroutine(FillTheFlask());
         yield return new WaitForSeconds(2f);
-       // yield return new WaitForSeconds(2f);
+
         Toolbox.GameManager.ActivatingPanels();
-        TriggerChceking.tg.transitionPanel.SetActive(false);
-        //Debug.Log("mmmmmmmmddddm");
-        Toolbox.GameManager.flaskFiller.fillAmount = 0;
+        flaskFiller.fillAmount = 0;
+    }
+
+    public IEnumerator FillTheFlask()
+    {
+        temp = Toolbox.GameManager.levelCounter * fillAmountNumber;
+        Toolbox.SoundManager.audioPlayer.clip = flaskFillinfSound;
+        Toolbox.SoundManager.audioPlayer.Play();
+        while (flaskFiller.fillAmount <= temp)
+        {
+
+            flaskFiller.fillAmount += fillAmountNumber / waitTime * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        //Debug.Log("TC" + Toolbox.GameManager.transitionCounter);
 
     }
 }

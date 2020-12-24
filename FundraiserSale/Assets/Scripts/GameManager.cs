@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public string SceneName;
 
     public GameObject progressBars;
-    public AudioClip flaskFillinfSound;
+   
     public AudioClip endingPanelSound;
 
     public GameObject closeButton;
@@ -27,23 +27,26 @@ public class GameManager : MonoBehaviour
     public static FlaskFilling flaskFilling;
     public float fillAmountNumber = 0;
     public float temp;
-    public float waitTime = 10f;
-    public Image flaskFiller;
+    
+   
     public GameObject menuManager;
     public GameObject endingPanel;
     public GameObject transitionPanel;
     public GameObject infoHandler;
-    public Image img;
+    public Image fullScreenImg;
     public int levelCounter;
     public int soundCounter;
     public int startingIndex = 0;
     public int index;
     public int endingIndex;
-    private List<int> VisitedlevelHistory;
+    [HideInInspector]
+    public List<int> VisitedlevelHistory;
     public static GameManager gameManager;
 
-    public GameObject[] gamePanels;
+    public List<GameObject> gamePanels;
     public int gameSpeed;
+    [HideInInspector]
+    public int transitionCounter = 0;
 
     public bool isExternalDone = false;
     private bool accessibilty = false;
@@ -52,10 +55,9 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-
-
-
     }
+
+   
     private void Start()
     {
 
@@ -70,91 +72,54 @@ public class GameManager : MonoBehaviour
         fillAmountNumber = 0.125f;
         temp = fillAmountNumber;
         VisitedlevelHistory = new List<int>();
-        endingIndex = gamePanels.Length - 1;
-        //ActivatingPanels();
+
+        ShuffleGamePanels();
+        gamePanels.Add(endingPanel);
     }
-    public void Update()
+   
+
+    private void ShuffleGamePanels()
     {
-
-    }
-    public IEnumerator transitionActive()
-    {
-        yield return new WaitForSeconds(2);
-        transitionPanel.SetActive(true);
-        yield return new WaitForSeconds(3);
-        flaskFiller.fillAmount += 0.125f;
-
-    }
-    public IEnumerator randomizePanels(float sec)
-    {
-        yield return new WaitForSeconds(sec);
-        index = Random.Range(startingIndex, endingIndex + 1);
-
-
-        if (VisitedlevelHistory.Contains(index) == false)
+        for (int i = 0; i < gamePanels.Count; i++)
         {
+            int randIndex = Random.Range(0,gamePanels.Count);
+            GameObject temp = gamePanels[randIndex];
+            gamePanels.RemoveAt(randIndex);
+            gamePanels.Add(temp);
 
-            levelCounter++;
-            EventController.instance.levelCounter++;
-            gamePanels[index].SetActive(true);
-            LevelFinish(index);
-            VisitedlevelHistory.Add(index);
         }
-        else
-        {
-            if (levelCounter <= 8 && VisitedlevelHistory.Count != 8)
-            {
+        //foreach (GameObject g in gamePanels)
+        //{
+        //    Debug.Log(g.name);
+        //}
 
-                ActivatingPanels();
-            }
-            else
-            {
-                endingPanel.SetActive(true);
-                yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(endingPanelSound));
 
-            }
-        }
     }
+
     public void ActivatingPanels()
     {
 
+        transitionPanel.SetActive(false);
         menuManager.SetActive(false);
         infoHandler.SetActive(true);
-        if (levelCounter == 0)
+
+        if (levelCounter > 7)
         {
-            //StartCoroutine( IntroActive());//Fix this in later build.
+            Debug.Log("LC"+ levelCounter);
+            Debug.Log("GPC"+ gamePanels.Count);
+            
         }
-        if (levelCounter <= 7)
-        {
-            SetProgress(levelCounter + 1);
-        }
-        StartCoroutine(randomizePanels(0f));
+
+        gamePanels[levelCounter].SetActive(true);
+        SetProgress(levelCounter + 1);
+
+
+
+
+        levelCounter++;
     }
+    
 
-   
-    public IEnumerator SwitchPanels(int indexForLevel, float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-
-        for (int i = 0; i < gamePanels.Length; i++)
-        {
-            if (i == indexForLevel)
-            {
-                gamePanels[i].SetActive(true);
-                soundCounter = i;
-            }
-            else
-            {
-                gamePanels[i].SetActive(false);
-            }
-        }
-    }
-
-
-    public void LevelFinish(int ind)
-    {
-        StartCoroutine(SwitchPanels(ind, 0f));
-    }
 
     IEnumerator checkvartrue(GameObject currentPanel, int index)
     {
@@ -176,23 +141,15 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(checkvartruecoroutine(currentPanel, index));
     }
-    public void deactiveCurrentPanel()
+    public void DeavtivateAllActiveGamePanels()
     {
-        gamePanels[index].SetActive(false);
-        // ActivatingPanels();
-    }
-    public IEnumerator FillTheFlask()
-    {
-        temp = levelCounter * fillAmountNumber;
-        Toolbox.SoundManager.audioPlayer.clip = flaskFillinfSound;
-        Toolbox.SoundManager.audioPlayer.Play();
-        while (flaskFiller.fillAmount <= temp)
+        foreach (GameObject g in gamePanels)
         {
-            
-            flaskFiller.fillAmount += fillAmountNumber / waitTime * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            g.SetActive(false);
         }
+
     }
+    
     void SetProgress(int count)
     {
         for (int i = 0; i < count * 2.5; i++)
@@ -236,11 +193,11 @@ public class GameManager : MonoBehaviour
             _ExitFullScreen();
 #endif
             Screen.fullScreen = false;
-            img.sprite = FullScreenIMG[0];
+            fullScreenImg.sprite = FullScreenIMG[0];
         }
         if (!Screen.fullScreen)
         {
-            img.sprite = FullScreenIMG[1];
+            fullScreenImg.sprite = FullScreenIMG[1];
             Screen.fullScreen = true;
         }
     }
@@ -251,8 +208,8 @@ public class GameManager : MonoBehaviour
 
     public void CloseButtonPressed()
     {
-        #if !UNITY_EDITOR
+#if !UNITY_EDITOR
         _OnGameStopped();
-        #endif
+#endif
     }
 }

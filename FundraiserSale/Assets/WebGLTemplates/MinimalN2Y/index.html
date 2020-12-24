@@ -169,8 +169,7 @@
        function getQueryParameters() 
 	   {
             var query = window.location.href.split('?')[1];
-
-            //query won't be set if ? isn't in the URL
+		//query won't be set if ? isn't in the URL
             if (!query) 
 			{
 				ToggleAccessibility(false);
@@ -179,22 +178,15 @@
 
             if (query.split('=')[1] == "yes")
 			{
-
-                //enable accessbility
-                //EnbaleAccessibility();
-			
 				if (/iPad|iPhone|iPod/.test(navigator.userAgent) || (/android/i.test(navigator.userAgent))) 
 				{
-					setTimeout(function(){gameInstance.SendMessage('Test', 'TestHTML', 'Enabling Buttons On mobile Devices');},10);
 					//EnableButtonsOnMobileDevices();
 					ToggleAccessibility(true);
 				}
 				else
 				{
-				setTimeout(function(){gameInstance.SendMessage('Test', 'TestHTML', 'Disabling Buttons On mobile Devices');},10);
 					ToggleAccessibility(false);
 				}
-
 				//ToggleAccessibility(true);
 				setTimeout(function(){gameInstance.SendMessage('ExternalHandler', 'EnableAccessibilty', 'true');},10);
 				setTimeout(function(){gameInstance.SendMessage('ExternalHandler', 'SetKey', '195e6eda29f645c18ca1e1645d985042');
@@ -208,11 +200,7 @@
                // DisableAccessibility();
 			   ToggleAccessibility(false);
             }
-			
-			
-            //return query.split('=')[1];
-
-        }
+		}
 
 		function ToggleAccessibility(state) {
             if (state) 
@@ -465,7 +453,8 @@
         }
 
         function OnGameStopped() {
-            window.location.href = document.referrer;
+           // window.location.href = document.referrer;
+		   location.reload();
         }
 
         function ExitFullScreen(elem) {

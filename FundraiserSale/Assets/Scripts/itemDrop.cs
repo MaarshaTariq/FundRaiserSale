@@ -15,7 +15,7 @@ public class itemDrop : MonoBehaviour, IDropHandler
     {
         //Debug.Log(eventData.pointerDrag.name);
         this.transform.parent.GetComponentInChildren<TriggerChceking>().SelectionLogic(eventData.pointerPress.gameObject.GetComponent<Collider2D>());
-        Debug.Log("On Drop incorrect");
+        //Debug.Log("On Drop incorrect");
     }
 
     

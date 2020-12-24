@@ -22,6 +22,10 @@ public class EndScreenManager : MonoBehaviour {
         instance = this;
     }
 
+    private void Start()
+    {
+        Toolbox.SoundManager.PlaySoundWithAudioClip(Toolbox.GameManager.endingPanelSound);
+    }
     public void OnPressStop()
     {
         //Final
