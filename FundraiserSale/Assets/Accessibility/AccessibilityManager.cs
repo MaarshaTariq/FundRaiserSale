@@ -11,12 +11,6 @@ public class AccessibilityManager : MonoBehaviour
 
     #region private
     bool checkActivity = false;
-
-    public int targetCounter = 0, destinationCounter = 0;
-
-    private bool flag = true;
-
-    [HideInInspector] public GameObject selectedTargetObject; // holds info of the obj which was selected when state machine goes from target to destination state ..in order to give the info to game.
     #endregion
     #region public
     [HideInInspector] public bool backOfficeInitDone = false;
@@ -31,9 +25,7 @@ public class AccessibilityManager : MonoBehaviour
     public bool isSpaceEnabled;//LaterUsage
     public bool enablepause = true;
     public bool isSingleDestination = false;
-    public bool DragnDrop = false;
     public bool ShowPausePanel = true;
-    public bool autoExitGameplay;
 
     public GameObject YellowBox;
     public GameObject block;
@@ -43,7 +35,6 @@ public class AccessibilityManager : MonoBehaviour
     [HideInInspector]
     public float timeOut = 30.0f, timeOutTimer = 0.0f; // countr to check for screen time out func
 
-    public static AccessibilityManager instance;
     #endregion
 
     #endregion
@@ -60,7 +51,6 @@ public class AccessibilityManager : MonoBehaviour
 
         if (YellowBox != null)
             YellowBox.SetActive(true);
-        instance = this;
     }
     IEnumerator StartingAccessibilty()
     {

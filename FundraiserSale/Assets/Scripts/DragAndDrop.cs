@@ -103,6 +103,10 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 
     public void OnOptionClick()
     {
+
+#if UNITY_EDITOR
+        GetComponentInParent<AccessibilityGameplay>().panelTriger.SelectionLogic(GetComponent<Collider2D>());
+#endif
         StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(Toolbox.SoundManager.getCurrentSelection(GetComponent<Collider2D>().tag)));
     }
    

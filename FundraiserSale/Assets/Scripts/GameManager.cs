@@ -15,49 +15,37 @@ public class GameManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void _ExitFullScreen();
 
-    public string SceneName;
-
+    public string SceneName;//To Load Scene again on pressAgain.
     public GameObject progressBars;
-   
-    public AudioClip endingPanelSound;
 
     public GameObject closeButton;
     public GameObject uiInteractions;
-    public Sprite[] FullScreenIMG;
-    public static FlaskFilling flaskFilling;
-    public float fillAmountNumber = 0;
-    public float temp;
-    
-   
+
+    public GameObject infoHandler;
     public GameObject menuManager;
     public GameObject endingPanel;
     public GameObject transitionPanel;
-    public GameObject infoHandler;
+    public List<GameObject> gamePanels;
+
     public Image fullScreenImg;
     public int levelCounter;
-    public int soundCounter;
-    public int startingIndex = 0;
-    public int index;
-    public int endingIndex;
-    [HideInInspector]
-    public List<int> VisitedlevelHistory;
-    public static GameManager gameManager;
+    public int index;//ForAccessibility Stuff
 
-    public List<GameObject> gamePanels;
-    public int gameSpeed;
+    public Sprite[] FullScreenIMG;
+
+    public int gameSpeed;//For testing purposes
     [HideInInspector]
     public int transitionCounter = 0;
 
-    public bool isExternalDone = false;
+    //Accessibility items
     private bool accessibilty = false;
-
+    public bool isExternalDone = false;
     public bool accessibilityCheck;
 
     public void Awake()
     {
     }
-
-   
+    
     private void Start()
     {
 
@@ -68,21 +56,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = gameSpeed;
 #endif
 
-        gameManager = this;
-        fillAmountNumber = 0.125f;
-        temp = fillAmountNumber;
-        VisitedlevelHistory = new List<int>();
-
         ShuffleGamePanels();
-        gamePanels.Add(endingPanel);
     }
-   
+
 
     private void ShuffleGamePanels()
     {
         for (int i = 0; i < gamePanels.Count; i++)
         {
-            int randIndex = Random.Range(0,gamePanels.Count);
+            int randIndex = Random.Range(0, gamePanels.Count);
             GameObject temp = gamePanels[randIndex];
             gamePanels.RemoveAt(randIndex);
             gamePanels.Add(temp);
@@ -92,55 +74,34 @@ public class GameManager : MonoBehaviour
         //{
         //    Debug.Log(g.name);
         //}
-
-
     }
 
     public void ActivatingPanels()
     {
-
         transitionPanel.SetActive(false);
         menuManager.SetActive(false);
         infoHandler.SetActive(true);
 
-        if (levelCounter > 7)
+        Debug.Log("LC" + levelCounter);
+        Debug.Log("GPC" + gamePanels.Count);
+
+        if (levelCounter < gamePanels.Count)
         {
-            Debug.Log("LC"+ levelCounter);
-            Debug.Log("GPC"+ gamePanels.Count);
-            
+            gamePanels[levelCounter].SetActive(true);
+            SetProgress(levelCounter + 1);
         }
-
-        gamePanels[levelCounter].SetActive(true);
-        SetProgress(levelCounter + 1);
-
-
-
-
+        else
+        {
+            endingPanel.SetActive(true);
+        }
+                       
         levelCounter++;
     }
+    public void ActivateTransitionpanel()
+    {
+        this.transitionPanel.SetActive(true);
+    }
     
-
-
-    IEnumerator checkvartrue(GameObject currentPanel, int index)
-    {
-        Debug.Log("Last image active  " + TriggerChceking.tg.lastScoreImageActive);
-        // if (TriggerChceking.tg.lastScoreImageActive)
-        //{
-        yield return new WaitForSeconds(2f);
-
-        currentPanel.SetActive(false);
-    }
-    public IEnumerator checkvartruecoroutine(GameObject currentPanel, int index)
-    {
-        StartCoroutine(checkvartrue(currentPanel, index));
-        yield return new WaitForSeconds(1f);
-
-        // ActivatingPanels();
-    }
-    public void repeat(GameObject currentPanel, int index)
-    {
-        StartCoroutine(checkvartruecoroutine(currentPanel, index));
-    }
     public void DeavtivateAllActiveGamePanels()
     {
         foreach (GameObject g in gamePanels)
@@ -149,7 +110,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    
+
     void SetProgress(int count)
     {
         for (int i = 0; i < count * 2.5; i++)
@@ -201,10 +162,7 @@ public class GameManager : MonoBehaviour
             Screen.fullScreen = true;
         }
     }
-    public void ChangeMaximizeButtonSprite(int index)
-    {
-        //  img.sprite = FullScreenBtn.InstanceOfFullScreen.FullScreenIMG[index];
-    }
+    
 
     public void CloseButtonPressed()
     {

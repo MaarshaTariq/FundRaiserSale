@@ -12,13 +12,12 @@ public class AccessibilityGameplay : MonoBehaviour {
     public TriggerChceking panelTriger;
 
     private bool playButtonPressedCheck = true;
-    public void Awake()
+    private void OnDisable()
     {
-        //Toolbox.Set_MainMenuManger(this);
+        Toolbox.GameManager.index++;
     }
     private void Start()
     {
-        //Debug.Log("From Accessibility Gameplay");
        Invoke( "SortCurrentSelectables", 2f);
     }
     private void SortCurrentSelectables()

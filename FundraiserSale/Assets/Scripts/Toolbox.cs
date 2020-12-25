@@ -51,7 +51,6 @@ public class Toolbox : MonoBehaviour
         _menuManager = GetComponent<MenuManager>();
         _textToSpeech = GetComponent<TextToSpeech>();
 
-        DontDestroyOnLoad(gameObject);
     }
 
     public static void Set_GameplayController(GamePlayController game)

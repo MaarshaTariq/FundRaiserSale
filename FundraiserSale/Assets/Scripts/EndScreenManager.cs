@@ -11,6 +11,9 @@ public class EndScreenManager : MonoBehaviour {
     [DllImport("__Internal")]
     private static extern void _ExitFullScreen();
 
+    public AudioClip endingPanelClip;
+
+    //Accessiblity Items
     public Image highlight;
     public List<GameObject> currentSelectables;
     private int currentListIndex = -1;
@@ -21,10 +24,13 @@ public class EndScreenManager : MonoBehaviour {
     {
         instance = this;
     }
-
+    private void OnEnable()
+    {
+        Debug.Log("EndScreen");
+    }
     private void Start()
     {
-        Toolbox.SoundManager.PlaySoundWithAudioClip(Toolbox.GameManager.endingPanelSound);
+        StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(endingPanelClip));
     }
     public void OnPressStop()
     {

@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.EventSystems;
-
 using UnityEngine.UI;
 
-public class TriggerChceking : MonoBehaviour, IPointerUpHandler
+public class TriggerChceking : MonoBehaviour
 {
 
-    LevelSwitcher ls;
+    TransitionController ls;
     private int indexCounter = 0;
     private bool firstOrderCompletion = false;
     [HideInInspector]
     public int currentOrderIndex = 0;
 
-    //  public FlaskFilling fl;
-    public bool flaskfill = false;
     public string[] incorrectableTags;
     public string[] tagName;
     public bool lastScoreImageActive = false;
@@ -24,10 +20,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     public static TriggerChceking tg;
 
     public Image[] ImagesToBeHighlighted;
-    public float maxFillAmount = 400f;
-    public static float fillAmountForImage;
 
-    GameManager manager;
     public AudioClip[] highLightAudios;
     public AudioClip[] audiosFor1stOrder;
     public AudioClip[] audiosFor2ndOrder;
@@ -54,7 +47,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
 
     public void Start()
     {
-        ls = new LevelSwitcher();
+        ls = new TransitionController();
         //fl = new FlaskFilling();
         tg = this;
         highlightText = new HighlightText();
@@ -145,7 +138,6 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
                         firstOrderCompletion = true;
                         checkMarks[1].SetActive(true);
                     }
-
                     break;
                 }
                 else
@@ -157,7 +149,6 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
             }
         }
         //  highlightAudioButtons[1].SetActive(false);
-
     }
 
     public IEnumerator CorrectAnswer(AudioClip clip)
@@ -178,11 +169,7 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
             yield return StartCoroutine(Toolbox.SoundManager.correctAudio());
             //Activate next Panel
             InfoManager.instance.CloseInfoBox();
-
             yield return StartCoroutine(AllCheckmarksActivation());
-            //Debug.Log("Maarsha");
-
-            // Toolbox.GameManager.ActivatingPanels();
         }
         else if (firstOrderCompletion && indexCounter >= tags1.Length)
         {
@@ -193,8 +180,6 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
     }
     public IEnumerator IncorrectAnswer(AudioClip clip)
     {
-        //++EventController.instance.wrongOptionSelectionCounter;
-        //Debug.Log("Incorrect attempts is : " + EventController.instance.wrongOptionSelectionCounter);
         yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(clip));
         yield return StartCoroutine(Toolbox.SoundManager.playIncorrectAudio());
         yield return StartCoroutine(Toolbox.SoundManager.tryAgainAudio());
@@ -239,30 +224,12 @@ public class TriggerChceking : MonoBehaviour, IPointerUpHandler
         //Debug.Log("HERE" + Toolbox.GameManager.levelCounter);
         Toolbox.GameManager.DeavtivateAllActiveGamePanels();
         Toolbox.GameManager.DeactivateUiInteractions();
-        flaskfill = true;
-        Toolbox.GameManager.transitionPanel.SetActive(true);
+        Toolbox.GameManager.ActivateTransitionpanel();
 
-        //GameManager.instance.fillAmountNumber += PlayerPrefs.GetFloat("fillAmount") + 0.125f;
-
-        //   StartCoroutine(ls.activePanelAndTransition());
         yield return new WaitForSeconds(0f);
 
-        //  StartCoroutine(FlaskFilling.flaskFilling.transitionPanelDeactivate());
-        //  transitionPanel.SetActive(false);
-
-
-
-
     }
 
-
-    public IEnumerator waitingTime()
-    {
-        yield return new WaitForSeconds(2);
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-    }
 
 }
 

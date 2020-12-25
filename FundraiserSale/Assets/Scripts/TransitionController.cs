@@ -3,29 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelSwitcher : MonoBehaviour
+public class TransitionController : MonoBehaviour
 {
 
     private float temp;
-    public float fillAmountNumber = 0;
+    public float fillAmountNumber;
     public AudioClip flaskFillinfSound;
     public Image flaskFiller;
-    public float waitTime = 10f;
+    public float waitTime ;
     public void OnEnable()
     {
-        StartCoroutine(activePanelAndTransition());
+        StartCoroutine(ActivePanelAndTransition());
     }
     private void Start()
     {
-        fillAmountNumber = 0.125f;
         temp = fillAmountNumber;
     }
-    public IEnumerator activePanelAndTransition()
+    public IEnumerator ActivePanelAndTransition()
     {
         yield return StartCoroutine(FillTheFlask());
-        yield return new WaitForSeconds(2f);
-
-        Toolbox.GameManager.ActivatingPanels();
         flaskFiller.fillAmount = 0;
     }
 
@@ -40,7 +36,9 @@ public class LevelSwitcher : MonoBehaviour
             flaskFiller.fillAmount += fillAmountNumber / waitTime * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        //Debug.Log("TC" + Toolbox.GameManager.transitionCounter);
-
+        yield return new WaitForSeconds(2f);
+        Debug.Log("TC" + Toolbox.GameManager.transitionCounter);
+        Debug.Log("FillTheFlask");
+        Toolbox.GameManager.ActivatingPanels();
     }
 }
