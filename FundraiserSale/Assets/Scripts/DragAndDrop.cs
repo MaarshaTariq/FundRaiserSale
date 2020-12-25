@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public bool flagHit;
-    HighlightText highlightText;
     public static DragAndDrop dg;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -21,7 +20,6 @@ public class DragAndDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     public void Start()
     {
         dg = this;
-        highlightText = new HighlightText();
         rectTransform = GetComponent<RectTransform>();
         initialTransform = transform.position;
         GetComponent<Button>().onClick.AddListener(OnOptionClick);

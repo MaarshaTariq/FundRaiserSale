@@ -9,21 +9,9 @@ public class HighlightText : MonoBehaviour
     public float maxFillAmount = 400f;
     public float fillAmountForImage;
     public float waitTime = 1f;
-    int j = 0;
-    bool ht;
-    TriggerChecking tc;
 
 
-    public void Update()
-    {
-        // StartCoroutine( highlightText(highlightImage));
-
-        //increaseFillAmount(highlightImage);
-        //increaseFillAmount();
-    }
-
-
-    public IEnumerator highlightText(Image highlightImage)
+    public IEnumerator _HighlightText(Image highlightImage)
     {
         yield return new WaitForSeconds(0.5f);
 

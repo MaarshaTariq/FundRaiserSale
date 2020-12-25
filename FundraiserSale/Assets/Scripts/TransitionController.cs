@@ -10,9 +10,10 @@ public class TransitionController : MonoBehaviour
     public float fillAmountNumber;
     public AudioClip flaskFillinfSound;
     public Image flaskFiller;
-    public float waitTime ;
+    private float waitTime ;
     public void OnEnable()
     {
+        waitTime = flaskFillinfSound.length + 0.5f; 
         StartCoroutine(ActivePanelAndTransition());
     }
     private void Start()
@@ -33,11 +34,10 @@ public class TransitionController : MonoBehaviour
         while (flaskFiller.fillAmount <= temp)
         {
 
-            flaskFiller.fillAmount += fillAmountNumber / waitTime * Time.deltaTime;
+            flaskFiller.fillAmount += temp / waitTime * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(2f);
-
         Toolbox.GameManager.ActivatingPanels();
     }
 }

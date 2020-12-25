@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TriggerChecking : MonoBehaviour
 {
 
-    TransitionController ls;
     private int indexCounter = 0;
     private bool firstOrderCompletion = false;
     [HideInInspector]
@@ -17,7 +16,6 @@ public class TriggerChecking : MonoBehaviour
     public string[] tagName;
     public bool lastScoreImageActive = false;
     public bool highlighttext = false;
-    public static TriggerChecking tg;
 
     public Image[] ImagesToBeHighlighted;
 
@@ -30,29 +28,19 @@ public class TriggerChecking : MonoBehaviour
     public GameObject[] scoreBoardImages;
     public GameObject[] scoreBoardImages1;
     public GameObject[] checkMarks;
-    public GameObject[] highlightAudioButtons;
+    public Button[] highlightAudioButtons;
 
     public string[] tags;
 
     public string[] tags1;
 
     HighlightText highlightText;
-    int index = 0;
-    int indexForTags = 0;
     public bool checkMarksTags = false;
     public int draggedObjectsCounter;
 
-
-
-
-    public void Start()
+    private void Start()
     {
-        ls = new TransitionController();
-        //fl = new FlaskFilling();
-        tg = this;
-        highlightText = new HighlightText();
-
-
+        highlightText = gameObject.AddComponent<HighlightText>();
     }
     private void OnEnable()
     {
@@ -75,7 +63,7 @@ public class TriggerChecking : MonoBehaviour
     {
         if (!firstOrderCompletion)
         {
-            highlightAudioButtons[0].SetActive(true);
+            highlightAudioButtons[0].interactable=true;
             for (int i = indexCounter; i < tags.Length; i++)
             {
                 if (other.gameObject.tag == tags[i])
@@ -84,7 +72,7 @@ public class TriggerChecking : MonoBehaviour
                     imageToBeDragged[i].SetActive(true);
                     if (ImagesToBeHighlighted[0].isActiveAndEnabled)
                     {
-                        ImagesToBeHighlighted[0].enabled = false;
+                        ImagesToBeHighlighted[0].color =Color.clear;
                     }
                     if (i > 0)
                     {
@@ -98,8 +86,8 @@ public class TriggerChecking : MonoBehaviour
                         indexCounter = 0;
                         firstOrderCompletion = true;
                         checkMarks[0].SetActive(true);
-                        highlightAudioButtons[0].SetActive(false);
-                        highlightAudioButtons[1].SetActive(true);
+                        highlightAudioButtons[0].interactable=false;
+                        highlightAudioButtons[1].interactable=true;
                     }
                     break;
                 }
@@ -120,7 +108,7 @@ public class TriggerChecking : MonoBehaviour
                     imagesToBeDragged1[i].SetActive(true);
                     if (ImagesToBeHighlighted[1].isActiveAndEnabled)
                     {
-                        ImagesToBeHighlighted[1].enabled = false;
+                        ImagesToBeHighlighted[1].color = Color.clear;
                     }
 
                     if (i > 0)
@@ -186,7 +174,7 @@ public class TriggerChecking : MonoBehaviour
         if (!firstOrderCompletion && index == 0)
         {
             yield return StartCoroutine(Toolbox.SoundManager.playInitialAudio());
-            StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
+            StartCoroutine(highlightText._HighlightText(ImagesToBeHighlighted[index]));
             yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
         }
         else
@@ -194,7 +182,7 @@ public class TriggerChecking : MonoBehaviour
             if (firstOrderCompletion && ImagesToBeHighlighted.Length > 1)//If Orders are more than 1
             {
                 scoreBoardImages[scoreBoardImages.Length - 1].SetActive(false);
-                StartCoroutine(highlightText.highlightText(ImagesToBeHighlighted[index]));
+                StartCoroutine(highlightText._HighlightText(ImagesToBeHighlighted[index]));
                 yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(highLightAudios[index]));
             }
         }

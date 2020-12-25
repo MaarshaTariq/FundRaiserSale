@@ -45,7 +45,7 @@ public class External : MonoBehaviour
     }
     void ManagerAccessibility()
 	{
-		Debug.Log("External->OnEnable()");
+		//Debug.Log("External->OnEnable()");
 		if (AccessibilityLocalTest)
 		{
 			EnableAccessibilty("true");

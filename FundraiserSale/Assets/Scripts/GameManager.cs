@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
     public int transitionCounter = 0;
 
     //Accessibility items
-    private bool accessibilty = false;
     public bool isExternalDone = false;
     public bool accessibilityCheck;
 
