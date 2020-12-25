@@ -453,10 +453,8 @@
         }
 
         function OnGameStopped() {
-           // window.location.href = document.referrer;
-		   //location.reload();
-		   window.close();
-        }
+            window.location.href = document.referrer;
+		   }
 
         function ExitFullScreen(elem) {
             if (/iPad|iPhone|iPod/.test(navigator.userAgent) || (/android/i.test(navigator.userAgent))) {} else {
