@@ -11,7 +11,7 @@ public class HighlightText : MonoBehaviour
     public float waitTime = 1f;
     int j = 0;
     bool ht;
-    TriggerChceking tc;
+    TriggerChecking tc;
 
 
     public void Update()

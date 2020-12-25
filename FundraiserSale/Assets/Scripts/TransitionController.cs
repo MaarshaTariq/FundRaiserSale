@@ -37,8 +37,7 @@ public class TransitionController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(2f);
-        Debug.Log("TC" + Toolbox.GameManager.transitionCounter);
-        Debug.Log("FillTheFlask");
+
         Toolbox.GameManager.ActivatingPanels();
     }
 }

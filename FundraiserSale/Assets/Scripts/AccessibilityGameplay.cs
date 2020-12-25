@@ -9,7 +9,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     public GameObject[] currentSelectables;
     private int currentListIndex = -1;
     public Image highlight;
-    public TriggerChceking panelTriger;
+    public TriggerChecking panelTriger;
 
     private bool playButtonPressedCheck = true;
     private void OnDisable()

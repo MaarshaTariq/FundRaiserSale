@@ -82,9 +82,6 @@ public class GameManager : MonoBehaviour
         menuManager.SetActive(false);
         infoHandler.SetActive(true);
 
-        Debug.Log("LC" + levelCounter);
-        Debug.Log("GPC" + gamePanels.Count);
-
         if (levelCounter < gamePanels.Count)
         {
             gamePanels[levelCounter].SetActive(true);
