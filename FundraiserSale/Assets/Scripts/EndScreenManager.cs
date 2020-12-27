@@ -17,12 +17,10 @@ public class EndScreenManager : MonoBehaviour {
     public Image highlight;
     public List<GameObject> currentSelectables;
     private int currentListIndex = -1;
-    [HideInInspector]
-    public static EndScreenManager instance; 
 
     private void Awake()
     {
-        instance = this;
+        Toolbox.Set_EndScreenManager(this);
     }
     private void OnEnable()
     {

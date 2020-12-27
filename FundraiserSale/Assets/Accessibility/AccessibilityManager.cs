@@ -46,7 +46,7 @@ public class AccessibilityManager : MonoBehaviour
     {
         if (LoadingScreen)
             //LoadingScreen.SetActive(true);
-        LastCheck = true;
+            LastCheck = true;
         ShowPausePanel = true;
 
         if (YellowBox != null)
@@ -72,41 +72,42 @@ public class AccessibilityManager : MonoBehaviour
     //<--------- User controls -------- called from index.html file ----------------->
     public void swipeUp()
     {
-    if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)//For Title Screen
-        Toolbox.MainMenuManager.UpArrowPressed();
-    else if (Toolbox.MenuManager.pauseScreen.activeInHierarchy)//For Pause Screen During Gameplay
-        Toolbox.MenuManager.PauseUpArrowPressed();
-    else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)//For Gameplay screen
-        Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().UpArrowPressed();
-    else if (EndScreenManager.instance.gameObject.activeInHierarchy)
-            EndScreenManager.instance.EndScreenUpArrowPressed();
+
+        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)//For Title Screen
+            Toolbox.MainMenuManager.DownArrowPressed();
+        else if (Toolbox.MenuManager.pauseScreen.gameObject.activeInHierarchy)//For Pause Screen During Gameplay
+            Toolbox.MenuManager.PauseDownArrowPressed();
+        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].gameObject.activeInHierarchy)//For Gameplay screen
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().DownArrowPressed();
+        else if (Toolbox.EndScreenManager.gameObject.activeInHierarchy)
+            Toolbox.EndScreenManager.EndScreenDownArrowPressed();
 
         checkActivity = true;
     }
 
-    
+
     public void swipeDown()
     {
-    if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)//For Title Screen
-            Toolbox.MainMenuManager.DownArrowPressed();
-    else if (Toolbox.MenuManager.pauseScreen.activeInHierarchy)//For Pause Screen During Gameplay
-        Toolbox.MenuManager.PauseDownArrowPressed();
-    else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)//For Gameplay screen
-            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().DownArrowPressed();
-    else if (EndScreenManager.instance.gameObject.activeInHierarchy)
-            EndScreenManager.instance.EndScreenDownArrowPressed();
+        if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)//For Title Screen
+            Toolbox.MainMenuManager.UpArrowPressed();
+        else if (Toolbox.MenuManager.pauseScreen.gameObject.activeInHierarchy)//For Pause Screen During Gameplay
+            Toolbox.MenuManager.PauseUpArrowPressed();
+        else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].gameObject.activeInHierarchy)//For Gameplay screen
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().UpArrowPressed();
+        else if (Toolbox.EndScreenManager.gameObject.activeInHierarchy)
+            Toolbox.EndScreenManager.EndScreenUpArrowPressed();
         checkActivity = true;
     }
     public void select()
     {
         if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)
             Toolbox.MainMenuManager.SpacePressed();
-        else if (Toolbox.MenuManager.pauseScreen.activeInHierarchy)//For Pause Screen During Gameplay
+        else if (Toolbox.MenuManager.pauseScreen.gameObject.activeInHierarchy)//For Pause Screen During Gameplay
             Toolbox.MenuManager.PauseSpacePressed();
         else if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
-            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().SpacePressed();
-        else if (EndScreenManager.instance.gameObject.activeInHierarchy)
-            EndScreenManager.instance.EndScreenSpacePressed();
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].gameObject.GetComponent<AccessibilityGameplay>().SpacePressed();
+        else if (Toolbox.EndScreenManager.gameObject.activeInHierarchy)
+            Toolbox.EndScreenManager.EndScreenSpacePressed();
 
         checkActivity = true;
 
@@ -167,7 +168,7 @@ public class AccessibilityManager : MonoBehaviour
             Up = false;
 
         }
-        if (space )
+        if (space)
         {
             select();
             checkActivity = true;

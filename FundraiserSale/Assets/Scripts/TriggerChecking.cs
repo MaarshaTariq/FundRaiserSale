@@ -41,6 +41,7 @@ public class TriggerChecking : MonoBehaviour
     private void Start()
     {
         highlightText = gameObject.AddComponent<HighlightText>();
+        highlightAudioButtons[0].interactable = true;
     }
     private void OnEnable()
     {

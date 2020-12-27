@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
+       
+        
     }
     
     private void Start()

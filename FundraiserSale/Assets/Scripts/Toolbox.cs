@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 [RequireComponent(typeof(GameManager))]
 [RequireComponent(typeof(SoundManager))]
 public class Toolbox : MonoBehaviour
@@ -9,10 +7,11 @@ public class Toolbox : MonoBehaviour
     private static GameManager _gameManager;
     private static SoundManager _soundManager;
     private static MenuManager _menuManager;
-    private static GamePlayController _gameplayController;
+    private static GamePlayController _gameplayController;//For game Fundraiser this is likely the triggerChecking script. But isnt being assigned like other references.
     private static TextToSpeech _textToSpeech;
     private static External _externalHandler;
     private static MainMenuManager _mainMenuManager;
+    private static EndScreenManager _endScreenManager;
 
 
     public static GameManager GameManager
@@ -44,13 +43,16 @@ public class Toolbox : MonoBehaviour
     {
         get { return _externalHandler; }
     }
+    public static EndScreenManager EndScreenManager
+    {
+        get { return _endScreenManager; }
+    }
     void Awake()
     {
         _gameManager = GetComponent<GameManager>();
         _soundManager = GetComponent<SoundManager>();
         _menuManager = GetComponent<MenuManager>();
         _textToSpeech = GetComponent<TextToSpeech>();
-
     }
 
     public static void Set_GameplayController(GamePlayController game)
@@ -64,6 +66,10 @@ public class Toolbox : MonoBehaviour
     public static void Set_MainMenuManger(MainMenuManager _mainMenuM)
     {
         _mainMenuManager = _mainMenuM;
+    }
+    public static void Set_EndScreenManager(EndScreenManager _endScreenM)
+    {
+        _endScreenManager = _endScreenM;
     }
 
 }

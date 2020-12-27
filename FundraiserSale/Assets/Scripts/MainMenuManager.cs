@@ -45,7 +45,7 @@ public class MainMenuManager : MonoBehaviour {
     }
     public void SpacePressed()
     {
-        if (Toolbox.GameManager.accessibilityCheck && playButtonPressedCheck)
+        if (Toolbox.GameManager.accessibilityCheck && playButtonPressedCheck && currentListIndex!=-1)
         {
             if (currentListIndex == 0)
             {

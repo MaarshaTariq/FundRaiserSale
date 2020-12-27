@@ -10,6 +10,8 @@ public class CallPost : MonoBehaviour
         if (EventController.instance != null && !Toolbox.ExternalHandler.Preview)
             EventController.instance.currentGamePercentage();
         else
-            Debug.LogError("Event Controller instance does not exist or you are in preview mode...");
+        {
+           // Debug.LogError("Event Controller instance does not exist or you are in preview mode...");
+        }
     }
 }

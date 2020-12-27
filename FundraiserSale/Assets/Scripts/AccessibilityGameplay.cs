@@ -11,10 +11,14 @@ public class AccessibilityGameplay : MonoBehaviour {
     public Image highlight;
     public TriggerChecking panelTriger;
 
-    private bool playButtonPressedCheck = true;
+
     private void OnDisable()
     {
-        Toolbox.GameManager.index++;
+
+        if (Toolbox.GameManager.index + 1 < Toolbox.GameManager.gamePanels.Count)
+        {
+            Toolbox.GameManager.index++;
+        }
     }
     private void Start()
     {
@@ -79,7 +83,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     public void SpacePressed()
     {
-        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
+        if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying&& currentListIndex!=-1)
         {
             if (currentSelectables[currentListIndex].GetComponent<Collider2D>() != null)
             {

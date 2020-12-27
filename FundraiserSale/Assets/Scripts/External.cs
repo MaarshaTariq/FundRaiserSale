@@ -27,7 +27,7 @@ public class External : MonoBehaviour
 	void Awake()
 	{
         Toolbox.Set_ExternalHandler(this);
-
+        EnableAccessibilty(PlayerPrefs.GetString("Accessibility"));
 	}
 	// Use this for initialization
 	void OnEnable()
@@ -128,14 +128,16 @@ public class External : MonoBehaviour
 	{
         if (newValue.Contains("true"))
         {
+            PlayerPrefs.SetString("Accessibility","true");
             accessibilityInputBlocker.gameObject.SetActive(true);
         }
         else
         {
+            PlayerPrefs.SetString("Accessibility","false");
             accessibilityInputBlocker.gameObject.SetActive(false);
         }
 
-        StartCoroutine(WaitToPerformFunctionality(newValue == "true"));
+        StartCoroutine(WaitToPerformFunctionality(PlayerPrefs.GetString("Accessibility") == "true"));
     }
 
 	public void SetKey(string NewKey)//for local functionality
