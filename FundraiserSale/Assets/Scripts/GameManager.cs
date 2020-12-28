@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
     public GameObject menuManager;
     public GameObject endingPanel;
     public GameObject transitionPanel;
+    public GameObject fullScreen;
     public List<GameObject> gamePanels;
 
-    public Image fullScreenImg;
     public int levelCounter;
     public int index;//ForAccessibility Stuff
 
@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
         else
         {
             endingPanel.SetActive(true);
+            fullScreen.transform.parent.gameObject.SetActive(true);
+            fullScreen.transform.parent.GetChild(1).gameObject.SetActive(false);//quick Fix for enabling only the FullscreenBtn on EndScreen.
+            fullScreen.transform.parent.GetChild(2).gameObject.SetActive(false);
+            fullScreen.transform.parent.GetChild(3).gameObject.SetActive(false);
+            fullScreen.SetActive(true);
+
         }
                        
         levelCounter++;
@@ -152,11 +158,11 @@ public class GameManager : MonoBehaviour
             _ExitFullScreen();
 #endif
             Screen.fullScreen = false;
-            fullScreenImg.sprite = FullScreenIMG[0];
+            fullScreen.GetComponent<Image>().sprite = FullScreenIMG[0];
         }
         if (!Screen.fullScreen)
         {
-            fullScreenImg.sprite = FullScreenIMG[1];
+            fullScreen.GetComponent<Image>().sprite = FullScreenIMG[1];
             Screen.fullScreen = true;
         }
     }

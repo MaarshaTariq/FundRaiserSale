@@ -20019,7 +20019,7 @@ MonoBehaviour:
   levelCounter: 0
   index: 0
   FullScreenIMG: []
-  gameSpeed: 5
+  gameSpeed: 1
   transitionCounter: 0
   isExternalDone: 0
   accessibilityCheck: 0
