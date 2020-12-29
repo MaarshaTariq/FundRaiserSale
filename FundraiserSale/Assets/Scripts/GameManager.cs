@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
         if (levelCounter < gamePanels.Count)
         {
+           
             gamePanels[levelCounter].SetActive(true);
             SetProgress(levelCounter + 1);
         }
@@ -98,8 +99,9 @@ public class GameManager : MonoBehaviour
             fullScreen.SetActive(true);
 
         }
-                       
         levelCounter++;
+
+        
     }
     public void ActivateTransitionpanel()
     {

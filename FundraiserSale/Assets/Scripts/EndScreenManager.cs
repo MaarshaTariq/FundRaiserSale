@@ -24,7 +24,6 @@ public class EndScreenManager : MonoBehaviour {
     }
     private void OnEnable()
     {
-        Debug.Log("EndScreen");
     }
     private void Start()
     {

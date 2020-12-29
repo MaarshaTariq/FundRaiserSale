@@ -62,18 +62,21 @@ public class TriggerChecking : MonoBehaviour
 
     public void SelectionLogic(Collider2D other)
     {
+        bool foundItem = false;
+
         if (!firstOrderCompletion)
         {
-            highlightAudioButtons[0].interactable=true;
+            highlightAudioButtons[0].interactable = true;
             for (int i = indexCounter; i < tags.Length; i++)
             {
                 if (other.gameObject.tag == tags[i])
                 {
+                    foundItem = true;
                     indexCounter++;
                     imageToBeDragged[i].SetActive(true);
                     if (ImagesToBeHighlighted[0].isActiveAndEnabled)
                     {
-                        ImagesToBeHighlighted[0].color =Color.clear;
+                        ImagesToBeHighlighted[0].color = Color.clear;
                     }
                     if (i > 0)
                     {
@@ -87,15 +90,15 @@ public class TriggerChecking : MonoBehaviour
                         indexCounter = 0;
                         firstOrderCompletion = true;
                         checkMarks[0].SetActive(true);
-                        highlightAudioButtons[0].interactable=false;
-                        highlightAudioButtons[1].interactable=true;
+                        highlightAudioButtons[0].interactable = false;
+                        highlightAudioButtons[1].interactable = true;
                     }
                     break;
                 }
-                else
-                {
-                    StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
-                }
+            }
+            if (!foundItem)
+            {
+                StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
             }
         }
         else
@@ -105,6 +108,7 @@ public class TriggerChecking : MonoBehaviour
             {
                 if (other.gameObject.tag == tags1[i])
                 {
+                    foundItem = true;
                     indexCounter++;
                     imagesToBeDragged1[i].SetActive(true);
                     if (ImagesToBeHighlighted[1].isActiveAndEnabled)
@@ -127,10 +131,10 @@ public class TriggerChecking : MonoBehaviour
                     }
                     break;
                 }
-                else
-                {
-                    StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
-                }
+            }
+            if (!foundItem)
+            {
+                StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
             }
         }
         //  highlightAudioButtons[1].SetActive(false);
@@ -165,7 +169,7 @@ public class TriggerChecking : MonoBehaviour
     }
     public IEnumerator IncorrectAnswer(AudioClip clip)
     {
-        EventController.instance.wrongOptionSelectionCounter++;
+        EventController.instance.IncreaseIncorrectAnswerBy(1);
         yield return StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(clip));
         yield return StartCoroutine(Toolbox.SoundManager.playIncorrectAudio());
         yield return StartCoroutine(Toolbox.SoundManager.tryAgainAudio());

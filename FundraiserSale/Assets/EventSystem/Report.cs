@@ -9,26 +9,26 @@ using Newtonsoft.Json;
 public class Report
 {
 	#region variables
-	private string gametitle; //stores the tittle of games
-	private DateTime dateTime; // stores the date and the time of the game, on start
-	private DateTime firstReportSentDateTime; // stores the date and the time of the game, on start
+	private string gametitle;                   // Stores GameTitle
+	private DateTime dateTime;                  // Stores the date and the time of the game, on start
+	private DateTime firstReportSentDateTime;   // Stores the date and the time of firstreport sent
 
-	private string associatedSkillTag;   //stores the skill related to games
-	private float playTime; // totla time the game has taken to complete the games
-	private int responsiveness; // total number of interation user did with games. include all the touhing and draging
+    private string associatedSkillTag;          // Stores the skills related to game
+	private float playTime;                     // Total time the user has taken to complete the game
+	private int responsiveness;                 // Total number of interations user performed with the game including both touching and dragging
 
-	private double percentage; //perc of games the user has played in order to complete the game
-	private string selectedMode;// which games mode user choosed to play.
+	private double percentage;                  // Percentage of game the user has played in order to complete the game
+	private string selectedMode;                // Which game mode user choosed to play.
 
-	private string subtitle; // stores subtitle of games
+	private string subtitle;                    // Stores subtitle of games
 	private bool hasTutorial;
-	private int CorrectAttempts; // tell how much of your answers are correct.
-	private int IncorrectAttempts;  // tell how much of your answers are wrong.
-	private string gameType = "";
+	private int CorrectAttempts;                // Number of correct Attempts by user
+	private int IncorrectAttempts;              // Number of incorrect Attempts by user
+    private string gameType = "";
 
 	public int reportsSentCount = 0;
 
-	private List<Keys> selectedKeys; //detailed reporting view of correct letter and incorrect letter typed per session in reporting view 
+	private List<Keys> selectedKeys;            //Detailed reporting view of correct letter and incorrect letter typed per session in reporting view 
 
 	#endregion
 	#region GetterAndSetter
@@ -98,10 +98,9 @@ public class Report
 		return this.percentage;
 	}
 
-	public void setPercentage(double percentage)
+	public void setPercentage(double currentLevel)
 	{
-		this.percentage = percentage;
-		Debug.Log("percentage: " + this.percentage);
+		this.percentage = (currentLevel/Toolbox.GameManager.gamePanels.Count)*100;
 	}
 
 	public string getSelectedmode()
@@ -176,10 +175,7 @@ public class Report
 	#endregion
 	#region function
 
-	public void /// <summary>
-	/// reset the report
-	/// </summary>
-	ResetReport()
+	public void ResetReport()
 	{
 		gametitle = "";
 		dateTime = System.DateTime.Now;

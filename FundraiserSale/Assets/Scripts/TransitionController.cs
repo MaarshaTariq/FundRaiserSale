@@ -29,8 +29,6 @@ public class TransitionController : MonoBehaviour
     public IEnumerator FillTheFlask()
     {
         temp = Toolbox.GameManager.levelCounter * fillAmountNumber;
-        Debug.Log("Temp: "+temp);
-        Debug.Log("FAN: "+fillAmountNumber);
         Toolbox.SoundManager.audioPlayer.clip = flaskFillinfSound;
         Toolbox.SoundManager.audioPlayer.Play();
         while (flaskFiller.fillAmount < temp)

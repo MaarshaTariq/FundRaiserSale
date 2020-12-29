@@ -73,10 +73,10 @@ public class EventController : MonoBehaviour
 
 	public void IncreaseIncorrectAnswerBy(int increment)
 	{
-		Debug.Log("EventController->IncreaseIncorrectAnswerBy(" + increment + ")");
+
 		int ICA = report.getIncorrectAttempts();
-		Debug.Log("ICA: " + ICA);
 		ICA += increment;
+		//Debug.Log("ICA: " + ICA);
 		report.setIncorrectAttempts(ICA);
 	}
 	public void IncreaseLevelCounterBy(int increment)
@@ -155,24 +155,7 @@ public class EventController : MonoBehaviour
 	{
 		report.isHastutorial(status);
 	}
-	public void AddORUpdateLetter(string key)
-	{
-		Report.Keys tempKey = new Report.Keys(); // creates a temporary key to hold the obj
-		tempKey.key = key;// assign the input key to object
-
-		if (report.getSelectedkeys().Exists(kt => kt.key == tempKey.key)) // checking that the provided key is present in dictionary or not. if it is then it will go inside. 
-		{
-			report.getSelectedkeys().Find(x => x.key.Contains(key)).value += 1;// will find the object who has its "key" attribute equal to key that is provided and incrementing the value by 1.
-		}
-
-		else
-		{
-			tempKey.value = 1;
-			report.getSelectedkeys().Add(tempKey);
-
-		}
-
-	}
+	
 	public void PrintReport()
 	{
 		printReport();
@@ -187,14 +170,19 @@ public class EventController : MonoBehaviour
 
 	public void currentGamePercentage()
 	{
-		Debug.Log ("currentGamePercentage");
+
 		//levelCounter++;
 		if(reportSent)
             return;
 
 		reportSent = true;
 
-		report.setPercentage(levelCounter);
+        if (Toolbox.GameManager.levelCounter > Toolbox.GameManager.gamePanels.Count)
+        {
+            Toolbox.GameManager.levelCounter = Toolbox.GameManager.gamePanels.Count;
+        }
+        levelCounter = Toolbox.GameManager.levelCounter;
+        report.setPercentage(levelCounter);
 
 		PrintReport();
 	}
@@ -207,34 +195,8 @@ public class EventController : MonoBehaviour
 	void Update()
 	{
 		CountScreenInteraction();
-
-		GussedAnswer();
 	}
 	
-	public void sendReport()
-	{
-		//  StartCoroutine(Upload());
-	}
-
-
-	IEnumerator Upload()//This Function is NOT being used to Upload report RestAPIhandler id uploading in printReport() function.
-	{
-		// SaveItemInfo(); //this function is used to store the data in json file
-		string json = JsonUtility.ToJson(report);
-		UnityWebRequest www = UnityWebRequest.Post(POSTAddUserURL, json);
-		yield return www.SendWebRequest();
-
-		if (www.isNetworkError || www.isHttpError)
-		{
-			Debug.Log(www.error);
-		}
-		else
-		{
-			Debug.Log("Form upload complete!");
-		}
-	}
-
-
 	public void printReport()
 	{
 		Debug.Log ("Uploading Report");
@@ -245,7 +207,7 @@ public class EventController : MonoBehaviour
 			report.setFirstPostDateTime(System.DateTime.UtcNow);
 		
 		PlayerGameScore playerGameScore = new PlayerGameScore ();
-		playerGameScore.Complete =(int)report.getPercentage();
+		playerGameScore.Complete =(float)report.getPercentage();
 		playerGameScore.CreatedBy = (Toolbox.ExternalHandler.Model.GetGameId()).ToString();
 		playerGameScore.CreatedDate = report.GetFirstPostDateTime ();
 		playerGameScore.Duration = (int)report.getPlaytime ();
@@ -256,25 +218,26 @@ public class EventController : MonoBehaviour
 		playerGameScore.ModifiedBy = (Toolbox.ExternalHandler.Model.GetGameId()).ToString();
 		playerGameScore.ModifiedDate = System.DateTime.UtcNow;
 		playerGameScore.PlayType = GetGameType();
-		playerGameScore.Responsiveness = report.getResponsiveness();
+		//playerGameScore.Responsiveness = report.getResponsiveness();//Previous Logic
+		playerGameScore.Responsiveness = null;//Because Game_4 Fundraiser has No responsiveness
 		playerGameScore.StudentId = Toolbox.ExternalHandler.Model.GetStudentId ();
 		playerGameScore.Timestamp = report.getDatetime();
 
 
-		print("percentage completed in game:" + playerGameScore.Complete);
-		print("Game Created By :" + playerGameScore.CreatedBy);
-		print("Game Created date :" + playerGameScore.CreatedDate);
-		print("Total time played is: " + playerGameScore.Duration);
-		print("Game Id is : " + playerGameScore.GameId);
-		print("Total Incorrect Attempts : " + playerGameScore.IncorrectAttempts);
-		print("Instance Id Of the game : " + playerGameScore.InstanceId);
-		print("InAccessibilityMode Of the game : " + playerGameScore.IsInAccessibilityMode);
-		print("Game Modified By : " + playerGameScore.ModifiedBy);
-		print("Game Modified Date : " + playerGameScore.ModifiedDate);
-		print("Game play type : " + playerGameScore.PlayType);
-		print("Total number of interaction in game (responsiveness):" + playerGameScore.Responsiveness);
-		print("Student Id in Game :" + playerGameScore.StudentId);
-		print("Date and time  is: " + playerGameScore.Timestamp);
+		//print("percentage completed in game:" + playerGameScore.Complete);
+		//print("Game Created By :" + playerGameScore.CreatedBy);
+		//print("Game Created date :" + playerGameScore.CreatedDate);
+		//print("Total time played is: " + playerGameScore.Duration);
+		//print("Game Id is : " + playerGameScore.GameId);
+		//print("Total Incorrect Attempts : " + playerGameScore.IncorrectAttempts);
+		//print("Instance Id Of the game : " + playerGameScore.InstanceId);
+		//print("InAccessibilityMode Of the game : " + playerGameScore.IsInAccessibilityMode);
+		//print("Game Modified By : " + playerGameScore.ModifiedBy);
+		//print("Game Modified Date : " + playerGameScore.ModifiedDate);
+		//print("Game play type : " + playerGameScore.PlayType);
+		//print("Total number of interaction in game (responsiveness):" + playerGameScore.Responsiveness);
+		//print("Student Id in Game :" + playerGameScore.StudentId);
+		//print("Date and time  is: " + playerGameScore.Timestamp);
 		
 		string JsonString = JsonConvert.SerializeObject (playerGameScore);
 		Debug.Log (JsonString);
@@ -290,7 +253,7 @@ public class EventController : MonoBehaviour
 [Serializable]
 public class PlayerGameScore
 {
-	public int? Complete { get; set; }
+	public float? Complete { get; set; }
 	public string CreatedBy { get; set; }
 	public DateTime CreatedDate { get; set; }
 	public int Duration { get; set; }
