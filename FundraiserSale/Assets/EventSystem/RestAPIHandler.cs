@@ -20,7 +20,6 @@ public class RestAPIHandler : MonoBehaviour
 		uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
 		uwr.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
 		uwr.SetRequestHeader("Content-Type", "application/json");
-
 		//Send the request then wait here until it returns
 		Debug.Log("waiting");
 		yield return uwr.SendWebRequest();
