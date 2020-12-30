@@ -100,8 +100,7 @@ public class Report
 
 	public void setPercentage(double currentLevel)
 	{
-        //this.percentage = (currentLevel/Toolbox.GameManager.gamePanels.Count)*100;//QA didnt want percentage
-        this.percentage = currentLevel;
+		this.percentage = (currentLevel/Toolbox.GameManager.gamePanels.Count)*100;
 	}
 
 	public string getSelectedmode()

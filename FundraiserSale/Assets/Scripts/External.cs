@@ -42,11 +42,6 @@ public class External : MonoBehaviour
         {
             EnableAccessibilty("true");
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (EventController.instance != null && !Toolbox.ExternalHandler.Preview)
-                EventController.instance.currentGamePercentage();
-        }
     }
     void ManagerAccessibility()
 	{

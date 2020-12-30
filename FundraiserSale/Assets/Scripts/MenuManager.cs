@@ -18,19 +18,15 @@ public class MenuManager : MonoBehaviour {
     public List<GameObject> currentSelectables;
     private int currentListIndex = -1;
 
-    public void OnPressPauseGame()//On Pressin C key from game Panel
+    public void OnPressPauseGame()
 	{
-        currentListIndex = 0;
-        MoveHighlighterToCurrentListIndex();
-
-        pauseScreen.SetActive (true);
-       // Time.timeScale = 0;
+		pauseScreen.SetActive (true);
+        Time.timeScale = 0;
 	}
 	public void OnPressPlay()
 	{
-        Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().MoveHighlighterTo();//Moving the highlighter back from pause screen to gamescreen
 		pauseScreen.SetActive (false);
-       // Time.timeScale = 1;
+        Time.timeScale = 1;
 	}
     public void OnPressMainScreenPlay()
     {
@@ -100,20 +96,7 @@ public class MenuManager : MonoBehaviour {
         }
         return currentListIndex;
     }
-    public void MoveHighlighterToCurrentListIndex()
-    {
-        int temp = currentListIndex;
-        if (Toolbox.GameManager.accessibilityCheck)
-        {
-            highlight.transform.SetParent(currentSelectables[temp].transform);
-            highlight.rectTransform.localPosition = Vector3.zero;
-            highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
-            highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
-
-        }
-
-    }
-
+    
     public void PauseDownArrowPressed()
     {
         if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)

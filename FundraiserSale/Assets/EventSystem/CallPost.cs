@@ -14,6 +14,4 @@ public class CallPost : MonoBehaviour
            // Debug.LogError("Event Controller instance does not exist or you are in preview mode...");
         }
     }
-
-   
 }

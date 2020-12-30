@@ -207,7 +207,7 @@ public class EventController : MonoBehaviour
 			report.setFirstPostDateTime(System.DateTime.UtcNow);
 		
 		PlayerGameScore playerGameScore = new PlayerGameScore ();
-		playerGameScore.Complete =(int)report.getPercentage();
+		playerGameScore.Complete =(float)report.getPercentage();
 		playerGameScore.CreatedBy = (Toolbox.ExternalHandler.Model.GetGameId()).ToString();
 		playerGameScore.CreatedDate = report.GetFirstPostDateTime ();
 		playerGameScore.Duration = (int)report.getPlaytime ();
@@ -224,24 +224,23 @@ public class EventController : MonoBehaviour
 		playerGameScore.Timestamp = report.getDatetime();
 
 
-        //print("Percentage completed in game:" + playerGameScore.Complete);
-        //print("Game Created By :" + playerGameScore.CreatedBy);
-        //print("Game Created date :" + playerGameScore.CreatedDate);
-        //print("Total time played is: " + playerGameScore.Duration);
-        //print("Game Id is : " + playerGameScore.GameId);
-        //print("Total Incorrect Attempts : " + playerGameScore.IncorrectAttempts);
-        //print("Instance Id Of the game : " + playerGameScore.InstanceId);
-        //print("InAccessibilityMode Of the game : " + playerGameScore.IsInAccessibilityMode);
-        //print("Game Modified By : " + playerGameScore.ModifiedBy);
-        //print("Game Modified Date : " + playerGameScore.ModifiedDate);
-        //print("Game play type : " + playerGameScore.PlayType);
-        //print("Total number of interaction in game (responsiveness):" + playerGameScore.Responsiveness);
-        //print("Student Id in Game :" + playerGameScore.StudentId);
-        //print("Date and time  is: " + playerGameScore.Timestamp);
-
-        string JsonString = JsonConvert.SerializeObject(playerGameScore);
+		//print("percentage completed in game:" + playerGameScore.Complete);
+		//print("Game Created By :" + playerGameScore.CreatedBy);
+		//print("Game Created date :" + playerGameScore.CreatedDate);
+		//print("Total time played is: " + playerGameScore.Duration);
+		//print("Game Id is : " + playerGameScore.GameId);
+		//print("Total Incorrect Attempts : " + playerGameScore.IncorrectAttempts);
+		//print("Instance Id Of the game : " + playerGameScore.InstanceId);
+		//print("InAccessibilityMode Of the game : " + playerGameScore.IsInAccessibilityMode);
+		//print("Game Modified By : " + playerGameScore.ModifiedBy);
+		//print("Game Modified Date : " + playerGameScore.ModifiedDate);
+		//print("Game play type : " + playerGameScore.PlayType);
+		//print("Total number of interaction in game (responsiveness):" + playerGameScore.Responsiveness);
+		//print("Student Id in Game :" + playerGameScore.StudentId);
+		//print("Date and time  is: " + playerGameScore.Timestamp);
+		
+		string JsonString = JsonConvert.SerializeObject (playerGameScore);
 		Debug.Log (JsonString);
-
 		string Url= Toolbox.ExternalHandler.baseURL + "api/PlayerScoreApi/SavePlayerScore";
 		Debug.Log ("URl used for posting : "+Url);
 		RestAPIHandler.Instance.StartCoroutine(RestAPIHandler.Instance.PostRequest(Url,JsonString));
@@ -254,19 +253,19 @@ public class EventController : MonoBehaviour
 [Serializable]
 public class PlayerGameScore
 {
-    public int Complete { get; set; }
-    public string CreatedBy { get; set; }
-    public DateTime CreatedDate { get; set; }
-    public int Duration { get; set; }
-    public int GameId { get; set; }
-    public int? IncorrectAttempts { get; set; }
-    public int InstanceId { get; set; }
-    public bool IsInAccessibilityMode { get; set; }
-    public string ModifiedBy { get; set; }
-    public DateTime ModifiedDate { get; set; }
-    public string PlayType { get; set; }
-    public int? Responsiveness { get; set; }
-    public int StudentId { get; set; }
-    public DateTime Timestamp { get; set; }
-
+	public float? Complete { get; set; }
+	public string CreatedBy { get; set; }
+	public DateTime CreatedDate { get; set; }
+	public int Duration { get; set; }
+	public int GameId { get; set; }
+	public int? IncorrectAttempts { get; set; }
+	public int InstanceId { get; set; }
+	public  bool IsInAccessibilityMode { get; set; }
+	public string ModifiedBy { get; set; }
+	public DateTime ModifiedDate { get; set; }
+	public string PlayType { get; set; }
+	public int? Responsiveness { get; set; }
+	public int StudentId { get; set; }
+	public DateTime Timestamp { get; set; }
+	
 }

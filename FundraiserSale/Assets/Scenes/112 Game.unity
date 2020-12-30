@@ -15319,7 +15319,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: V 1.8
+  m_Text: V 1.5
 --- !u!222 &993016465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16782,7 +16782,7 @@ Prefab:
     - target: {fileID: 224225796214876140, guid: 68cd3748b3130b14cba44d79cc15e7f5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224225796214876140, guid: 68cd3748b3130b14cba44d79cc15e7f5,
         type: 2}
@@ -16991,11 +16991,6 @@ Prefab:
         type: 2}
       propertyPath: m_PixelPerfect
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 223768950777288776, guid: 68cd3748b3130b14cba44d79cc15e7f5,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68cd3748b3130b14cba44d79cc15e7f5, type: 2}
@@ -26771,7 +26766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919406332
 GameObject:
