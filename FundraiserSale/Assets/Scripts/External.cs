@@ -97,7 +97,7 @@ public class External : MonoBehaviour
 		Model = new GameStudentModel();
 		Debug.Log("The Json from server is : " + Json);
 
-		if (Json.Contains("\"StudentId\":null"))
+        if (Json.Contains("\"StudentId\":null"))
 		{
 			string output = Json.Replace("\"StudentId\":null", "\"StudentId\":0");
 			Debug.Log("OutPut changed because student ID is Null : " + output);
@@ -108,13 +108,11 @@ public class External : MonoBehaviour
 			Model = JsonConvert.DeserializeObject<GameStudentModel>(Json);
 		}
 
-		Preview = Model.GetPreviewBool();
+        Preview = Model.GetPreviewBool();
 
-		Debug.Log("Game ID : " + Model.GetGameId());
+        Debug.Log("Game ID : " + Model.GetGameId());
 		Debug.Log("Student ID : " + Model.GetStudentId());
 		Debug.Log("IsPreview : " + Model.GetPreviewBool());
-
-
     }
 
 
@@ -123,12 +121,9 @@ public class External : MonoBehaviour
 		yield return new WaitForSeconds(0.15f);
 
         Toolbox.GameManager.accessibilityCheck = ISAccessibilty;
-
-
-		//Toolbox.GameManager.isExternalDone = true;
+		Toolbox.GameManager.isExternalDone = true;
 	}
 
-	//bool isAccesibilityAssigned;
 	public void EnableAccessibilty(string newValue)
 	{
         if (newValue.Contains("true"))

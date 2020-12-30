@@ -31,9 +31,8 @@ public class GameManager : MonoBehaviour
     public int levelCounter;
     public int index;//ForAccessibility Stuff
 
-    public Sprite[] FullScreenIMG;
-
-    public int gameSpeed;//For testing purposes
+    //For testing purposes
+    public int gameSpeed;
     [HideInInspector]
     public int transitionCounter = 0;
 
@@ -152,24 +151,6 @@ public class GameManager : MonoBehaviour
         closeButton.SetActive(true);
         progressBars.transform.parent.gameObject.SetActive(true);
     }
-    public void MaximizeButtonPressed()
-    {
-        if (Screen.fullScreen)
-        {
-#if !UNITY_EDITOR
-            _ExitFullScreen();
-#endif
-            Screen.fullScreen = false;
-            fullScreen.GetComponent<Image>().sprite = FullScreenIMG[0];
-        }
-        if (!Screen.fullScreen)
-        {
-            fullScreen.GetComponent<Image>().sprite = FullScreenIMG[1];
-            Screen.fullScreen = true;
-        }
-    }
-    
-
     public void CloseButtonPressed()
     {
 #if !UNITY_EDITOR

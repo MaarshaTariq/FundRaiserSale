@@ -20023,7 +20023,6 @@ MonoBehaviour:
   - {fileID: 2139877950}
   levelCounter: 0
   index: 0
-  FullScreenIMG: []
   gameSpeed: 10
   transitionCounter: 0
   isExternalDone: 0
@@ -26744,15 +26743,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backOfficeInitDone: 0
   gameNumber: 0
-  LevelCounter: 0
-  completedLevels: 0
-  totalLevels: 
-  gameWasPaused: 0
-  LastCheck: 0
-  switchWait: 10
-  isSpaceEnabled: 0
-  enablepause: 1
-  isSingleDestination: 0
   ShowPausePanel: 1
   YellowBox: {fileID: 461348246}
   block: {fileID: 1173070510}

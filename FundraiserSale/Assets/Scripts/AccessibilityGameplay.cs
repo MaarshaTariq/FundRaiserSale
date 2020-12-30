@@ -11,10 +11,8 @@ public class AccessibilityGameplay : MonoBehaviour {
     public Image highlight;
     public TriggerChecking panelTriger;
 
-
     private void OnDisable()
     {
-
         if (Toolbox.GameManager.index + 1 < Toolbox.GameManager.gamePanels.Count)
         {
             Toolbox.GameManager.index++;
@@ -22,7 +20,7 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     private void Start()
     {
-        Invoke( "SortCurrentSelectables", 2f);
+        Invoke( "SortCurrentSelectables", 2f);//Because we have to wait for them to shuffle first and then sort them for the accessibility selections.
         currentListIndex = 3;//Because OrderForm is on the last index of CurrentSelectables.
         MoveHighlighterTo();
     }
@@ -31,29 +29,26 @@ public class AccessibilityGameplay : MonoBehaviour {
         //foreach ( GameObject g in currentSelectables)
         //{
         //    print(g.GetComponent<RectTransform>().localPosition.x);
-
         //}
         GameObject temp;
         for (int i = 0; i < currentSelectables.Length - 1; i++)
-
-            // traverse i+1 to array length 
+        {
             for (int j = i + 1; j < currentSelectables.Length; j++)
-
                 // compare array element with  
                 // all next element 
                 if (currentSelectables[i].GetComponent<RectTransform>().localPosition.x < currentSelectables[j].GetComponent<RectTransform>().localPosition.x)
                 {
-
                     temp = currentSelectables[i];
                     currentSelectables[i] = currentSelectables[j];
                     currentSelectables[j] = temp;
                 }
+        }
         //foreach (GameObject g in currentSelectables)
         //{
         //    print(g.GetComponent<RectTransform>().localPosition.x);
-
         //}
     }
+
     public void MoveHighlighterTo()
     {
         int temp = currentListIndex;
@@ -65,14 +60,12 @@ public class AccessibilityGameplay : MonoBehaviour {
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
 
         }
-
     }
     public void DownArrowPressed()
     {
         if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getDecIndex();
-
             highlight.transform.SetParent(currentSelectables[temp].transform);
             highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
@@ -87,7 +80,6 @@ public class AccessibilityGameplay : MonoBehaviour {
         if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying)
         {
             int temp = getIncIndex();
-
             highlight.transform.SetParent(currentSelectables[temp].transform);
             highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
             highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
@@ -96,6 +88,7 @@ public class AccessibilityGameplay : MonoBehaviour {
             ShowCaptionAndSound(highlight.transform.parent.tag);
         }
     }
+
     public void SpacePressed()
     {
         if (Toolbox.GameManager.accessibilityCheck && !Toolbox.SoundManager.audioPlayer.isPlaying&& currentListIndex!=-1)
@@ -103,14 +96,11 @@ public class AccessibilityGameplay : MonoBehaviour {
             if (currentSelectables[currentListIndex].GetComponent<Collider2D>() != null)
             {
                 panelTriger.SelectionLogic(currentSelectables[currentListIndex].GetComponent<Collider2D>());
-                //Debug.Log("On Drop  other incorrect");
-
             }
             else
             {
                 StartCoroutine(panelTriger.HighlightAudioFromBtn(panelTriger.currentOrderIndex));
             }
-
         }
     }
 
@@ -179,4 +169,5 @@ public class AccessibilityGameplay : MonoBehaviour {
             CloseCaption.CCManager.instance.CreateCaption("Order Form", Toolbox.SoundManager.basicSounds[0].length);
         }
     }
+
 }

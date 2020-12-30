@@ -46,6 +46,7 @@ public class TextToSpeech : MonoBehaviour
     {
         yield return StartCoroutine(Download());
     }
+
     IEnumerator Download()
     {
         for (int i = 0; i < textsToConvert.Count; i++)
@@ -73,13 +74,10 @@ public class TextToSpeech : MonoBehaviour
 
     IEnumerator GetLocalDownlaodedAudioFiles()
     {
-        //Working for now
         string pathForAudioClips = "file://" + Application.persistentDataPath + "/DownloadedAudioClips/";
-
         Debug.Log(pathForAudioClips);
         for (int i = 0; i < textsToConvert.Count; i++)
         {
-
             using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(pathForAudioClips + textsToConvert[i] + ".wav", AudioType.WAV))
             {
                 yield return www.SendWebRequest();
@@ -90,7 +88,7 @@ public class TextToSpeech : MonoBehaviour
                 }
                 else if (www.isHttpError)//Didnt find it in Local Storage on the given path.
                 {
-                    Debug.Log("Didnt Find :" + textsToConvert[i]);
+                    Debug.Log("Didnt Find :" + textsToConvert[i]+". Downloading it right now");
                     StartCoroutine(TextToSpeechFunc(textsToConvert[i]));
                 }
                 else
@@ -101,8 +99,6 @@ public class TextToSpeech : MonoBehaviour
                 }
             }
         }
-
-
     }
 
     IEnumerator TextToSpeechFunc(string tempTextToConvert)
@@ -110,18 +106,15 @@ public class TextToSpeech : MonoBehaviour
         //http://www.voicerss.org/api/// For further understanding of parametres.
         //---------------BaseLink--  ApiKey  ---------TextToConvert--------------Language=Eng-Aust,Voicer=Evie,Codec=OGG,Rate=//
         string finalLink = apiLink + "key=" + apiKey + "&" + "src=" + tempTextToConvert + "&hl=en-us&v=Amy&c=WAV&r=0";
-        //Debug.Log("Sending Link : "+finalLink);
         using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(finalLink, AudioType.WAV))
         {
             yield return www.SendWebRequest();
-
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
             }
             else
             {
-                //Debug.Log(www.downloadHandler.data.ToString());
                 AudioClip downloadClip = DownloadHandlerAudioClip.GetContent(www);
                 downloadClip.name = tempTextToConvert;
                 SavWav.Save(downloadClip.name, downloadClip);

@@ -1,35 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using BestHTTP;
 using Newtonsoft;
 using System;
 using UnityEngine.Networking;
-//using BestHTTP.Cookies;
-//using BestHTTP.SignalR.Transports;
-public class RestAPIHandler : MonoBehaviour {
-//	private HTTPRequest AuthRequest;
-//	private Cookie Cookie;
-
-//	public bool IsPreAuthRequired { get; private set; }
-//
-//	public event OnAuthenticationSuccededDelegate OnAuthenticationSucceded;
-//	public event OnAuthenticationFailedDelegate OnAuthenticationFailed;
-	// Use this for initialization
-
+public class RestAPIHandler : MonoBehaviour
+{
 	public static RestAPIHandler Instance;
 	[HideInInspector]
 	public bool UploadedSuccessfully=false;
-
-	void Start () {
+	void Start ()
+    {
 		Instance = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public IEnumerator PostRequest(string url, string json)
 	{
 		var uwr = new UnityWebRequest(url, "POST");
@@ -51,5 +34,4 @@ public class RestAPIHandler : MonoBehaviour {
 			Debug.Log("Received: " + uwr.downloadHandler.text);
 		}
 	}
-//
 }

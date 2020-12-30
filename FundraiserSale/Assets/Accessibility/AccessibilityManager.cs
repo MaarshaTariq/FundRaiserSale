@@ -34,6 +34,7 @@ public class AccessibilityManager : MonoBehaviour
     //populating the root
     void Start()
     {
+        gameNumber =Int32.Parse(Toolbox.GameManager.SceneName.Split(' ')[0]);
         if (LoadingScreen)
         {
             //LoadingScreen.SetActive(true);//We can place the loading screen panel here and use that to wait while backend is fetching data.
