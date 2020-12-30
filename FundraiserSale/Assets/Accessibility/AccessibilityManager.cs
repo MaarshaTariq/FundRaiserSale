@@ -15,17 +15,7 @@ public class AccessibilityManager : MonoBehaviour
     #region public
     [HideInInspector] public bool backOfficeInitDone = false;
     public int gameNumber;
-    public int LevelCounter = 0;
-    public int completedLevels = 0;
-    public bool[] totalLevels;
-    public bool gameWasPaused;
-    [HideInInspector]
-    public bool LastCheck;
-    public float switchWait = 10f;
-    public bool isSpaceEnabled;//LaterUsage
-    public bool enablepause = true;
-    public bool isSingleDestination = false;
-    public bool ShowPausePanel = true;
+    public bool ShowPausePanel = true;//Can be used to check where we can Display Pause panel and Info box
 
     public GameObject YellowBox;
     public GameObject block;
@@ -33,7 +23,7 @@ public class AccessibilityManager : MonoBehaviour
     public GameObject pausePanel;
 
     [HideInInspector]
-    public float timeOut = 30.0f, timeOutTimer = 0.0f; // countr to check for screen time out func
+    public float timeOut = 30.0f, timeOutTimer = 0.0f; // Counter to check for screen time out function
 
     #endregion
 
@@ -45,8 +35,9 @@ public class AccessibilityManager : MonoBehaviour
     void Start()
     {
         if (LoadingScreen)
-            //LoadingScreen.SetActive(true);
-            LastCheck = true;
+        {
+            //LoadingScreen.SetActive(true);//We can place the loading screen panel here and use that to wait while backend is fetching data.
+        }
         ShowPausePanel = true;
 
         if (YellowBox != null)
@@ -181,7 +172,7 @@ public class AccessibilityManager : MonoBehaviour
             checkActivity = true;
             info = false;
         }
-        if (close && ShowPausePanel && LastCheck)
+        if (close && ShowPausePanel )
         {
             Close();
             close = false;
@@ -200,7 +191,7 @@ public class AccessibilityManager : MonoBehaviour
             checkActivity = false;
             //Dont active screensaver
         }
-        if (timeOutTimer > timeOut && LastCheck)
+        if (timeOutTimer > timeOut )
         {
             timeOutTimer = -2.0f;
         }
