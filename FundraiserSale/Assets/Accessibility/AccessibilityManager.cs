@@ -72,7 +72,6 @@ public class AccessibilityManager : MonoBehaviour
     //<--------- User controls -------- called from index.html file ----------------->
     public void swipeUp()
     {
-
         if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)//For Title Screen
             Toolbox.MainMenuManager.DownArrowPressed();
         else if (Toolbox.MenuManager.pauseScreen.gameObject.activeInHierarchy)//For Pause Screen During Gameplay
@@ -85,7 +84,6 @@ public class AccessibilityManager : MonoBehaviour
         checkActivity = true;
     }
 
-
     public void swipeDown()
     {
         if (Toolbox.MainMenuManager.gameObject.activeInHierarchy)//For Title Screen
@@ -97,6 +95,12 @@ public class AccessibilityManager : MonoBehaviour
         else if (Toolbox.EndScreenManager.gameObject.activeInHierarchy)
             Toolbox.EndScreenManager.EndScreenUpArrowPressed();
         checkActivity = true;
+    }
+    public void Info()
+    {
+        if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
+            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().IKeyPressed();
+
     }
     public void select()
     {
@@ -112,9 +116,6 @@ public class AccessibilityManager : MonoBehaviour
         checkActivity = true;
 
     }
-    public void unSelect()//Not used in Game 112 Fundraiser sale
-    {
-    }
     public void Close()
     {
         if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
@@ -124,11 +125,8 @@ public class AccessibilityManager : MonoBehaviour
     // Variable to let info play while being controls are freezed
     bool isUrgentInfo = false;
 
-    public void Info()
+    public void unSelect()//Not used in Game 112 Fundraiser sale
     {
-        if (Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].activeInHierarchy)
-            Toolbox.GameManager.gamePanels[Toolbox.GameManager.index].GetComponent<AccessibilityGameplay>().IKeyPressed();
-
     }
 
     public void Info(bool isUrgentInfo)
@@ -144,7 +142,6 @@ public class AccessibilityManager : MonoBehaviour
         PlayerPrefs.SetString("clickable", "false");
         PlayerPrefs.SetInt("Click", 1);
 
-
         ScreenTimeoutNotifier();
 
         bool down = Input.GetKeyDown(KeyCode.DownArrow);
@@ -153,20 +150,18 @@ public class AccessibilityManager : MonoBehaviour
         bool space = Input.GetKeyDown(KeyCode.Space);
         bool info = Input.GetKeyDown(KeyCode.I);
         bool close = Input.GetKeyDown(KeyCode.C);
+
         if (down)
         {
             swipeUp();
             checkActivity = true;
             down = false;
-
-
         }
         if (Up)
         {
             swipeDown();
             checkActivity = true;
             Up = false;
-
         }
         if (space)
         {
