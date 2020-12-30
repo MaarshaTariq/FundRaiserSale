@@ -22,7 +22,9 @@ public class AccessibilityGameplay : MonoBehaviour {
     }
     private void Start()
     {
-       Invoke( "SortCurrentSelectables", 2f);
+        Invoke( "SortCurrentSelectables", 2f);
+        currentListIndex = 3;//Because OrderForm is on the last index of CurrentSelectables.
+        MoveHighlighterTo();
     }
     private void SortCurrentSelectables()
     {
@@ -51,6 +53,19 @@ public class AccessibilityGameplay : MonoBehaviour {
         //    print(g.GetComponent<RectTransform>().localPosition.x);
 
         //}
+    }
+    public void MoveHighlighterTo()
+    {
+        int temp = currentListIndex;
+        if (Toolbox.GameManager.accessibilityCheck)
+        {
+            highlight.transform.SetParent(currentSelectables[temp].transform);
+            highlight.rectTransform.anchoredPosition = Vector3.zero;
+            highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
+            highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
+
+        }
+
     }
     public void DownArrowPressed()
     {

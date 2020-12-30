@@ -28,6 +28,21 @@ public class EndScreenManager : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(Toolbox.SoundManager._playSoundWithAudioClip(endingPanelClip));
+        currentListIndex = 0;//Because OrderForm is on the last index of CurrentSelectables.
+        MoveHighlighterToCurrentListIndex();
+    }
+    public void MoveHighlighterToCurrentListIndex()
+    {
+        int temp = currentListIndex;
+        if (Toolbox.GameManager.accessibilityCheck)
+        {
+            highlight.transform.SetParent(currentSelectables[temp].transform);
+            highlight.rectTransform.localPosition = Vector3.zero;
+            highlight.rectTransform.sizeDelta = highlight.transform.parent.GetComponent<RectTransform>().sizeDelta;
+            highlight.rectTransform.rotation = highlight.transform.parent.GetComponent<RectTransform>().rotation;
+
+        }
+
     }
     public void OnPressStop()
     {

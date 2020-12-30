@@ -95,22 +95,15 @@ namespace CloseCaption
         {
             if (Toolbox.GameManager != null && !Toolbox.GameManager.accessibilityCheck)
                 return;
-
-
 #if UNITY_EDITOR
             if (displayTime <= 0f)
                 displayTime = 1f;
 #endif
-
             Caption caption = new Caption();
             caption.priority = priority;
             caption.displayText = displayText;
             caption.endTime = Time.time + displayTime;
-            //			captionsList.Add (caption);
-
             captionArray[(int)caption.priority] = caption;
-
-            //Debug.Log("Added: " + caption.priority.ToString() + ": " + caption.displayText + ", " + caption.endTime);
             UpdatePlacementPosition(placementPos);
             UpdateCaptions();
         }
