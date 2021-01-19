@@ -74,10 +74,10 @@ public class TriggerChecking : MonoBehaviour
                     foundItem = true;
                     indexCounter++;
                     imageToBeDragged[i].SetActive(true);
-                    if (ImagesToBeHighlighted[0].isActiveAndEnabled)
+                   /* if (ImagesToBeHighlighted[0].isActiveAndEnabled)
                     {
                         ImagesToBeHighlighted[0].color = Color.clear;
-                    }
+                    }*/
                     if (i > 0)
                     {
                         scoreBoardImages[i - 1].SetActive(false);
@@ -86,6 +86,7 @@ public class TriggerChecking : MonoBehaviour
                     StartCoroutine(CorrectAnswer(audiosFor1stOrder[i]));
                     if (indexCounter == tags.Length)
                     {
+                        ImagesToBeHighlighted[0].color = Color.clear;
                         currentOrderIndex = 1;
                         indexCounter = 0;
                         firstOrderCompletion = true;
@@ -103,7 +104,7 @@ public class TriggerChecking : MonoBehaviour
         }
         else
         {
-
+           // ImagesToBeHighlighted[0].color = Color.clear;
             for (int i = indexCounter; i < tags1.Length; i++)
             {
                 if (other.gameObject.tag == tags1[i])
@@ -111,10 +112,10 @@ public class TriggerChecking : MonoBehaviour
                     foundItem = true;
                     indexCounter++;
                     imagesToBeDragged1[i].SetActive(true);
-                    if (ImagesToBeHighlighted[1].isActiveAndEnabled)
+                   /* if (ImagesToBeHighlighted[1].isActiveAndEnabled)
                     {
                         ImagesToBeHighlighted[1].color = Color.clear;
-                    }
+                    } */
 
                     if (i > 0)
                     {
@@ -125,6 +126,7 @@ public class TriggerChecking : MonoBehaviour
                     StartCoroutine(CorrectAnswer(audiosFor2ndOrder[i]));
                     if (indexCounter == tags1.Length)
                     {
+                        ImagesToBeHighlighted[1].color = Color.clear;
                         //indexCounter = 0;
                         firstOrderCompletion = true;
                         checkMarks[1].SetActive(true);
@@ -137,6 +139,7 @@ public class TriggerChecking : MonoBehaviour
                 StartCoroutine(IncorrectAnswer(Toolbox.SoundManager.getCurrentSelection(other.tag)));
             }
         }
+      
         //  highlightAudioButtons[1].SetActive(false);
     }
 
